@@ -319,12 +319,97 @@ These are informal notes that may later be formalized into proper entries.
 After adding or updating entries:
 
 ```bash
-# Regenerate comparison tables
-make tables
-
-# Full validation + regeneration
-make all
+make validate  # Validate all YAML files
+make tables    # Regenerate comparison tables
+make readme    # Regenerate all directory READMEs
+make all       # Full validation + regeneration
 ```
+
+## Scripting Philosophy
+
+This repository uses **data-driven documentation**. All tables, indexes, and summaries in README files are auto-generated from YAML source files using scripts.
+
+### Tool Pipeline
+
+We use Unix-style pipelines combining:
+
+* **`yq`** - YAML query tool (like jq for YAML)
+* **`jq`** - JSON processing
+* **`python3`** - Complex transformations
+* Standard tools: `sort`, `uniq`, `wc`, `awk`
+
+### Example Pipelines
+
+**Count tools by category:**
+
+```bash
+cat data/tools/*.yaml | yq -r '.category' | sort | uniq -c | sort -rn
+```
+
+**Extract tool names and stars:**
+
+```bash
+for f in data/tools/*.yaml; do
+  yq -r '[.name, .stars // "?"] | @tsv' "$f"
+done | column -t
+```
+
+**Generate markdown table from YAML:**
+
+```bash
+cat data/tools/*.yaml | yq -s -r '
+  ["| Tool | Category | Language |", "|------|----------|----------|"] +
+  [.[] | "| \(.name) | \(.category) | \(.language) |"]
+  | .[]'
+```
+
+**Complex extraction with Python:**
+
+```bash
+cat data/models/*/*.yaml | yq -o=json | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+for item in data if isinstance(data, list) else [data]:
+    name = item.get('name', 'Unknown')
+    eer = item.get('benchmarks', {}).get('voxceleb1-eer', '?')
+    print(f'{name}: {eer}% EER')
+"
+```
+
+### Script Organization
+
+```
+scripts/
+├── check-yaml.py          # Validate YAML against schemas
+├── generate-tables.py     # Generate comparisons/auto-generated.md
+├── generate-readme.py     # Generate per-directory READMEs
+├── verify-sources.py      # Check source URLs are accessible
+└── clone-all.sh           # Clone tracked repositories
+```
+
+### Adding New Scripts
+
+When adding data extraction scripts:
+
+1. Prefer shell pipelines for simple queries
+2. Use Python for complex logic or multi-file aggregation
+3. Always read from YAML source files, never hardcode data
+4. Output Markdown for documentation, CSV/TSV for data export
+5. Make scripts idempotent (safe to re-run)
+
+### Auto-Generated Sections
+
+README files contain auto-generated sections marked with comments:
+
+```markdown
+<!-- AUTO-GENERATED: DO NOT EDIT BELOW -->
+| Tool | Stars | Category |
+|------|-------|----------|
+...
+<!-- END AUTO-GENERATED -->
+```
+
+Run `make readme` to refresh these sections.
 
 ## Commit Guidelines
 
