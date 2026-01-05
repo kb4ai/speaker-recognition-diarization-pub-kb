@@ -68,35 +68,12 @@ This repository serves as a **structured reference** for anyone working with spe
 
 ## Quick Start
 
-### Validate All Data
-
 ```bash
-make validate
+make validate  # Validate all YAML files
+make tables    # Regenerate comparison tables
+make clone     # Clone tracked repositories to tmp/
+make help      # Show all available commands
 ```
-
-### Generate Comparison Tables
-
-```bash
-make tables
-```
-
-### Clone Tracked Repositories
-
-```bash
-make clone
-```
-
-## File Naming Convention
-
-All YAML files use **type-encoded extensions**: `{name}.{type}.yaml`
-
-| Type | Pattern | Example |
-|------|---------|---------|
-| Tool | `{owner}--{repo}.tool.yaml` | `pyannote--pyannote-audio.tool.yaml` |
-| Algorithm | `{name}.algorithm.yaml` | `ecapa-tdnn.algorithm.yaml` |
-| Model | `{provider}--{id}.model.yaml` | `speechbrain--ecapa-voxceleb.model.yaml` |
-| Dataset | `{name}.dataset.yaml` | `voxceleb1.dataset.yaml` |
-| Paper | `{key}-{year}.paper.yaml` | `ecapa-tdnn-2020.paper.yaml` |
 
 ## Traceability Principles
 
@@ -140,9 +117,11 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, check [schemas/](schemas
 
 | Category | Count | Directory |
 |----------|-------|-----------|
-| Tools | 5 | `data/tools/` |
+| Tools | 8 | `data/tools/` |
 | Algorithms | 10 | `data/algorithms/` |
+| Models | 4 | `data/models/` |
 | Datasets | 5 | `data/datasets/` |
+| Papers | 5 | `papers/` |
 | Schemas | 6 | `schemas/` |
 
 ## Related Resources

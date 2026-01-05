@@ -1,0 +1,79 @@
+# VoxCeleb2 Dataset Paper
+
+last-update: "2026-01-06"
+
+title: "VoxCeleb2: Deep Speaker Recognition"
+short-title: "VoxCeleb2"
+year: 2018
+
+authors:
+  - "Joon Son Chung"
+  - "Arsha Nagrani"
+  - "Andrew Zisserman"
+
+affiliations:
+  - "Visual Geometry Group, University of Oxford"
+
+venue: "Interspeech 2018"
+venue-type: "conference"
+
+arxiv: "1806.05622"
+pdf-url: "https://arxiv.org/pdf/1806.05622.pdf"
+project-page: "https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox2.html"
+
+abstract: |
+  In this paper we introduce VoxCeleb2, a large scale speaker
+  recognition dataset that expands on the VoxCeleb1 dataset
+  both in terms of the number of speakers and the amount of
+  speech. VoxCeleb2 contains over 1 million utterances for
+  6,112 celebrities, extracted from videos uploaded to YouTube.
+
+keywords:
+  - "speaker verification"
+  - "dataset"
+  - "deep learning"
+  - "benchmark"
+
+topics:
+  - "speaker-verification"
+  - "speaker-embedding"
+  - "dataset"
+  - "benchmark"
+
+contributions:
+  - "Extended dataset (6,112 speakers, 1.1M utterances)"
+  - "Improved speaker verification baseline models"
+  - "ResNet and VGG architectures for speaker embeddings"
+  - "Standard training set for speaker embedding models"
+
+dataset-stats:
+  speakers: 6112
+  utterances: 1128246
+  hours: 2442
+  videos: 145569
+
+implementations:
+  - tool: "official-evaluation"
+    url: "https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox2.html"
+    official: true
+
+citation-count: 2000
+citation-count-date: "2026-01-06"
+
+cites:
+  - "voxceleb1-2017"
+
+notes:
+  - "5x larger than VoxCeleb1"
+  - "Primary training dataset for speaker embeddings"
+  - "Combined with VoxCeleb1 for training most models"
+  - "Dev/test splits available"
+
+sources:
+  - arxiv: "1806.05622"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox2.html"
+    accessed: "2026-01-06"
+    source-type: primary

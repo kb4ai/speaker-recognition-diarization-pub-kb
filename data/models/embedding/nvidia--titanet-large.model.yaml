@@ -1,0 +1,78 @@
+# NVIDIA TitaNet Large Speaker Embedding Model
+
+last-update: "2026-01-06"
+
+model-id: "nvidia/speakerverification_en_titanet_large"
+name: "TitaNet Large"
+provider: "nvidia"
+huggingface-url: "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/titanet_large"
+
+model-type: "embedding-model"
+architecture: "TitaNet"
+embedding-dimension: 192
+parameters: "23M"
+
+description: |
+  NVIDIA's state-of-the-art speaker embedding model based on the
+  TitaNet architecture. Combines 1D depth-wise separable convolutions
+  with Squeeze-and-Excitation layers for efficient speaker representation.
+
+training:
+  datasets:
+    - "VoxCeleb1"
+    - "VoxCeleb2"
+    - "Fisher"
+    - "SwitchBoard"
+  loss-function: "Angular Additive Margin Softmax"
+  training-hours: 7000
+
+benchmarks:
+  voxceleb1-eer: 0.66
+  voxceleb1-dcf: 0.0064
+
+usage:
+  requires-token: false
+  license: "Apache-2.0"
+  commercial-use: true
+  fine-tunable: true
+
+requirements:
+  min-gpu-memory: "4GB"
+  input-sample-rate: 16000
+  input-channels: 1
+
+example-code: |
+  import nemo.collections.asr as nemo_asr
+
+  speaker_model = nemo_asr.models.EncDecSpeakerLabelModel.from_pretrained(
+      model_name="nvidia/speakerverification_en_titanet_large"
+  )
+
+  # Extract embedding
+  embedding = speaker_model.get_embedding(audio_path)
+
+  # Verify speakers
+  decision = speaker_model.verify_speakers(audio1, audio2)
+
+features:
+  - "192-dimensional speaker embeddings"
+  - "State-of-the-art VoxCeleb1 EER (0.66%)"
+  - "Efficient 1D depth-wise separable convolutions"
+  - "Squeeze-and-Excitation attention"
+  - "Integrated with NeMo toolkit"
+
+notes:
+  - "Best-in-class accuracy among publicly available models"
+  - "Part of NVIDIA NeMo ecosystem"
+  - "Optimized for production deployment"
+  - "Supports TensorRT acceleration"
+
+sources:
+  - url: "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/titanet_large"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://arxiv.org/abs/2110.04410"
+    title: "TitaNet: Neural Model for speaker representation with 1D Depth-wise separable convolutions and global context"
+    accessed: "2026-01-06"
+    source-type: primary

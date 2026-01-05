@@ -1,0 +1,75 @@
+# Resemblyzer - Voice Similarity and Diarization
+
+last-update: "2026-01-06"
+repo-url: "https://github.com/resemble-ai/Resemblyzer"
+
+name: "Resemblyzer"
+description: "High-quality voice similarity and speaker diarization using d-vectors"
+language: "Python"
+license: "Apache-2.0"
+
+category: "voice-fingerprinting"
+secondary-categories:
+  - "embedding-toolkit"
+  - "diarization-framework"
+
+capabilities:
+  diarization: true
+  speaker-embedding: true
+  speaker-verification: true
+  speaker-identification: true
+  vad: false
+  overlap-detection: false
+  streaming: false
+  training: false
+
+embedding:
+  architecture: "d-vector"
+  dimension: 256
+  pretrained-available: true
+
+installation:
+  pip: "resemblyzer"
+
+requirements:
+  gpu-required: false
+  min-python: "3.6"
+  dependencies:
+    - "numpy"
+    - "torch"
+    - "librosa"
+
+documentation:
+  readme: true
+  api-docs: false
+  tutorials: false
+  examples: true
+
+features:
+  - "GE2E d-vector embeddings (256-dim)"
+  - "Pre-trained on LibriSpeech + VoxCeleb"
+  - "Simple voice comparison API"
+  - "Built-in speaker diarization"
+  - "No GPU required for inference"
+  - "Lightweight and easy to use"
+
+notes:
+  - "Ideal for voice fingerprinting applications"
+  - "Lower accuracy than ECAPA-TDNN but simpler to use"
+  - "Good for rapid prototyping"
+  - "Based on Google's GE2E paper"
+
+sources:
+  - url: "https://github.com/resemble-ai/Resemblyzer"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://pypi.org/project/Resemblyzer/"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://arxiv.org/abs/1710.10467"
+    title: "Generalized End-to-End Loss for Speaker Verification"
+    accessed: "2026-01-06"
+    source-type: primary
+    notes: "Original GE2E paper that Resemblyzer is based on"

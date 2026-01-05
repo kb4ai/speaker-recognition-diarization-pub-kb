@@ -1,0 +1,73 @@
+# WeSpeaker ResNet34-LM Embedding Model (used by pyannote)
+
+last-update: "2026-01-06"
+
+model-id: "pyannote/wespeaker-voxceleb-resnet34-LM"
+name: "WeSpeaker ResNet34-LM"
+provider: "pyannote"
+huggingface-url: "https://huggingface.co/pyannote/wespeaker-voxceleb-resnet34-LM"
+
+model-type: "embedding-model"
+architecture: "ResNet34"
+embedding-dimension: 256
+parameters: "6.6M"
+
+description: |
+  ResNet34 speaker embedding model trained by WeSpeaker team and
+  distributed through pyannote. Used as the default embedding model
+  in pyannote.audio speaker diarization pipeline 3.x.
+
+training:
+  datasets:
+    - "VoxCeleb2"
+  loss-function: "Large Margin Fine-tuning"
+  training-hours: 2442
+
+benchmarks:
+  voxceleb1-eer: 0.84
+  voxceleb1-dcf: 0.0091
+
+usage:
+  requires-token: true
+  license: "MIT"
+  commercial-use: true
+  fine-tunable: true
+
+requirements:
+  min-gpu-memory: "2GB"
+  input-sample-rate: 16000
+  input-channels: 1
+
+example-code: |
+  from pyannote.audio import Inference
+
+  inference = Inference(
+      "pyannote/wespeaker-voxceleb-resnet34-LM",
+      use_auth_token="YOUR_HF_TOKEN"
+  )
+
+  # Extract embeddings for audio file
+  embeddings = inference("audio.wav")
+
+features:
+  - "256-dimensional speaker embeddings"
+  - "Lightweight model (6.6M parameters)"
+  - "Fast inference suitable for real-time"
+  - "Default embedding in pyannote diarization"
+  - "Large margin fine-tuning for better discrimination"
+
+notes:
+  - "Requires HuggingFace token"
+  - "Recommended for use with pyannote.audio"
+  - "Good balance of accuracy and speed"
+  - "Trained with WeSpeaker toolkit"
+
+sources:
+  - url: "https://huggingface.co/pyannote/wespeaker-voxceleb-resnet34-LM"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://github.com/wenet-e2e/wespeaker"
+    accessed: "2026-01-06"
+    source-type: primary
+    notes: "WeSpeaker training toolkit"

@@ -1,0 +1,68 @@
+# WhisperX - ASR with Word-Level Timestamps and Speaker Diarization
+
+last-update: "2026-01-06"
+repo-url: "https://github.com/m-bain/whisperX"
+
+name: "WhisperX"
+description: "Fast automatic speech recognition with word-level timestamps and speaker diarization"
+language: "Python"
+license: "BSD-4-Clause"
+
+category: "transcription-diarization"
+secondary-categories:
+  - "asr-framework"
+
+capabilities:
+  diarization: true
+  speaker-embedding: false
+  speaker-verification: false
+  speaker-identification: false
+  vad: true
+  overlap-detection: false
+  streaming: false
+  training: false
+
+performance:
+  rtf: 0.1
+  notes: "70x faster than OpenAI Whisper with batched inference"
+
+installation:
+  pip: "whisperx"
+
+requirements:
+  gpu-required: true
+  min-python: "3.8"
+  dependencies:
+    - "torch"
+    - "faster-whisper"
+    - "pyannote.audio"
+
+documentation:
+  readme: true
+  api-docs: false
+  tutorials: false
+  examples: true
+
+features:
+  - "Batched inference (70x real-time)"
+  - "Word-level timestamps via forced alignment"
+  - "Speaker diarization via pyannote.audio"
+  - "VAD-based chunking for long audio"
+  - "Multi-language support"
+  - "GPU acceleration with CTranslate2"
+
+notes:
+  - "Combines Whisper ASR with pyannote diarization"
+  - "Requires HuggingFace token for diarization"
+  - "Excellent for transcription with speaker labels"
+  - "Uses faster-whisper for speed improvements"
+
+sources:
+  - url: "https://github.com/m-bain/whisperX"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://arxiv.org/abs/2303.00747"
+    title: "WhisperX: Time-Accurate Speech Transcription of Long-Form Audio"
+    accessed: "2026-01-06"
+    source-type: primary

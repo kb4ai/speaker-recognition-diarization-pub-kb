@@ -1,0 +1,85 @@
+# X-vectors Paper Entry
+
+last-update: "2026-01-06"
+
+title: "X-vectors: Robust DNN Embeddings for Speaker Recognition"
+short-title: "X-vectors"
+year: 2018
+
+authors:
+  - "David Snyder"
+  - "Daniel Garcia-Romero"
+  - "Gregory Sell"
+  - "Daniel Povey"
+  - "Sanjeev Khudanpur"
+
+affiliations:
+  - "Center for Language and Speech Processing, Johns Hopkins University"
+
+venue: "IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)"
+venue-type: "conference"
+
+doi: "10.1109/ICASSP.2018.8461375"
+pdf-url: "https://www.danielpovey.com/files/2018_icassp_xvectors.pdf"
+code-url: "https://github.com/kaldi-asr/kaldi/tree/master/egs/sre16/v2"
+
+abstract: |
+  In this paper, we use data augmentation to improve performance of
+  deep neural network (DNN) embeddings for speaker recognition.
+  The embeddings are extracted from a DNN trained to discriminate
+  between speakers using a softmax output layer. We refer to these
+  embeddings as x-vectors. The x-vector DNN is trained on MFCC features.
+
+keywords:
+  - "speaker recognition"
+  - "speaker embedding"
+  - "TDNN"
+  - "data augmentation"
+  - "x-vectors"
+
+topics:
+  - "speaker-verification"
+  - "speaker-embedding"
+  - "neural-network-architecture"
+  - "data-augmentation"
+
+contributions:
+  - "Time Delay Neural Network (TDNN) architecture for speaker embeddings"
+  - "Statistics pooling layer for segment-level representation"
+  - "Extensive data augmentation strategies"
+  - "State-of-the-art NIST SRE results"
+
+reported-metrics:
+  nist-sre16-eer: 8.57
+  nist-sre16-dcf: 0.521
+
+implementations:
+  - tool: "kaldi"
+    url: "https://github.com/kaldi-asr/kaldi/tree/master/egs/sre16/v2"
+    official: true
+
+  - tool: "speechbrain"
+    url: "https://speechbrain.github.io/"
+    official: false
+
+citation-count: 2500
+citation-count-date: "2026-01-06"
+
+superseded-by:
+  - "ecapa-tdnn-2020"
+
+notes:
+  - "Foundational paper for DNN-based speaker embeddings"
+  - "X-vectors became the standard before ECAPA-TDNN"
+  - "Still widely used as baseline"
+  - "Original Kaldi implementation"
+
+sources:
+  - url: "https://ieeexplore.ieee.org/document/8461375"
+    doi: "10.1109/ICASSP.2018.8461375"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://www.danielpovey.com/files/2018_icassp_xvectors.pdf"
+    accessed: "2026-01-06"
+    source-type: primary

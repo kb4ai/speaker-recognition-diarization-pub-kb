@@ -1,0 +1,79 @@
+# WeSpeaker - Production-Ready Speaker Embedding Toolkit
+
+last-update: "2026-01-06"
+repo-url: "https://github.com/wenet-e2e/wespeaker"
+
+name: "WeSpeaker"
+description: "Production-ready research and production oriented speaker embedding toolkit"
+language: "Python"
+license: "Apache-2.0"
+
+category: "embedding-toolkit"
+secondary-categories:
+  - "diarization-framework"
+
+reputable-source: true
+organization: "WeNet Community"
+
+capabilities:
+  diarization: true
+  speaker-embedding: true
+  speaker-verification: true
+  speaker-identification: true
+  vad: true
+  overlap-detection: false
+  streaming: false
+  training: true
+
+performance:
+  eer-voxceleb: 0.72
+
+embedding:
+  architecture: "ResNet"
+  dimension: 256
+  pretrained-available: true
+
+installation:
+  pip: "wespeaker"
+
+requirements:
+  gpu-required: true
+  min-python: "3.8"
+  dependencies:
+    - "torch"
+    - "torchaudio"
+
+documentation:
+  readme: true
+  api-docs: true
+  tutorials: true
+  examples: true
+
+features:
+  - "Multiple architectures (ResNet, ECAPA-TDNN, CAM++)"
+  - "State-of-the-art VoxCeleb results"
+  - "ONNX export for deployment"
+  - "Training recipes for custom data"
+  - "Speaker diarization pipeline"
+  - "Integration with pyannote.audio"
+
+notes:
+  - "Excellent for production deployments"
+  - "Pre-trained models on HuggingFace"
+  - "Used as embedding backend in pyannote 3.x"
+  - "Active development and maintenance"
+
+sources:
+  - url: "https://github.com/wenet-e2e/wespeaker"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://huggingface.co/pyannote/wespeaker-voxceleb-resnet34-LM"
+    accessed: "2026-01-06"
+    source-type: primary
+    notes: "WeSpeaker model used in pyannote.audio"
+
+  - url: "https://arxiv.org/abs/2210.17016"
+    title: "WeSpeaker: A Research and Production oriented Speaker Embedding Toolkit"
+    accessed: "2026-01-06"
+    source-type: primary

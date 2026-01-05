@@ -6,9 +6,9 @@
 
 ## Summary Statistics
 
-* **Tools**: 5
+* **Tools**: 8
 * **Algorithms**: 10
-* **Models**: 2
+* **Models**: 4
 * **Datasets**: 5
 * **Last updated**: 2026-01-06
 
@@ -16,8 +16,10 @@
 
 * asr-framework: 1
 * diarization-framework: 2
-* embedding-toolkit: 1
+* embedding-toolkit: 2
 * streaming-diarization: 1
+* transcription-diarization: 1
+* voice-fingerprinting: 1
 
 ## Tools Overview
 
@@ -27,9 +29,12 @@
 |------|------:|----------|----------|--------------|
 | [diart](https://github.com/juanmc2005/diart) | ? | Python | streaming diarization | diarization, speaker-embedding, vad, overlap-detection, streaming |
 | [Kaldi](https://github.com/kaldi-asr/kaldi) | ? | C++ | asr framework | diarization, speaker-embedding, speaker-verification, speaker-identification, vad, training |
+| [WhisperX](https://github.com/m-bain/whisperX) | ? | Python | transcription diarization | diarization, vad |
 | [NVIDIA NeMo](https://github.com/NVIDIA/NeMo) | ? | Python | diarization framework | diarization, speaker-embedding, speaker-verification, speaker-identification, vad, overlap-detection, streaming, training |
 | [pyannote.audio](https://github.com/pyannote/pyannote-audio) | ? | Python | diarization framework | diarization, speaker-embedding, speaker-verification, speaker-identification, vad, overlap-detection, streaming, training |
+| [Resemblyzer](https://github.com/resemble-ai/Resemblyzer) | ? | Python | voice fingerprinting | diarization, speaker-embedding, speaker-verification, speaker-identification |
 | [SpeechBrain](https://github.com/speechbrain/speechbrain) | ? | Python | embedding toolkit | diarization, speaker-embedding, speaker-verification, speaker-identification, vad, training |
+| [WeSpeaker](https://github.com/wenet-e2e/wespeaker) | ? | Python | embedding toolkit | diarization, speaker-embedding, speaker-verification, speaker-identification, vad, training |
 
 ## Tools by Accuracy
 
@@ -78,7 +83,9 @@
 
 | Model | Architecture | Dimension | EER (VoxCeleb1) | Provider |
 |-------|--------------|----------:|----------------:|----------|
+| [TitaNet Large](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/titanet_large) | TitaNet | 192 | 0.66% | nvidia |
 | [ECAPA-TDNN Speaker Embedding](https://huggingface.co/speechbrain/spkrec-ecapa-voxceleb) | ECAPA-TDNN | 192 | 0.8% | speechbrain |
+| [WeSpeaker ResNet34-LM](https://huggingface.co/pyannote/wespeaker-voxceleb-resnet34-LM) | ResNet34 | 256 | 0.84% | pyannote |
 
 ## Datasets Comparison
 

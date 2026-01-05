@@ -1,0 +1,77 @@
+# VoxCeleb1 Dataset Paper
+
+last-update: "2026-01-06"
+
+title: "VoxCeleb: A Large-scale Speaker Identification Dataset"
+short-title: "VoxCeleb1"
+year: 2017
+
+authors:
+  - "Arsha Nagrani"
+  - "Joon Son Chung"
+  - "Andrew Zisserman"
+
+affiliations:
+  - "Visual Geometry Group, University of Oxford"
+
+venue: "Interspeech 2017"
+venue-type: "conference"
+
+arxiv: "1706.08612"
+pdf-url: "https://arxiv.org/pdf/1706.08612.pdf"
+project-page: "https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html"
+
+abstract: |
+  Most existing speaker identification datasets are collected under
+  controlled conditions, and therefore contain short segments of
+  read speech with limited background noise. This makes it difficult
+  to assess the robustness of speaker identification algorithms.
+  In this work, we collect a large-scale audio-visual speaker
+  identification dataset from open-source media.
+
+keywords:
+  - "speaker identification"
+  - "dataset"
+  - "audio-visual"
+  - "benchmark"
+
+topics:
+  - "speaker-verification"
+  - "speaker-identification"
+  - "dataset"
+  - "benchmark"
+
+contributions:
+  - "Large-scale speaker dataset (1,251 speakers, 153k utterances)"
+  - "Real-world conditions from YouTube interviews"
+  - "Standard evaluation protocols (VoxCeleb1-O, -E, -H)"
+  - "Audio-visual speaker verification benchmark"
+
+dataset-stats:
+  speakers: 1251
+  utterances: 153516
+  hours: 352
+  videos: 21819
+
+implementations:
+  - tool: "official-evaluation"
+    url: "https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html"
+    official: true
+
+citation-count: 3000
+citation-count-date: "2026-01-06"
+
+notes:
+  - "First VoxCeleb dataset release"
+  - "Standard benchmark for speaker verification"
+  - "Three evaluation protocols: Original, Extended, Hard"
+  - "Freely available under CC BY-SA 4.0"
+
+sources:
+  - arxiv: "1706.08612"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html"
+    accessed: "2026-01-06"
+    source-type: primary
