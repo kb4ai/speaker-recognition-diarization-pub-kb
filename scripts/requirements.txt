@@ -1,0 +1,7 @@
+# Python dependencies for speaker-recognition-diarization-pub-kb scripts
+
+# Required
+pyyaml>=6.0
+
+# Optional: for enhanced YAML linting
+yamllint>=1.26.0

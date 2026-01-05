@@ -1,0 +1,61 @@
+# x-vectors - DNN-based Speaker Embeddings
+
+last-update: "2026-01-05"
+
+name: "x-vectors"
+full-name: "X-Vector DNN Embeddings"
+category: "embedding-extraction"
+
+year-introduced: 2018
+authors:
+  - "David Snyder"
+  - "Daniel Garcia-Romero"
+  - "Gregory Sell"
+  - "Daniel Povey"
+  - "Sanjeev Khudanpur"
+
+original-paper:
+  title: "X-Vectors: Robust DNN Embeddings for Speaker Recognition"
+  venue: "ICASSP 2018"
+  doi: "10.1109/ICASSP.2018.8461375"
+
+mathematical-basis:
+  - "Time Delay Neural Network (TDNN)"
+  - "Statistics pooling (mean and std)"
+  - "Segment-level processing"
+
+input:
+  type: "mfcc"
+  sample-rate: 16000
+
+output:
+  type: "embedding"
+  dimension: 512
+
+complexity:
+  parameters: "~4M"
+
+implementations:
+  - tool: "kaldi"
+    class-name: "xvector"
+    repo-url: "https://github.com/kaldi-asr/kaldi"
+  - tool: "speechbrain"
+    repo-url: "https://github.com/speechbrain/speechbrain"
+
+advantages:
+  - "Discriminative training"
+  - "Better than i-vectors for speaker verification"
+  - "Fixed-length representation"
+  - "Well-documented with Kaldi recipes"
+
+limitations:
+  - "Lower accuracy than ECAPA-TDNN"
+  - "Requires substantial training data"
+
+supersedes: "i-vectors"
+superseded-by: "ECAPA-TDNN"
+
+sources:
+  - url: "https://www.danielpovey.com/files/2018_icassp_xvectors.pdf"
+    accessed: "2026-01-05"
+    source-type: primary

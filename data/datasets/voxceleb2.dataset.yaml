@@ -1,0 +1,61 @@
+# VoxCeleb2 Dataset
+
+last-update: "2026-01-05"
+
+name: "VoxCeleb2"
+full-name: "VoxCeleb2: Deep Speaker Recognition"
+category: "speaker-verification"
+
+year-released: 2018
+
+description: |
+  Extended version of VoxCeleb1 with significantly more speakers and
+  utterances. Commonly used for training speaker embedding models.
+
+statistics:
+  speakers: 6112
+  utterances: 1128246
+  hours: 2442
+  videos: 145569
+
+audio-properties:
+  sample-rate: 16000
+  format: "wav"
+  channels: 1
+
+annotations:
+  - speaker-id
+  - gender
+
+tasks:
+  - speaker-verification
+  - speaker-embedding-training
+  - speaker-identification
+
+access:
+  license: "CC BY-SA 4.0"
+  url: "https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox2.html"
+  requires-registration: false
+
+splits:
+  - name: "dev"
+    speakers: 5994
+    utterances: 1092009
+  - name: "test"
+    speakers: 118
+    utterances: 36237
+
+used-by-tools:
+  - pyannote-audio
+  - speechbrain
+  - nvidia-nemo
+  - wespeaker
+
+sources:
+  - url: "https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox2.html"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://arxiv.org/abs/1806.05622"
+    accessed: "2026-01-05"
+    source-type: primary

@@ -1,0 +1,74 @@
+# pyannote.audio - State-of-the-art Speaker Diarization Framework
+
+last-update: "2026-01-05"
+repo-url: "https://github.com/pyannote/pyannote-audio"
+
+name: "pyannote.audio"
+description: "Neural building blocks for speaker diarization - industry-standard Python library"
+language: "Python"
+license: "MIT"
+
+category: "diarization-framework"
+
+capabilities:
+  diarization: true
+  speaker-embedding: true
+  speaker-verification: true
+  speaker-identification: true
+  vad: true
+  overlap-detection: true
+  streaming: true
+  training: true
+
+performance:
+  der-ami: 10.0
+  eer-voxceleb: 0.80
+  rtf: 0.15
+
+embedding:
+  architecture: "ECAPA-TDNN"
+  dimension: 192
+  pretrained-available: true
+
+installation:
+  pip: "pyannote.audio"
+
+requirements:
+  gpu-required: true
+  min-python: "3.8"
+
+documentation:
+  readme: true
+  api-docs: true
+  tutorials: true
+  examples: true
+
+features:
+  - "State-of-the-art accuracy (~10% DER)"
+  - "Pre-trained models on HuggingFace"
+  - "End-to-end neural diarization"
+  - "Overlap-aware speaker segmentation"
+  - "Active development and maintenance"
+  - "Extensive documentation"
+
+notes:
+  - "Requires HuggingFace token for some models"
+  - "Version 3.1 is current state-of-the-art"
+
+sources:
+  - url: "https://github.com/pyannote/pyannote-audio"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://huggingface.co/pyannote/speaker-diarization-3.1"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://www.pyannote.ai/blog/what-is-speaker-diarization"
+    accessed: "2026-01-05"
+    source-type: secondary
+
+  - arxiv: "1911.01255"
+    title: "Pyannote.audio: neural building blocks for speaker diarization"
+    accessed: "2026-01-05"
+    source-type: primary

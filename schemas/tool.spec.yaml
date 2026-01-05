@@ -1,0 +1,226 @@
+# Tool Specification
+# File pattern: data/tools/{owner}--{repo}.tool.yaml
+
+schema_version: "1.0"
+description: "Schema for speaker diarization tools and frameworks"
+
+required:
+  - last-update
+  - repo-url
+
+fields:
+  # === TRACKING FIELDS (Required) ===
+  last-update:
+    type: string
+    format: "YYYY-MM-DD"
+    required: true
+    description: "Date when this YAML was last updated"
+
+  repo-url:
+    type: string
+    format: url
+    required: true
+    description: "Full GitHub/GitLab URL"
+
+  repo-commit:
+    type: string
+    description: "Git commit hash that analysis was based on"
+
+  # === BASIC INFO ===
+  name:
+    type: string
+    description: "Project name"
+
+  description:
+    type: string
+    description: "Brief description"
+
+  language:
+    type: string
+    enum: [Python, C++, Go, Rust, JavaScript, TypeScript, Java, other]
+    description: "Primary programming language"
+
+  languages:
+    type: array
+    items: string
+    description: "All languages used"
+
+  license:
+    type: string
+    description: "Software license (MIT, Apache-2.0, GPL-3.0, etc.)"
+
+  # === REPUTATION METRICS ===
+  stars:
+    type: integer
+    description: "GitHub stars at last-update date"
+
+  forks:
+    type: integer
+
+  contributors:
+    type: integer
+
+  last-commit:
+    type: string
+    format: "YYYY-MM-DD"
+    description: "Date of most recent commit"
+
+  created:
+    type: string
+    format: "YYYY-MM-DD"
+    description: "Repository creation date"
+
+  reputable-source:
+    type: boolean
+    description: "From official/known organization"
+
+  organization:
+    type: string
+    description: "Organization name if reputable-source is true"
+
+  archived:
+    type: boolean
+    description: "Whether repository is archived/unmaintained"
+
+  # === CATEGORY ===
+  category:
+    type: string
+    enum:
+      - diarization-framework    # Full diarization pipelines
+      - embedding-toolkit        # Speaker embedding extraction
+      - streaming-diarization    # Real-time capable
+      - vad-toolkit              # Voice activity detection
+      - clustering-library       # Clustering algorithms
+      - transcription-diarization # Combined ASR + diarization
+      - voice-fingerprinting     # Voice similarity/matching
+      - asr-framework            # General ASR with diarization
+    description: "Primary category"
+
+  secondary-categories:
+    type: array
+    items: string
+    description: "Additional categories"
+
+  # === CAPABILITIES ===
+  capabilities:
+    type: object
+    properties:
+      diarization:
+        type: boolean
+        description: "Supports speaker diarization"
+      speaker-embedding:
+        type: boolean
+        description: "Extracts speaker embeddings"
+      speaker-verification:
+        type: boolean
+        description: "1:1 speaker matching"
+      speaker-identification:
+        type: boolean
+        description: "1:N speaker matching"
+      vad:
+        type: boolean
+        description: "Voice activity detection"
+      overlap-detection:
+        type: boolean
+        description: "Handles overlapping speech"
+      streaming:
+        type: boolean
+        description: "Real-time/streaming capable"
+      training:
+        type: boolean
+        description: "Supports custom training"
+
+  # === PERFORMANCE BENCHMARKS ===
+  performance:
+    type: object
+    properties:
+      der-ami:
+        type: number
+        description: "DER on AMI corpus (%)"
+      der-callhome:
+        type: number
+        description: "DER on CALLHOME (%)"
+      der-voxconverse:
+        type: number
+        description: "DER on VoxConverse (%)"
+      eer-voxceleb:
+        type: number
+        description: "EER on VoxCeleb1 (%)"
+      rtf:
+        type: number
+        description: "Real-Time Factor (lower is faster)"
+      latency-ms:
+        type: number
+        description: "Typical latency in milliseconds"
+
+  # === EMBEDDING MODEL ===
+  embedding:
+    type: object
+    properties:
+      architecture:
+        type: string
+        enum: [ECAPA-TDNN, x-vector, d-vector, ResNet, TitaNet, RawNet3, other]
+      dimension:
+        type: integer
+        description: "Embedding vector dimension"
+      pretrained-available:
+        type: boolean
+
+  # === INSTALLATION ===
+  installation:
+    type: object
+    properties:
+      pip:
+        type: string
+        description: "pip package name"
+      conda:
+        type: string
+        description: "conda package name"
+      docker:
+        type: string
+        description: "Docker image"
+      binary:
+        type: boolean
+        description: "Pre-built binary available"
+
+  # === REQUIREMENTS ===
+  requirements:
+    type: object
+    properties:
+      gpu-required:
+        type: boolean
+      min-python:
+        type: string
+      dependencies:
+        type: array
+        items: string
+
+  # === DOCUMENTATION ===
+  documentation:
+    type: object
+    properties:
+      readme:
+        type: boolean
+      api-docs:
+        type: boolean
+      tutorials:
+        type: boolean
+      examples:
+        type: boolean
+
+  features:
+    type: array
+    items: string
+    description: "Notable features"
+
+  notes:
+    type: array
+    items: string
+    description: "Additional notes"
+
+  # === SOURCE CITATIONS ===
+  sources:
+    type: array
+    items:
+      $ref: "source.spec.yaml#/source-citation"
+    description: "Source citations for information in this entry"

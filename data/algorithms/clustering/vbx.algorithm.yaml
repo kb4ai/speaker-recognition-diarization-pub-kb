@@ -1,0 +1,39 @@
+# VBx - Variational Bayes Speaker Clustering
+
+last-update: "2026-01-05"
+
+name: "VBx"
+full-name: "Variational Bayes x-vector Clustering"
+category: "clustering"
+
+year-introduced: 2021
+
+mathematical-basis:
+  - "Variational Bayes inference"
+  - "Automatic speaker count estimation"
+  - "Probabilistic clustering"
+
+input:
+  type: "embedding"
+
+output:
+  type: "cluster-labels"
+
+implementations:
+  - tool: "kaldi"
+    repo-url: "https://github.com/kaldi-asr/kaldi"
+
+advantages:
+  - "Automatic speaker count estimation"
+  - "Probabilistic framework"
+  - "Robust to noise"
+  - "Handles uncertainty"
+
+limitations:
+  - "More complex than AHC"
+  - "Requires tuning"
+
+sources:
+  - url: "https://www.isca-archive.org/iberspeech_2021/castillosanchez21_iberspeech.html"
+    accessed: "2026-01-05"
+    source-type: primary

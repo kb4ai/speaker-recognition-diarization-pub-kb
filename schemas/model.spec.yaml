@@ -1,0 +1,134 @@
+# Pre-trained Model Specification
+# File pattern: data/models/{category}/{provider}--{model-id}.model.yaml
+
+schema_version: "1.0"
+description: "Schema for pre-trained speaker diarization models"
+
+required:
+  - last-update
+  - model-id
+
+fields:
+  # === IDENTIFICATION ===
+  model-id:
+    type: string
+    required: true
+    description: "HuggingFace ID or unique identifier"
+
+  last-update:
+    type: string
+    format: "YYYY-MM-DD"
+    required: true
+
+  name:
+    type: string
+    description: "Human-readable name"
+
+  provider:
+    type: string
+    enum: [pyannote, speechbrain, nvidia, espnet, wespeaker, huggingface, other]
+
+  huggingface-url:
+    type: string
+    format: url
+
+  # === MODEL DETAILS ===
+  architecture:
+    type: string
+    enum: [ECAPA-TDNN, x-vector, d-vector, ResNet34, ResNet101, TitaNet, RawNet3, Sortformer, Transformer, other]
+
+  model-type:
+    type: string
+    enum:
+      - embedding-model         # Extracts speaker embeddings
+      - diarization-pipeline    # Full diarization
+      - vad-model               # Voice activity detection
+      - segmentation-model      # Speaker segmentation
+      - overlap-detection       # Overlap detection
+
+  embedding-dimension:
+    type: integer
+
+  parameters:
+    type: string
+    description: "Parameter count (e.g., '5.3M', '14.7M')"
+
+  # === TRAINING ===
+  training:
+    type: object
+    properties:
+      datasets:
+        type: array
+        items: string
+        description: "Training datasets used"
+      loss-function:
+        type: string
+      training-hours:
+        type: number
+        description: "Total hours of training data"
+
+  # === PERFORMANCE ===
+  benchmarks:
+    type: object
+    properties:
+      voxceleb1-eer:
+        type: number
+        description: "EER on VoxCeleb1 (%)"
+      voxceleb1-dcf:
+        type: number
+        description: "minDCF on VoxCeleb1"
+      ami-der:
+        type: number
+        description: "DER on AMI corpus (%)"
+      callhome-der:
+        type: number
+        description: "DER on CALLHOME (%)"
+      dihard-der:
+        type: number
+        description: "DER on DIHARD (%)"
+
+  # === USAGE ===
+  usage:
+    type: object
+    properties:
+      requires-token:
+        type: boolean
+        description: "Requires HuggingFace token"
+      license:
+        type: string
+      commercial-use:
+        type: boolean
+      fine-tunable:
+        type: boolean
+
+  # === REQUIREMENTS ===
+  requirements:
+    type: object
+    properties:
+      min-gpu-memory:
+        type: string
+        description: "Minimum GPU memory (e.g., '4GB')"
+      input-sample-rate:
+        type: integer
+        description: "Required audio sample rate (Hz)"
+      input-channels:
+        type: integer
+        description: "Required audio channels (1=mono, 2=stereo)"
+      input-format:
+        type: string
+        description: "Supported audio formats"
+
+  # === CODE EXAMPLE ===
+  example-code:
+    type: string
+    description: "Python code example for using this model"
+
+  notes:
+    type: array
+    items: string
+
+  # === SOURCE CITATIONS ===
+  sources:
+    type: array
+    items:
+      $ref: "source.spec.yaml#/source-citation"

@@ -1,0 +1,72 @@
+# NVIDIA NeMo - Enterprise-Grade Speech AI Framework
+
+last-update: "2026-01-05"
+repo-url: "https://github.com/NVIDIA/NeMo"
+
+name: "NVIDIA NeMo"
+description: "Enterprise-scale conversational AI framework with speaker diarization"
+language: "Python"
+license: "Apache-2.0"
+
+reputable-source: true
+organization: "NVIDIA"
+
+category: "diarization-framework"
+
+capabilities:
+  diarization: true
+  speaker-embedding: true
+  speaker-verification: true
+  speaker-identification: true
+  vad: true
+  overlap-detection: true
+  streaming: true
+  training: true
+
+performance:
+  rtf: 0.1
+
+embedding:
+  architecture: "TitaNet"
+  dimension: 192
+  pretrained-available: true
+
+installation:
+  pip: "nemo_toolkit[asr]"
+  docker: "nvcr.io/nvidia/nemo:latest"
+
+requirements:
+  gpu-required: true
+  min-python: "3.8"
+
+documentation:
+  readme: true
+  api-docs: true
+  tutorials: true
+  examples: true
+
+features:
+  - "Sortformer neural diarization"
+  - "TitaNet speaker embeddings"
+  - "MarbleNet VAD"
+  - "GPU-optimized for production"
+  - "Streaming diarization support"
+  - "Enterprise-scale deployment"
+
+notes:
+  - "Best for large-scale production deployments"
+  - "Requires NVIDIA GPU"
+  - "Includes Streaming Sortformer for real-time"
+
+sources:
+  - url: "https://github.com/NVIDIA/NeMo"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/asr/speaker_diarization/intro.html"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://developer.nvidia.com/blog/identify-speakers-in-meetings-calls-and-voice-apps-in-real-time-with-nvidia-streaming-sortformer/"
+    accessed: "2026-01-05"
+    source-type: secondary

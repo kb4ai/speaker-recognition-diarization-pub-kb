@@ -1,0 +1,92 @@
+# DIHARD Challenge Dataset
+
+last-update: "2026-01-05"
+
+name: "DIHARD"
+full-name: "Diarization of Hard Audio Recordings"
+category: "speaker-diarization"
+
+year-released: 2018
+
+description: |
+  Challenge dataset specifically designed for difficult diarization
+  scenarios. Includes diverse domains with challenging acoustic
+  conditions, overlapping speech, and variable speaker counts.
+
+editions:
+  - name: "DIHARD I"
+    year: 2018
+  - name: "DIHARD II"
+    year: 2019
+  - name: "DIHARD III"
+    year: 2021
+
+statistics:
+  domains: 11
+  hours: 32
+  speakers-per-recording: "variable (1-10+)"
+
+domains:
+  - broadcast-news
+  - clinical-interviews
+  - court-proceedings
+  - meetings
+  - restaurant-conversations
+  - sociolinguistic-interviews
+  - web-video
+  - child-language
+  - audiobooks
+  - call-center
+  - maptask
+
+audio-properties:
+  sample-rate: 16000
+  format: "flac"
+  channels: 1
+  quality: "variable"
+
+annotations:
+  - speaker-diarization
+  - speech-activity
+
+annotation-format: "RTTM"
+
+tasks:
+  - speaker-diarization
+  - speech-activity-detection
+
+access:
+  license: "LDC License"
+  url: "https://dihardchallenge.github.io/"
+  requires-registration: true
+
+challenges:
+  - "Far-field recordings"
+  - "Overlapping speech (high frequency)"
+  - "Background noise"
+  - "Child speech"
+  - "Variable speaker counts"
+  - "Domain mismatch"
+
+evaluation-metrics:
+  primary: "DER"
+  collar: 0.0
+  includes-overlap: true
+
+benchmark-results:
+  dihard-iii-best: "11.2%"
+  notes: "Full evaluation includes overlap regions"
+
+used-by-tools:
+  - pyannote-audio
+  - nvidia-nemo
+  - kaldi
+
+sources:
+  - url: "https://dihardchallenge.github.io/"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://arxiv.org/abs/2012.01477"
+    accessed: "2026-01-05"
+    source-type: primary

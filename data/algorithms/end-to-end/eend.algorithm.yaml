@@ -1,0 +1,56 @@
+# EEND - End-to-End Neural Diarization
+
+last-update: "2026-01-05"
+
+name: "EEND"
+full-name: "End-to-End Neural Diarization"
+category: "end-to-end"
+
+year-introduced: 2019
+
+original-paper:
+  title: "End-to-End Neural Speaker Diarization with Permutation-Free Objectives"
+  arxiv: "1909.05952"
+  venue: "Interspeech 2019"
+
+mathematical-basis:
+  - "Multi-label classification"
+  - "Permutation Invariant Training (PIT)"
+  - "Self-attention mechanism"
+
+input:
+  type: "audio"
+  sample-rate: 16000
+
+output:
+  type: "speaker-activity"
+
+implementations:
+  - tool: "pyannote"
+    repo-url: "https://github.com/pyannote/pyannote-audio"
+
+variants:
+  - name: "EEND-EDA"
+    description: "Encoder-Decoder with Attractors"
+  - name: "FS-EEND"
+    description: "Frame-wise Streaming EEND"
+
+advantages:
+  - "Naturally handles overlapping speech"
+  - "Joint optimization"
+  - "No separate clustering step"
+  - "Can handle flexible speaker counts"
+
+limitations:
+  - "Fixed maximum speaker count during training"
+  - "Requires large training data"
+  - "Computationally expensive"
+
+sources:
+  - arxiv: "1909.05952"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://aclanthology.org/2022.emnlp-main.505.pdf"
+    accessed: "2026-01-05"
+    source-type: primary

@@ -1,0 +1,63 @@
+# SpeechBrain - Research-Oriented Speech Toolkit
+
+last-update: "2026-01-05"
+repo-url: "https://github.com/speechbrain/speechbrain"
+
+name: "SpeechBrain"
+description: "PyTorch-based speech toolkit for research and production"
+language: "Python"
+license: "Apache-2.0"
+
+category: "embedding-toolkit"
+
+capabilities:
+  diarization: true
+  speaker-embedding: true
+  speaker-verification: true
+  speaker-identification: true
+  vad: true
+  overlap-detection: false
+  streaming: false
+  training: true
+
+performance:
+  eer-voxceleb: 0.80
+
+embedding:
+  architecture: "ECAPA-TDNN"
+  dimension: 192
+  pretrained-available: true
+
+installation:
+  pip: "speechbrain"
+
+requirements:
+  gpu-required: true
+  min-python: "3.8"
+
+documentation:
+  readme: true
+  api-docs: true
+  tutorials: true
+  examples: true
+
+features:
+  - "ECAPA-TDNN speaker embeddings"
+  - "200+ recipes for speech tasks"
+  - "Modular and extensible design"
+  - "Metric learning support"
+  - "Continual learning capabilities"
+  - "Research-friendly with extensive documentation"
+
+notes:
+  - "Excellent for research and experimentation"
+  - "Strong community support"
+
+sources:
+  - url: "https://github.com/speechbrain/speechbrain"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://huggingface.co/speechbrain/spkrec-ecapa-voxceleb"
+    accessed: "2026-01-05"
+    source-type: primary

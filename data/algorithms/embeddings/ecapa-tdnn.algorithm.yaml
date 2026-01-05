@@ -1,0 +1,65 @@
+# ECAPA-TDNN - State-of-the-art Speaker Embedding Architecture
+
+last-update: "2026-01-05"
+
+name: "ECAPA-TDNN"
+full-name: "Emphasized Channel Attention, Propagation and Aggregation Time Delay Neural Network"
+category: "embedding-extraction"
+
+year-introduced: 2020
+authors:
+  - "Brecht Desplanques"
+  - "Jenthe Thienpondt"
+  - "Kris Demuynck"
+
+original-paper:
+  title: "ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification"
+  arxiv: "2005.07143"
+  venue: "Interspeech 2020"
+
+mathematical-basis:
+  - "Squeeze-and-Excitation (SE) blocks"
+  - "Res2Net multi-scale feature extraction"
+  - "Attentive statistics pooling"
+  - "Time Delay Neural Network (TDNN)"
+
+input:
+  type: "audio"
+  sample-rate: 16000
+
+output:
+  type: "embedding"
+  dimension: 192
+
+complexity:
+  parameters: "~6M"
+
+implementations:
+  - tool: "speechbrain"
+    class-name: "ECAPA_TDNN"
+    repo-url: "https://github.com/speechbrain/speechbrain"
+  - tool: "pyannote"
+    repo-url: "https://github.com/pyannote/pyannote-audio"
+  - tool: "wespeaker"
+    repo-url: "https://github.com/wenet-e2e/wespeaker"
+
+advantages:
+  - "State-of-the-art speaker verification performance"
+  - "Efficient channel-wise attention"
+  - "Multi-scale temporal modeling"
+  - "Lower Equal Error Rate than x-vectors"
+
+limitations:
+  - "Higher computational cost than x-vectors"
+  - "Requires more training data"
+
+supersedes: "x-vectors"
+
+sources:
+  - arxiv: "2005.07143"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://huggingface.co/speechbrain/spkrec-ecapa-voxceleb"
+    accessed: "2026-01-05"
+    source-type: primary

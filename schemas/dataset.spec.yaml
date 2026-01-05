@@ -1,0 +1,170 @@
+# Dataset Specification
+# File pattern: data/datasets/{name}.dataset.yaml
+
+schema_version: "1.0"
+description: "Schema for speaker diarization datasets"
+
+required:
+  - name
+  - last-update
+
+fields:
+  # === IDENTIFICATION ===
+  name:
+    type: string
+    required: true
+
+  last-update:
+    type: string
+    format: "YYYY-MM-DD"
+    required: true
+
+  full-name:
+    type: string
+    description: "Full official dataset name"
+
+  url:
+    type: string
+    format: url
+    description: "Official dataset URL"
+
+  # === TYPE ===
+  type:
+    type: string
+    enum:
+      - speaker-verification    # VoxCeleb
+      - speaker-diarization     # AMI, CALLHOME
+      - speech-recognition      # LibriSpeech
+      - multi-purpose
+
+  # === LANGUAGE ===
+  language:
+    type: array
+    items: string
+    description: "Languages in the dataset"
+
+  # === STATISTICS ===
+  statistics:
+    type: object
+    properties:
+      total-hours:
+        type: number
+        description: "Total audio hours"
+      num-speakers:
+        type: integer
+        description: "Number of unique speakers"
+      num-utterances:
+        type: integer
+        description: "Number of utterances"
+      avg-utterance-duration:
+        type: number
+        description: "Average utterance duration (seconds)"
+      num-sessions:
+        type: integer
+        description: "Number of recording sessions"
+      avg-speakers-per-session:
+        type: number
+        description: "Average speakers per session"
+
+  # === COLLECTION ===
+  collection:
+    type: object
+    properties:
+      source:
+        type: string
+        description: "Data source (YouTube, meetings, telephone, etc.)"
+      year:
+        type: integer
+        description: "Year of collection/release"
+      institution:
+        type: string
+        description: "Collecting institution"
+      recording-conditions:
+        type: string
+        description: "Recording environment"
+
+  # === ACCESS ===
+  access:
+    type: object
+    properties:
+      license:
+        type: string
+      registration-required:
+        type: boolean
+      commercial-use:
+        type: boolean
+      download-url:
+        type: string
+        format: url
+      cost:
+        type: string
+        description: "Cost if any (e.g., 'free', '$100')"
+
+  # === SPLITS ===
+  splits:
+    type: object
+    properties:
+      train:
+        type: object
+        properties:
+          hours:
+            type: number
+          speakers:
+            type: integer
+          utterances:
+            type: integer
+      dev:
+        type: object
+        properties:
+          hours:
+            type: number
+          speakers:
+            type: integer
+      test:
+        type: object
+        properties:
+          hours:
+            type: number
+          speakers:
+            type: integer
+
+  # === ANNOTATIONS ===
+  annotations:
+    type: object
+    properties:
+      speaker-labels:
+        type: boolean
+        description: "Speaker identity labels"
+      word-timestamps:
+        type: boolean
+        description: "Word-level timestamps"
+      overlap-annotations:
+        type: boolean
+        description: "Overlapping speech marked"
+      vad-labels:
+        type: boolean
+        description: "Voice activity labels"
+      transcripts:
+        type: boolean
+        description: "Text transcripts available"
+
+  # === BENCHMARK USAGE ===
+  benchmark-usage:
+    type: array
+    items: string
+    description: "Common benchmarks using this dataset"
+
+  related-datasets:
+    type: array
+    items: string
+    description: "Related datasets"
+
+  notes:
+    type: array
+    items: string
+
+  # === SOURCE CITATIONS ===
+  sources:
+    type: array
+    items:
+      $ref: "source.spec.yaml#/source-citation"

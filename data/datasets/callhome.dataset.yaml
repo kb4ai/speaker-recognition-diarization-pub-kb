@@ -1,0 +1,68 @@
+# CALLHOME Dataset
+
+last-update: "2026-01-05"
+
+name: "CALLHOME"
+full-name: "CALLHOME American English Speech"
+category: "speaker-diarization"
+
+year-released: 1997
+
+description: |
+  Telephone conversation corpus containing unscripted conversations
+  between native speakers of American English. Classic benchmark
+  for speaker diarization evaluation.
+
+statistics:
+  conversations: 120
+  hours: 10
+  speakers-per-call: 2
+  channel: "telephone"
+
+audio-properties:
+  sample-rate: 8000
+  format: "sphere"
+  channels: 2
+  quality: "telephone-narrowband"
+
+annotations:
+  - speaker-diarization
+  - transcription
+
+annotation-format: "RTTM"
+
+tasks:
+  - speaker-diarization
+  - telephone-speech-recognition
+
+access:
+  license: "LDC License"
+  url: "https://catalog.ldc.upenn.edu/LDC97S42"
+  requires-registration: true
+  requires-payment: true
+  ldc-catalog: "LDC97S42"
+
+evaluation-subsets:
+  - name: "CALLHOME Part 1"
+    conversations: 80
+  - name: "CALLHOME Part 2"
+    conversations: 40
+
+challenges:
+  - "Telephone quality audio"
+  - "Overlapping speech"
+  - "Natural conversation dynamics"
+
+benchmark-results:
+  typical-der: "8-12%"
+  notes: "Two-speaker scenarios, DER excludes overlap"
+
+used-by-tools:
+  - kaldi
+  - pyannote-audio
+  - nvidia-nemo
+
+sources:
+  - url: "https://catalog.ldc.upenn.edu/LDC97S42"
+    accessed: "2026-01-05"
+    source-type: primary

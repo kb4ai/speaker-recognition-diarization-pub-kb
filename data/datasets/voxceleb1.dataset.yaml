@@ -1,0 +1,64 @@
+# VoxCeleb1 Dataset
+
+last-update: "2026-01-05"
+
+name: "VoxCeleb1"
+full-name: "VoxCeleb1: A Large-scale Speaker Identification Dataset"
+category: "speaker-verification"
+
+year-released: 2017
+
+description: |
+  Large-scale audio-visual dataset of human speech extracted from YouTube
+  interview videos. Contains celebrity speakers from diverse backgrounds.
+
+statistics:
+  speakers: 1251
+  utterances: 153516
+  hours: 352
+  videos: 21819
+  nationality-count: 36
+
+audio-properties:
+  sample-rate: 16000
+  format: "wav"
+  channels: 1
+
+annotations:
+  - speaker-id
+  - gender
+  - nationality
+
+tasks:
+  - speaker-verification
+  - speaker-identification
+
+access:
+  license: "CC BY-SA 4.0"
+  url: "https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html"
+  requires-registration: false
+
+evaluation-protocol:
+  - name: "VoxCeleb1-O"
+    description: "Original evaluation list"
+    pairs: 37720
+  - name: "VoxCeleb1-E"
+    description: "Extended evaluation list"
+    pairs: 581480
+  - name: "VoxCeleb1-H"
+    description: "Hard evaluation list"
+    pairs: 552536
+
+used-by-tools:
+  - pyannote-audio
+  - speechbrain
+  - nvidia-nemo
+
+sources:
+  - url: "https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://arxiv.org/abs/1706.08612"
+    accessed: "2026-01-05"
+    source-type: primary

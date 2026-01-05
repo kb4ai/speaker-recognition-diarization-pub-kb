@@ -1,0 +1,67 @@
+# Kaldi - Academic Speech Recognition Toolkit
+
+last-update: "2026-01-05"
+repo-url: "https://github.com/kaldi-asr/kaldi"
+
+name: "Kaldi"
+description: "Speech recognition toolkit with x-vector speaker embeddings"
+language: "C++"
+languages:
+  - "C++"
+  - "Shell"
+  - "Python"
+license: "Apache-2.0"
+
+category: "asr-framework"
+
+capabilities:
+  diarization: true
+  speaker-embedding: true
+  speaker-verification: true
+  speaker-identification: true
+  vad: true
+  overlap-detection: false
+  streaming: false
+  training: true
+
+embedding:
+  architecture: "x-vector"
+  dimension: 512
+  pretrained-available: true
+
+installation:
+  binary: true
+
+requirements:
+  gpu-required: false
+  dependencies:
+    - "OpenBLAS or Intel MKL"
+    - "CUDA (optional)"
+
+documentation:
+  readme: true
+  api-docs: true
+  tutorials: true
+  examples: true
+
+features:
+  - "Original x-vector implementation"
+  - "PLDA scoring backend"
+  - "Extensive diarization recipes"
+  - "Academic baseline for benchmarks"
+  - "Well-documented methodology"
+
+notes:
+  - "Steeper learning curve"
+  - "Traditional pipeline approach"
+  - "Good for academic research and reproducibility"
+
+sources:
+  - url: "https://github.com/kaldi-asr/kaldi"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://www.danielpovey.com/files/2018_icassp_xvectors.pdf"
+    accessed: "2026-01-05"
+    source-type: primary
+    title: "X-Vectors: Robust DNN Embeddings for Speaker Recognition"

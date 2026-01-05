@@ -1,0 +1,54 @@
+# Neural Voice Activity Detection
+
+last-update: "2026-01-05"
+
+name: "Neural VAD"
+full-name: "Neural Network Voice Activity Detection"
+category: "vad"
+
+year-introduced: 2018
+
+mathematical-basis:
+  - "Deep neural networks"
+  - "Binary classification"
+  - "Temporal modeling"
+
+input:
+  type: "audio"
+  sample-rate: 16000
+
+output:
+  type: "binary-labels"
+
+implementations:
+  - tool: "pyannote"
+    repo-url: "https://github.com/pyannote/pyannote-audio"
+  - tool: "silero-vad"
+    repo-url: "https://github.com/snakers4/silero-vad"
+  - tool: "nvidia-nemo"
+    class-name: "MarbleNet"
+    repo-url: "https://github.com/NVIDIA/NeMo"
+
+variants:
+  - name: "MarbleNet"
+    description: "NVIDIA's neural VAD model"
+  - name: "Silero VAD"
+    description: "Lightweight onnx-based VAD"
+  - name: "PyanNet"
+    description: "Pyannote's neural VAD"
+
+advantages:
+  - "High accuracy"
+  - "Robust to noise"
+  - "Handles complex audio"
+  - "Pre-trained models available"
+
+limitations:
+  - "Higher computational cost"
+  - "Requires GPU for real-time"
+  - "May need fine-tuning"
+
+sources:
+  - url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12238481/"
+    accessed: "2026-01-05"
+    source-type: primary

@@ -1,0 +1,53 @@
+# Spectral Clustering for Speaker Diarization
+
+last-update: "2026-01-05"
+
+name: "Spectral Clustering"
+category: "clustering"
+
+mathematical-basis:
+  - "Graph-based clustering"
+  - "Affinity matrix construction"
+  - "Eigenvalue analysis"
+  - "K-means on eigenvectors"
+
+input:
+  type: "embedding"
+
+output:
+  type: "cluster-labels"
+
+complexity:
+  time: "O(n^3)"
+  space: "O(n^2)"
+
+implementations:
+  - tool: "spectralcluster"
+    class-name: "SpectralClusterer"
+    repo-url: "https://github.com/wq2012/SpectralCluster"
+  - tool: "scikit-learn"
+    class-name: "SpectralClustering"
+
+variants:
+  - name: "Constrained spectral clustering"
+    description: "Incorporates must-link and cannot-link constraints"
+  - name: "Auto-tune spectral clustering"
+    description: "Automatically determines number of speakers"
+
+advantages:
+  - "Graph-based, captures complex relationships"
+  - "Can auto-determine number of clusters from eigenvalue gaps"
+  - "Works well for speaker diarization"
+
+limitations:
+  - "Computationally expensive for large datasets"
+  - "Requires affinity matrix construction"
+
+sources:
+  - url: "https://github.com/wq2012/SpectralCluster"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://people.csail.mit.edu/jrg/2012/Shum-Interspeech12.pdf"
+    accessed: "2026-01-05"
+    source-type: primary

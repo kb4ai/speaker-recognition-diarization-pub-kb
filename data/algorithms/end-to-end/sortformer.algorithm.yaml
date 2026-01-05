@@ -1,0 +1,53 @@
+# Sortformer - NVIDIA's Neural Diarization
+
+last-update: "2026-01-05"
+
+name: "Sortformer"
+full-name: "Sortformer Neural Diarization"
+category: "end-to-end"
+
+year-introduced: 2024
+
+original-paper:
+  title: "Sortformer: Seamless Integration of Speaker Diarization and ASR by Bridging Timestamps and Tokens"
+  venue: "NVIDIA Research 2024"
+
+mathematical-basis:
+  - "Transformer architecture"
+  - "Sort-based permutation"
+  - "Multi-speaker ASR integration"
+
+input:
+  type: "audio"
+  sample-rate: 16000
+
+output:
+  type: "speaker-activity"
+
+implementations:
+  - tool: "nvidia-nemo"
+    repo-url: "https://github.com/NVIDIA/NeMo"
+
+variants:
+  - name: "Streaming Sortformer"
+    description: "Real-time streaming version"
+
+advantages:
+  - "State-of-the-art accuracy"
+  - "Streaming capable"
+  - "Integrated with ASR"
+  - "Production-ready"
+  - "GPU-optimized"
+
+limitations:
+  - "Requires NVIDIA GPU"
+  - "Proprietary architecture"
+
+sources:
+  - url: "https://developer.nvidia.com/blog/identify-speakers-in-meetings-calls-and-voice-apps-in-real-time-with-nvidia-streaming-sortformer/"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/asr/speaker_diarization/intro.html"
+    accessed: "2026-01-05"
+    source-type: primary

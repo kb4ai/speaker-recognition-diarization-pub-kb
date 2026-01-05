@@ -1,0 +1,147 @@
+# Paper Metadata Specification
+# File pattern: papers/{key}-{year}.paper.yaml
+
+schema_version: "1.0"
+description: "Schema for research paper metadata"
+
+required:
+  - title
+  - last-update
+
+fields:
+  # === TRACKING ===
+  last-update:
+    type: string
+    format: "YYYY-MM-DD"
+    required: true
+
+  # === IDENTIFICATION ===
+  title:
+    type: string
+    required: true
+    description: "Full paper title"
+
+  short-title:
+    type: string
+    description: "Short name (e.g., 'ECAPA-TDNN')"
+
+  arxiv:
+    type: string
+    description: "arXiv ID (e.g., '2005.07143')"
+
+  doi:
+    type: string
+
+  # === AUTHORS ===
+  authors:
+    type: array
+    items: string
+
+  affiliations:
+    type: array
+    items: string
+
+  # === PUBLICATION ===
+  year:
+    type: integer
+    required: true
+
+  venue:
+    type: string
+    description: "Conference or journal name"
+
+  venue-type:
+    type: string
+    enum: [conference, journal, workshop, preprint]
+
+  # === LINKS ===
+  pdf-url:
+    type: string
+    format: url
+
+  code-url:
+    type: string
+    format: url
+    description: "Official implementation repository"
+
+  project-page:
+    type: string
+    format: url
+
+  # === CONTENT ===
+  abstract:
+    type: string
+    description: "Paper abstract"
+
+  keywords:
+    type: array
+    items: string
+
+  topics:
+    type: array
+    items: string
+    description: "Main topics covered"
+
+  # === CONTRIBUTIONS ===
+  contributions:
+    type: array
+    items: string
+    description: "Key contributions of the paper"
+
+  # === METRICS ===
+  reported-metrics:
+    type: object
+    description: "Performance metrics reported in the paper"
+
+  # === CITATIONS ===
+  citation-count:
+    type: integer
+    description: "Approximate citation count"
+
+  citation-count-date:
+    type: string
+    format: "YYYY-MM-DD"
+    description: "When citation count was checked"
+
+  # === RELATIONSHIPS ===
+  cites:
+    type: array
+    items: string
+    description: "Key papers this paper cites"
+
+  cited-by:
+    type: array
+    items: string
+    description: "Notable papers that cite this"
+
+  supersedes:
+    type: string
+    description: "Previous work this improves upon"
+
+  superseded-by:
+    type: string
+    description: "Later work that supersedes this"
+
+  # === IMPLEMENTATION ===
+  implementations:
+    type: array
+    items:
+      type: object
+      properties:
+        tool:
+          type: string
+        url:
+          type: string
+          format: url
+        official:
+          type: boolean
+
+  notes:
+    type: array
+    items: string
+
+  # === SOURCE CITATIONS ===
+  sources:
+    type: array
+    items:
+      $ref: "source.spec.yaml#/source-citation"

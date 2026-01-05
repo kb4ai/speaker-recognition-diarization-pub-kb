@@ -1,0 +1,173 @@
+# Algorithm Specification
+# File pattern: data/algorithms/{category}/{name}.algorithm.yaml
+
+schema_version: "1.0"
+description: "Schema for speaker diarization algorithms"
+
+required:
+  - name
+  - last-update
+  - category
+
+fields:
+  # === IDENTIFICATION ===
+  name:
+    type: string
+    required: true
+    description: "Algorithm name (e.g., 'ECAPA-TDNN')"
+
+  full-name:
+    type: string
+    description: "Full expanded name"
+
+  last-update:
+    type: string
+    format: "YYYY-MM-DD"
+    required: true
+
+  # === CLASSIFICATION ===
+  category:
+    type: string
+    required: true
+    enum:
+      - embedding-extraction   # x-vectors, ECAPA-TDNN, d-vectors
+      - clustering             # AHC, spectral, VBx
+      - vad                    # Voice activity detection
+      - segmentation           # Speaker change detection
+      - end-to-end             # EEND, TS-VAD
+      - scoring                # PLDA, cosine similarity
+      - feature-extraction     # MFCC, filterbank
+      - pooling                # Statistics pooling, attention pooling
+
+  subcategory:
+    type: string
+
+  # === PUBLICATION ===
+  year-introduced:
+    type: integer
+    description: "Year algorithm was first published"
+
+  authors:
+    type: array
+    items: string
+
+  original-paper:
+    type: object
+    properties:
+      title:
+        type: string
+      arxiv:
+        type: string
+      doi:
+        type: string
+      venue:
+        type: string
+        description: "Conference/journal name"
+
+  # === MATHEMATICAL FOUNDATION ===
+  mathematical-basis:
+    type: array
+    items: string
+    description: "Key mathematical concepts"
+
+  key-equations:
+    type: array
+    items: string
+    description: "LaTeX-formatted key equations"
+
+  # === INPUT/OUTPUT ===
+  input:
+    type: object
+    properties:
+      type:
+        type: string
+        description: "audio, mfcc, embedding, etc."
+      shape:
+        type: string
+        description: "Tensor shape"
+      sample-rate:
+        type: integer
+        description: "Required audio sample rate (Hz)"
+
+  output:
+    type: object
+    properties:
+      type:
+        type: string
+      shape:
+        type: string
+      dimension:
+        type: integer
+        description: "Output embedding dimension"
+
+  # === COMPLEXITY ===
+  complexity:
+    type: object
+    properties:
+      time:
+        type: string
+        description: "Time complexity (O(n), O(n^2), etc.)"
+      space:
+        type: string
+        description: "Space complexity"
+      parameters:
+        type: string
+        description: "Typical parameter count (~5M, ~50M)"
+
+  # === IMPLEMENTATIONS ===
+  implementations:
+    type: array
+    items:
+      type: object
+      properties:
+        tool:
+          type: string
+          description: "Tool name (pyannote, speechbrain, etc.)"
+        class-name:
+          type: string
+          description: "Class or module name"
+        repo-url:
+          type: string
+          format: url
+
+  # === VARIANTS ===
+  variants:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        differences:
+          type: string
+
+  # === STRENGTHS/LIMITATIONS ===
+  advantages:
+    type: array
+    items: string
+
+  limitations:
+    type: array
+    items: string
+
+  # === RELATED ===
+  related-algorithms:
+    type: array
+    items: string
+    description: "Names of related algorithms"
+
+  superseded-by:
+    type: string
+    description: "Name of algorithm that supersedes this one"
+
+  supersedes:
+    type: string
+    description: "Name of algorithm this supersedes"
+
+  # === SOURCE CITATIONS ===
+  sources:
+    type: array
+    items:
+      $ref: "source.spec.yaml#/source-citation"

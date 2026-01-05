@@ -1,0 +1,38 @@
+# Energy-based Voice Activity Detection
+
+last-update: "2026-01-05"
+
+name: "Energy-based VAD"
+full-name: "Energy-based Voice Activity Detection"
+category: "vad"
+
+mathematical-basis:
+  - "Signal energy thresholding"
+  - "Short-time energy analysis"
+  - "Zero-crossing rate"
+
+input:
+  type: "audio"
+
+output:
+  type: "binary-labels"
+
+complexity:
+  time: "O(n)"
+  space: "O(1)"
+
+advantages:
+  - "Very fast"
+  - "No training required"
+  - "Low computational cost"
+  - "Works in real-time"
+
+limitations:
+  - "Sensitive to noise"
+  - "Requires careful threshold tuning"
+  - "Lower accuracy than neural methods"
+
+sources:
+  - url: "https://en.wikipedia.org/wiki/Voice_activity_detection"
+    accessed: "2026-01-05"
+    source-type: tertiary

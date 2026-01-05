@@ -1,0 +1,55 @@
+# diart - Real-Time Speaker Diarization
+
+last-update: "2026-01-05"
+repo-url: "https://github.com/juanmc2005/diart"
+
+name: "diart"
+description: "Real-time speaker diarization with streaming support"
+language: "Python"
+license: "MIT"
+
+category: "streaming-diarization"
+
+capabilities:
+  diarization: true
+  speaker-embedding: true
+  speaker-verification: false
+  speaker-identification: false
+  vad: true
+  overlap-detection: true
+  streaming: true
+  training: false
+
+performance:
+  latency-ms: 500
+  rtf: 0.3
+
+installation:
+  pip: "diart"
+
+requirements:
+  gpu-required: true
+  min-python: "3.8"
+
+documentation:
+  readme: true
+  api-docs: true
+  tutorials: false
+  examples: true
+
+features:
+  - "Real-time streaming diarization"
+  - "WebRTC integration"
+  - "Low latency (< 500ms)"
+  - "Based on pyannote.audio"
+  - "Easy microphone input"
+
+notes:
+  - "Built on top of pyannote.audio"
+  - "Optimized for real-time applications"
+  - "Good for live transcription"
+
+sources:
+  - url: "https://github.com/juanmc2005/diart"
+    accessed: "2026-01-05"
+    source-type: primary

@@ -1,0 +1,54 @@
+# Agglomerative Hierarchical Clustering (AHC)
+
+last-update: "2026-01-05"
+
+name: "AHC"
+full-name: "Agglomerative Hierarchical Clustering"
+category: "clustering"
+
+year-introduced: 1967
+
+mathematical-basis:
+  - "Bottom-up hierarchical clustering"
+  - "Distance metrics (cosine, euclidean)"
+  - "Linkage criteria (average, complete, ward)"
+
+input:
+  type: "embedding"
+
+output:
+  type: "cluster-labels"
+
+complexity:
+  time: "O(n^3)"
+  space: "O(n^2)"
+
+implementations:
+  - tool: "scipy"
+    class-name: "scipy.cluster.hierarchy"
+  - tool: "scikit-learn"
+    class-name: "AgglomerativeClustering"
+  - tool: "pyannote"
+    repo-url: "https://github.com/pyannote/pyannote-audio"
+
+variants:
+  - name: "BIC-based stopping"
+    description: "Use Bayesian Information Criterion to determine number of clusters"
+  - name: "Threshold-based"
+    description: "Stop merging when distance exceeds threshold"
+
+advantages:
+  - "No need to specify number of clusters a priori"
+  - "Produces hierarchical structure (dendrogram)"
+  - "Works well with speaker embeddings"
+  - "Simple to implement"
+
+limitations:
+  - "O(n^3) complexity can be slow for large datasets"
+  - "Cannot undo merge decisions"
+  - "Sensitive to distance threshold"
+
+sources:
+  - url: "https://sail.usc.edu/publications/files/HanASRU2007.pdf"
+    accessed: "2026-01-05"
+    source-type: primary

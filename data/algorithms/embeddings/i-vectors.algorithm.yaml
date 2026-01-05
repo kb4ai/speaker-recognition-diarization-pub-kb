@@ -1,0 +1,54 @@
+# i-vectors - Factor Analysis Speaker Embeddings
+
+last-update: "2026-01-05"
+
+name: "i-vectors"
+full-name: "Identity Vectors"
+category: "embedding-extraction"
+
+year-introduced: 2011
+authors:
+  - "Najim Dehak"
+
+original-paper:
+  title: "Front-End Factor Analysis for Speaker Verification"
+  venue: "IEEE TASLP 2011"
+
+mathematical-basis:
+  - "Factor analysis"
+  - "Universal Background Model (UBM)"
+  - "Total Variability matrix (T-matrix)"
+  - "Gaussian Mixture Model"
+
+input:
+  type: "mfcc"
+  sample-rate: 16000
+
+output:
+  type: "embedding"
+  dimension: 400
+
+complexity:
+  parameters: "~500K (UBM) + T-matrix"
+
+implementations:
+  - tool: "kaldi"
+    repo-url: "https://github.com/kaldi-asr/kaldi"
+
+advantages:
+  - "Generative approach"
+  - "Works with limited data"
+  - "Interpretable factors"
+  - "Foundation for later work"
+
+limitations:
+  - "Lower accuracy than discriminative methods"
+  - "Captures channel variability"
+  - "Superseded by neural approaches"
+
+superseded-by: "x-vectors"
+
+sources:
+  - url: "https://desh2608.github.io/2022-04-07-gbo-ivectors/"
+    accessed: "2026-01-05"
+    source-type: secondary

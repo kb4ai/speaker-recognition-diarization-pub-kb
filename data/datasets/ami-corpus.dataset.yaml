@@ -1,0 +1,72 @@
+# AMI Meeting Corpus
+
+last-update: "2026-01-05"
+
+name: "AMI Corpus"
+full-name: "Augmented Multi-party Interaction Corpus"
+category: "speaker-diarization"
+
+year-released: 2005
+
+description: |
+  Multi-modal corpus of meeting recordings captured in instrumented
+  meeting rooms. Contains both real and scenario-based meetings with
+  multiple speakers discussing various topics.
+
+statistics:
+  meetings: 171
+  hours: 100
+  speakers-per-meeting: 4
+  total-speakers: 250
+
+audio-properties:
+  sample-rate: 16000
+  format: "wav"
+  channels: "multi-channel"
+  microphone-types:
+    - headset
+    - lapel
+    - array
+
+annotations:
+  - speaker-diarization
+  - speech-transcription
+  - dialogue-acts
+  - head-gestures
+  - focus-of-attention
+
+annotation-format: "RTTM"
+
+tasks:
+  - speaker-diarization
+  - meeting-transcription
+  - overlap-detection
+
+access:
+  license: "CC BY 4.0"
+  url: "https://groups.inf.ed.ac.uk/ami/corpus/"
+  requires-registration: true
+
+evaluation-subsets:
+  - name: "AMI-headset-mix"
+    description: "Mix-headset audio for diarization evaluation"
+  - name: "AMI-array"
+    description: "Microphone array recordings"
+
+benchmark-results:
+  typical-der: "10-15%"
+  notes: "DER varies significantly based on overlap handling"
+
+used-by-tools:
+  - pyannote-audio
+  - kaldi
+  - nvidia-nemo
+
+sources:
+  - url: "https://groups.inf.ed.ac.uk/ami/corpus/"
+    accessed: "2026-01-05"
+    source-type: primary
+
+  - url: "https://aclanthology.org/W05-0703/"
+    accessed: "2026-01-05"
+    source-type: primary

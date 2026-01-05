@@ -1,0 +1,103 @@
+# Source Citation Specification
+# File pattern: *.source.yaml (standalone) or embedded in other types
+
+schema_version: "1.0"
+description: "Schema for source citations and provenance tracking"
+
+# Source citation structure (embedded in other types)
+source-citation:
+  required:
+    - url
+    - accessed
+
+  fields:
+    # === REQUIRED ===
+    url:
+      type: string
+      format: url
+      description: "Original source URL"
+
+    accessed:
+      type: string
+      format: "YYYY-MM-DD"
+      description: "Date when source was accessed"
+
+    # === ARCHIVAL ===
+    archived-url:
+      type: string
+      description: "Archive.org URL or local file path"
+
+    archived-date:
+      type: string
+      format: "YYYY-MM-DD"
+
+    local-path:
+      type: string
+      description: "Path to local copy in printouts/"
+
+    # === GIT REPOSITORIES ===
+    commit:
+      type: string
+      description: "Git commit hash for reproducibility"
+
+    tag:
+      type: string
+      description: "Git tag if applicable"
+
+    file-path:
+      type: string
+      description: "Specific file in repository"
+
+    line-range:
+      type: string
+      description: "Line numbers (e.g., 'L45-L67')"
+
+    # === ACADEMIC PAPERS ===
+    arxiv:
+      type: string
+      description: "arXiv ID (e.g., '2005.07143')"
+
+    doi:
+      type: string
+
+    # === METADATA ===
+    title:
+      type: string
+      description: "Title of the source document"
+
+    author:
+      type: string
+      description: "Author(s)"
+
+    section:
+      type: string
+      description: "Specific section referenced"
+
+    quote:
+      type: string
+      description: "Direct quote from source"
+
+    # === RELIABILITY ===
+    source-type:
+      type: string
+      enum:
+        - primary     # Official docs, original papers
+        - secondary   # Tutorials, blog posts
+        - tertiary    # Aggregated info, Wikipedia
+        - benchmark   # Performance benchmarks
+        - code        # Direct code inspection
+      description: "Classification of source reliability"
+
+    confidence:
+      type: string
+      enum: [confirmed, likely, uncertain]
+      description: "Confidence in accuracy"
+
+    verified-date:
+      type: string
+      format: "YYYY-MM-DD"
+      description: "Date information was verified"
+
+    notes:
+      type: string
+      description: "Additional context about this source"
