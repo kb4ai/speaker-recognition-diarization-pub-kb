@@ -8,7 +8,7 @@
 
 * **Tools**: 5
 * **Algorithms**: 10
-* **Models**: 0
+* **Models**: 2
 * **Datasets**: 5
 * **Last updated**: 2026-01-06
 
@@ -78,7 +78,7 @@
 
 | Model | Architecture | Dimension | EER (VoxCeleb1) | Provider |
 |-------|--------------|----------:|----------------:|----------|
-| *No embedding models yet* | | | | |
+| [ECAPA-TDNN Speaker Embedding](https://huggingface.co/speechbrain/spkrec-ecapa-voxceleb) | ECAPA-TDNN | 192 | 0.8% | speechbrain |
 
 ## Datasets Comparison
 

@@ -25,9 +25,11 @@ audio-properties:
   channels: 1
 
 annotations:
-  - speaker-id
-  - gender
-  - nationality
+  speaker-labels: true
+  word-timestamps: false
+  overlap-annotations: false
+  vad-labels: false
+  transcripts: false
 
 tasks:
   - speaker-verification

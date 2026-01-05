@@ -163,7 +163,7 @@ def validate_yaml_file(filepath, spec, yaml_type):
     # Validate arrays
     array_fields = ['features', 'notes', 'sources', 'implementations', 'variants',
                     'advantages', 'limitations', 'authors', 'keywords', 'topics',
-                    'contributions', 'language', 'benchmark-usage', 'related-datasets',
+                    'contributions', 'benchmark-usage', 'related-datasets',
                     'related-algorithms', 'languages', 'mathematical-basis', 'key-equations']
     for field in array_fields:
         if field in data and data[field] is not None:

@@ -1,0 +1,95 @@
+# pyannote.audio Speaker Diarization Pipeline 3.1
+
+last-update: "2026-01-06"
+
+model-id: "pyannote/speaker-diarization-3.1"
+name: "pyannote Speaker Diarization 3.1"
+provider: "pyannote"
+huggingface-url: "https://huggingface.co/pyannote/speaker-diarization-3.1"
+
+model-type: "diarization-pipeline"
+architecture: "Transformer"
+
+description: |
+  State-of-the-art speaker diarization pipeline combining neural
+  segmentation, embedding extraction, and clustering. Achieves
+  approximately 10% DER on standard benchmarks with overlap handling.
+
+components:
+  segmentation: "pyannote/segmentation-3.0"
+  embedding: "pyannote/wespeaker-voxceleb-resnet34-LM"
+  clustering: "agglomerative"
+
+training:
+  datasets:
+    - "AMI"
+    - "DIHARD"
+    - "VoxConverse"
+  training-hours: 5000
+
+benchmarks:
+  ami-der: 10.0
+  ami-der-overlap: 15.2
+  dihard-der: 18.5
+
+usage:
+  requires-token: true
+  license: "MIT"
+  commercial-use: true
+  fine-tunable: true
+
+requirements:
+  min-gpu-memory: "4GB"
+  input-sample-rate: 16000
+  input-channels: 1
+  input-format:
+    - "wav"
+
+example-code: |
+  from pyannote.audio import Pipeline
+
+  pipeline = Pipeline.from_pretrained(
+      "pyannote/speaker-diarization-3.1",
+      use_auth_token="YOUR_HF_TOKEN"
+  )
+
+  # Run diarization
+  diarization = pipeline("audio.wav")
+
+  # With known speaker count
+  diarization = pipeline("audio.wav", num_speakers=3)
+
+  # Export to RTTM
+  with open("output.rttm", "w") as f:
+      diarization.write_rttm(f)
+
+  # Iterate results
+  for turn, _, speaker in diarization.itertracks(yield_label=True):
+      print(f"{speaker}: {turn.start:.2f}s - {turn.end:.2f}s")
+
+features:
+  - "State-of-the-art accuracy (~10% DER)"
+  - "Overlap-aware speaker segmentation"
+  - "Automatic speaker count estimation"
+  - "Optional speaker count constraints"
+  - "RTTM output format support"
+
+notes:
+  - "Requires HuggingFace token (free registration)"
+  - "Accept model terms on HuggingFace before use"
+  - "GPU recommended for reasonable speed"
+  - "Version 3.1 supersedes 3.0 with improved accuracy"
+
+sources:
+  - url: "https://huggingface.co/pyannote/speaker-diarization-3.1"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://github.com/pyannote/pyannote-audio"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - arxiv: "1911.01255"
+    title: "pyannote.audio: neural building blocks for speaker diarization"
+    accessed: "2026-01-06"
+    source-type: primary

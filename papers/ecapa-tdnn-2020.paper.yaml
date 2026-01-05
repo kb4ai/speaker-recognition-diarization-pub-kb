@@ -1,0 +1,84 @@
+# ECAPA-TDNN Paper Entry
+
+last-update: "2026-01-06"
+
+title: "ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification"
+short-title: "ECAPA-TDNN"
+year: 2020
+
+authors:
+  - "Brecht Desplanques"
+  - "Jenthe Thienpondt"
+  - "Kris Demuynck"
+
+affiliations:
+  - "IDLab, Ghent University - imec, Belgium"
+
+venue: "Interspeech 2020"
+venue-type: "conference"
+
+arxiv: "2005.07143"
+doi: "10.21437/Interspeech.2020-2650"
+pdf-url: "https://arxiv.org/pdf/2005.07143.pdf"
+
+abstract: |
+  In this paper, we propose several modifications to the standard TDNN
+  architecture for speaker verification. These modifications improve
+  speaker verification accuracy while preserving a compact model suitable
+  for real-time applications. The modifications include (1) a 1-dimensional
+  Res2Net module with skip connections, (2) a Squeeze-and-Excitation block,
+  and (3) an attentive statistics pooling layer that combines self-attention
+  with standard statistics pooling.
+
+keywords:
+  - "speaker verification"
+  - "speaker embedding"
+  - "TDNN"
+  - "attention mechanism"
+  - "Res2Net"
+
+topics:
+  - "speaker-verification"
+  - "speaker-embedding"
+  - "neural-network-architecture"
+
+contributions:
+  - "Res2Net-style multi-scale feature extraction in TDNN context"
+  - "Squeeze-and-Excitation channel attention mechanism"
+  - "Attentive statistics pooling combining attention with mean/std"
+  - "State-of-the-art VoxCeleb1 results (0.87% EER)"
+
+reported-metrics:
+  voxceleb1-eer: 0.87
+  voxceleb1-dcf: 0.089
+  voxceleb1-e-eer: 1.01
+  voxceleb1-h-eer: 1.87
+
+implementations:
+  - tool: "speechbrain"
+    url: "https://huggingface.co/speechbrain/spkrec-ecapa-voxceleb"
+    official: false
+
+  - tool: "wespeaker"
+    url: "https://github.com/wenet-e2e/wespeaker"
+    official: false
+
+  - tool: "nvidia-nemo"
+    url: "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/ecapa_tdnn"
+    official: false
+
+citation-count: 1500
+citation-count-date: "2026-01-06"
+
+supersedes:
+  - "x-vectors-2018"
+
+notes:
+  - "Foundational paper for modern speaker embeddings"
+  - "ECAPA-TDNN is now the de facto standard architecture"
+  - "Multiple open-source implementations available"
+
+sources:
+  - arxiv: "2005.07143"
+    accessed: "2026-01-06"
+    source-type: primary

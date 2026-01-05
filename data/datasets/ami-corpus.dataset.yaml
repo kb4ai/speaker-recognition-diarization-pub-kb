@@ -29,11 +29,11 @@ audio-properties:
     - array
 
 annotations:
-  - speaker-diarization
-  - speech-transcription
-  - dialogue-acts
-  - head-gestures
-  - focus-of-attention
+  speaker-labels: true
+  word-timestamps: true
+  overlap-annotations: true
+  vad-labels: true
+  transcripts: true
 
 annotation-format: "RTTM"
 

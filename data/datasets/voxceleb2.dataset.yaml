@@ -24,8 +24,11 @@ audio-properties:
   channels: 1
 
 annotations:
-  - speaker-id
-  - gender
+  speaker-labels: true
+  word-timestamps: false
+  overlap-annotations: false
+  vad-labels: false
+  transcripts: false
 
 tasks:
   - speaker-verification
@@ -38,10 +41,10 @@ access:
   requires-registration: false
 
 splits:
-  - name: "dev"
+  dev:
     speakers: 5994
     utterances: 1092009
-  - name: "test"
+  test:
     speakers: 118
     utterances: 36237
 

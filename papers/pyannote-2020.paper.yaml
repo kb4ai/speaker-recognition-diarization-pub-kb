@@ -1,0 +1,82 @@
+# pyannote.audio Paper Entry
+
+last-update: "2026-01-06"
+
+title: "pyannote.audio: neural building blocks for speaker diarization"
+short-title: "pyannote.audio"
+year: 2020
+
+authors:
+  - "Hervé Bredin"
+  - "Ruiqing Yin"
+  - "Juan Manuel Coria"
+  - "Gregory Gelly"
+  - "Pavel Korshunov"
+  - "Marvin Lavechin"
+  - "Diego Fusber"
+  - "Hadrien Titeux"
+  - "Wassim Bouaziz"
+  - "Marie-Philippe Gill"
+
+affiliations:
+  - "IRIT, Université de Toulouse, CNRS, France"
+  - "LIMSI, CNRS, Université Paris-Saclay, France"
+
+venue: "IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)"
+venue-type: "conference"
+
+arxiv: "1911.01255"
+pdf-url: "https://arxiv.org/pdf/1911.01255.pdf"
+code-url: "https://github.com/pyannote/pyannote-audio"
+project-page: "https://pyannote.ai"
+
+abstract: |
+  We present pyannote.audio, an open-source toolkit written in Python
+  for speaker diarization. Based on PyTorch machine learning framework,
+  it provides a set of trainable end-to-end neural building blocks that
+  can be combined and jointly optimized to build speaker diarization
+  pipelines. We describe several of these modules (voice activity
+  detection, speaker change detection, overlapped speech detection,
+  speaker embedding) and demonstrate how they can be composed for
+  multiple speaker diarization paradigms.
+
+keywords:
+  - "speaker diarization"
+  - "voice activity detection"
+  - "speaker embedding"
+  - "overlapped speech detection"
+  - "PyTorch"
+
+topics:
+  - "speaker-diarization"
+  - "open-source-toolkit"
+  - "neural-building-blocks"
+
+contributions:
+  - "Modular neural building blocks for diarization"
+  - "End-to-end trainable pipeline"
+  - "Voice activity detection module"
+  - "Overlapped speech detection"
+  - "Open-source PyTorch implementation"
+
+implementations:
+  - tool: "pyannote-audio"
+    url: "https://github.com/pyannote/pyannote-audio"
+    official: true
+
+citation-count: 800
+citation-count-date: "2026-01-06"
+
+notes:
+  - "Foundation paper for pyannote.audio toolkit"
+  - "Toolkit has evolved significantly since publication"
+  - "Version 3.x includes major improvements over paper version"
+
+sources:
+  - arxiv: "1911.01255"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://github.com/pyannote/pyannote-audio"
+    accessed: "2026-01-06"
+    source-type: primary

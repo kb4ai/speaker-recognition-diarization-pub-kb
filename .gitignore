@@ -1,6 +1,9 @@
 # Temporary files and cloned repositories
 tmp/
 
+# PDF papers (too large, licensing concerns)
+archives/papers/*.pdf
+
 # Python
 __pycache__/
 *.py[cod]

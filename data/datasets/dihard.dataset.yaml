@@ -46,8 +46,11 @@ audio-properties:
   quality: "variable"
 
 annotations:
-  - speaker-diarization
-  - speech-activity
+  speaker-labels: true
+  word-timestamps: false
+  overlap-annotations: true
+  vad-labels: true
+  transcripts: false
 
 annotation-format: "RTTM"
 

@@ -1,0 +1,79 @@
+# SpeechBrain ECAPA-TDNN Speaker Embedding Model
+
+last-update: "2026-01-06"
+
+model-id: "speechbrain/spkrec-ecapa-voxceleb"
+name: "ECAPA-TDNN Speaker Embedding"
+provider: "speechbrain"
+huggingface-url: "https://huggingface.co/speechbrain/spkrec-ecapa-voxceleb"
+
+model-type: "embedding-model"
+architecture: "ECAPA-TDNN"
+embedding-dimension: 192
+parameters: "14.7M"
+
+description: |
+  Pre-trained ECAPA-TDNN model for speaker embedding extraction.
+  State-of-the-art performance on VoxCeleb1 speaker verification.
+  Widely used as embedding extractor in diarization pipelines.
+
+training:
+  datasets:
+    - "VoxCeleb1"
+    - "VoxCeleb2"
+  loss-function: "AAM-Softmax"
+  training-hours: 2794
+
+benchmarks:
+  voxceleb1-eer: 0.80
+  voxceleb1-dcf: 0.0082
+
+usage:
+  requires-token: false
+  license: "Apache-2.0"
+  commercial-use: true
+  fine-tunable: true
+
+requirements:
+  min-gpu-memory: "4GB"
+  input-sample-rate: 16000
+  input-channels: 1
+  input-format:
+    - "wav"
+    - "flac"
+    - "mp3"
+
+example-code: |
+  from speechbrain.inference.speaker import EncoderClassifier
+
+  classifier = EncoderClassifier.from_hparams(
+      source="speechbrain/spkrec-ecapa-voxceleb",
+      savedir="pretrained_models/spkrec-ecapa-voxceleb"
+  )
+
+  # Extract embedding
+  embedding = classifier.encode_batch(signal)
+
+  # Verify speakers
+  score, prediction = classifier.verify_batch(signal1, signal2)
+
+features:
+  - "192-dimensional speaker embeddings"
+  - "State-of-the-art VoxCeleb1 EER (0.80%)"
+  - "Easy integration with SpeechBrain ecosystem"
+  - "Pre-trained on VoxCeleb1+2 combined"
+
+notes:
+  - "Recommended for speaker verification and diarization"
+  - "Can be used with pyannote.audio segmentation"
+  - "Cosine similarity works well for comparison"
+
+sources:
+  - url: "https://huggingface.co/speechbrain/spkrec-ecapa-voxceleb"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - arxiv: "2005.07143"
+    title: "ECAPA-TDNN: Emphasized Channel Attention..."
+    accessed: "2026-01-06"
+    source-type: primary

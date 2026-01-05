@@ -1,0 +1,39 @@
+# Source Information for Archived Content
+# This file tracks provenance of archived web content
+
+source:
+  url: "https://www.perplexity.ai/search/what-are-techniques-for-stt-di-JJLMNthvRyuBsmOIZUWxbQ"
+  accessed: "2026-01-05"
+  archived-date: "2026-01-06"
+  source-type: "tertiary"
+  confidence: "likely"
+
+description: |
+  Comprehensive Perplexity AI research on speaker diarization techniques,
+  including professional terminology, pipeline architecture, algorithms,
+  open-source tools, voice fingerprinting, real-time vs offline processing,
+  and pre-trained models.
+
+topics-covered:
+  - Speaker diarization pipeline architecture
+  - Voice Activity Detection (VAD)
+  - Speaker segmentation
+  - Speaker embedding extraction (x-vectors, ECAPA-TDNN, i-vectors)
+  - Clustering algorithms (AHC, spectral, VBx)
+  - End-to-end neural diarization (EEND)
+  - Evaluation metrics (DER, EER, RTF)
+  - Voice fingerprints and enrollment
+  - Real-time vs offline processing
+  - Open-source frameworks (pyannote, SpeechBrain, NeMo, Kaldi)
+  - Vector databases for speaker embeddings
+
+files:
+  - name: "content.md"
+    description: "Full research content in markdown format"
+  - name: "references.bib"
+    description: "BibTeX citations extracted from research"
+
+notes:
+  - "Content generated via Perplexity AI search"
+  - "Multiple follow-up prompts for comprehensive coverage"
+  - "References include 200+ citations to papers and documentation"

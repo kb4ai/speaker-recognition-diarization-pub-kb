@@ -26,8 +26,11 @@ audio-properties:
   quality: "telephone-narrowband"
 
 annotations:
-  - speaker-diarization
-  - transcription
+  speaker-labels: true
+  word-timestamps: true
+  overlap-annotations: false
+  vad-labels: false
+  transcripts: true
 
 annotation-format: "RTTM"
 

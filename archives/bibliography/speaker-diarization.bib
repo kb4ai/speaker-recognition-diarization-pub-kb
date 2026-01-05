@@ -1,0 +1,165 @@
+% Speaker Diarization and Recognition Bibliography
+% Generated: 2026-01-06
+% Source: Perplexity AI research, official documentation
+
+% =====================================
+% SPEAKER EMBEDDING ARCHITECTURES
+% =====================================
+
+@inproceedings{desplanques2020ecapa,
+  title={{ECAPA-TDNN}: Emphasized Channel Attention, Propagation and Aggregation in {TDNN} Based Speaker Verification},
+  author={Desplanques, Brecht and Thienpondt, Jenthe and Demuynck, Kris},
+  booktitle={Interspeech 2020},
+  pages={3830--3834},
+  year={2020},
+  organization={ISCA},
+  doi={10.21437/Interspeech.2020-2650},
+  note={arXiv:2005.07143}
+}
+
+@inproceedings{snyder2018xvector,
+  title={{X-vectors}: Robust {DNN} Embeddings for Speaker Recognition},
+  author={Snyder, David and Garcia-Romero, Daniel and Sell, Gregory and Povey, Daniel and Khudanpur, Sanjeev},
+  booktitle={IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={5329--5333},
+  year={2018},
+  organization={IEEE},
+  doi={10.1109/ICASSP.2018.8461375}
+}
+
+@article{dehak2011ivector,
+  title={Front-end factor analysis for speaker verification},
+  author={Dehak, Najim and Kenny, Patrick J and Dehak, R{\'e}da and Dumouchel, Pierre and Ouellet, Pierre},
+  journal={IEEE Transactions on Audio, Speech, and Language Processing},
+  volume={19},
+  number={4},
+  pages={788--798},
+  year={2011},
+  publisher={IEEE},
+  doi={10.1109/TASL.2010.2064307}
+}
+
+% =====================================
+% DIARIZATION SYSTEMS
+% =====================================
+
+@inproceedings{bredin2020pyannote,
+  title={pyannote.audio: neural building blocks for speaker diarization},
+  author={Bredin, Herv{\'e} and Yin, Ruiqing and Coria, Juan Manuel and Gelly, Gregory and Korshunov, Pavel and Lavechin, Marvin and Fusber, Diego and Titeux, Hadrien and Bouaziz, Wassim and Gill, Marie-Philippe},
+  booktitle={IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={7124--7128},
+  year={2020},
+  organization={IEEE},
+  note={arXiv:1911.01255}
+}
+
+@inproceedings{fujita2019eend,
+  title={End-to-end neural speaker diarization with permutation-free objectives},
+  author={Fujita, Yusuke and Kanda, Naoyuki and Horiguchi, Shota and Nagamatsu, Kenji and Watanabe, Shinji},
+  booktitle={Interspeech 2019},
+  pages={4300--4304},
+  year={2019},
+  organization={ISCA}
+}
+
+@inproceedings{park2022sortformer,
+  title={Multi-scale Speaker Diarization with Dynamic Scale Weighting},
+  author={Park, Tae Jin and Kanda, Naoyuki and Dimitriadis, Dimitrios and Han, Kyu J and Watanabe, Shinji and Narayanan, Shrikanth},
+  booktitle={Interspeech 2022},
+  year={2022},
+  organization={ISCA}
+}
+
+% =====================================
+% CLUSTERING ALGORITHMS
+% =====================================
+
+@inproceedings{sell2018vbx,
+  title={Diarization is Hard: Some Experiences and Lessons Learned for the {JHU} Team in the Inaugural {DIHARD} Challenge},
+  author={Sell, Gregory and Snyder, David and McCree, Alan and Garcia-Romero, Daniel and Villalba, Jes{\'u}s and Maciejewski, Matthew and Manohar, Vimal and Dehak, Najim and Povey, Daniel and Watanabe, Shinji and others},
+  booktitle={Interspeech 2018},
+  pages={2808--2812},
+  year={2018},
+  organization={ISCA}
+}
+
+@inproceedings{wang2018spectral,
+  title={Speaker diarization with {LSTM}},
+  author={Wang, Quan and Downey, Carlton and Wan, Li and Mansfield, Philip Andrew and Moreno, Ignacio Lopex},
+  booktitle={IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={5239--5243},
+  year={2018},
+  organization={IEEE}
+}
+
+% =====================================
+% DATASETS
+% =====================================
+
+@inproceedings{nagrani2017voxceleb,
+  title={{VoxCeleb}: A Large-scale Speaker Identification Dataset},
+  author={Nagrani, Arsha and Chung, Joon Son and Zisserman, Andrew},
+  booktitle={Interspeech 2017},
+  pages={2616--2620},
+  year={2017},
+  organization={ISCA},
+  note={arXiv:1706.08612}
+}
+
+@inproceedings{chung2018voxceleb2,
+  title={{VoxCeleb2}: Deep Speaker Recognition},
+  author={Chung, Joon Son and Nagrani, Arsha and Zisserman, Andrew},
+  booktitle={Interspeech 2018},
+  pages={1086--1090},
+  year={2018},
+  organization={ISCA},
+  note={arXiv:1806.05622}
+}
+
+@inproceedings{carletta2005ami,
+  title={The {AMI} Meeting Corpus: A Pre-announcement},
+  author={Carletta, Jean and Ashby, Simone and Bourban, Sebastien and Flynn, Mike and Guillemot, Mael and Hain, Thomas and Kadlec, Jaroslav and Karaiskos, Vasilis and Kraaij, Wessel and Kronenthal, Melissa and others},
+  booktitle={International Workshop on Machine Learning for Multimodal Interaction},
+  pages={28--39},
+  year={2005},
+  organization={Springer}
+}
+
+@techreport{ryant2021dihard,
+  title={The Third {DIHARD} Diarization Challenge},
+  author={Ryant, Neville and Singh, Prachi and Krishnamohan, Venkat and Varber, Rajat and Church, Kenneth and Cieri, Christopher and Du, Jun and Ganapathy, Sriram and Liberman, Mark},
+  year={2021},
+  institution={Linguistic Data Consortium},
+  note={arXiv:2012.01477}
+}
+
+% =====================================
+% FRAMEWORKS AND TOOLS
+% =====================================
+
+@article{ravanelli2021speechbrain,
+  title={{SpeechBrain}: A General-Purpose Speech Toolkit},
+  author={Ravanelli, Mirco and Parcollet, Titouan and Plantinga, Peter and Rouhe, Aku and Cornell, Samuele and Lugosch, Loren and Subakan, Cem and Dawalatabad, Nauman and Heba, Abdelwahab and Zhong, Jianyuan and others},
+  journal={arXiv preprint arXiv:2106.04624},
+  year={2021}
+}
+
+@techreport{povey2011kaldi,
+  title={The {Kaldi} Speech Recognition Toolkit},
+  author={Povey, Daniel and Ghoshal, Arnab and Boulianne, Gilles and Burget, Luk{\'a}{\v{s}} and Glembek, Ond{\v{r}}ej and Goel, Nagendra and Hannemann, Mirko and Motl{\'i}{\v{c}}ek, Petr and Qian, Yanmin and Schwarz, Petr and others},
+  year={2011},
+  institution={IEEE Signal Processing Society}
+}
+
+% =====================================
+% METRICS AND EVALUATION
+% =====================================
+
+@inproceedings{fiscus2006rttm,
+  title={The Rich Transcription 2006 Spring Meeting Recognition Evaluation},
+  author={Fiscus, Jonathan G and Ajot, Jerome and Michel, Michel and Garofolo, John S},
+  booktitle={International Workshop on Machine Learning for Multimodal Interaction},
+  pages={309--322},
+  year={2006},
+  organization={Springer}
+}
