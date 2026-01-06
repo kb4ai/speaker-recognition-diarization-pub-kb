@@ -1,4 +1,4 @@
-.PHONY: all validate tables readme clone sources clean help bib citations stats
+.PHONY: all validate tables readme clone sources clean help bib citations stats archive
 
 # Default target - full regeneration
 all: validate tables readme
@@ -68,6 +68,15 @@ stats-update:
 	@echo "Updating GitHub stats..."
 	./scripts/update-stats.py --update
 
+# Archive a URL (interactive - requires URL argument)
+# Usage: make archive URL=https://example.com/page NAME=optional-name
+archive:
+	@if [ -z "$(URL)" ]; then \
+		echo "Usage: make archive URL=https://example.com/page [NAME=descriptive-name]"; \
+		exit 1; \
+	fi
+	./scripts/archive-url.py "$(URL)" $(if $(NAME),--name "$(NAME)")
+
 # Install Python dependencies
 install:
 	pip install -r scripts/requirements.txt
@@ -92,6 +101,7 @@ help:
 	@echo "    make sources       - Verify source URLs"
 	@echo "    make stats         - Check GitHub stats (dry run)"
 	@echo "    make stats-update  - Update GitHub stats in YAML files"
+	@echo "    make archive URL=... - Archive a URL to printouts/"
 	@echo ""
 	@echo "  Maintenance:"
 	@echo "    make clean         - Remove generated files"

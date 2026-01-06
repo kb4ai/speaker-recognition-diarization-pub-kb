@@ -197,7 +197,7 @@ Add sections for:
 * [x] `REGENERATION.md` - How to regenerate tables/reports
 * [x] `RESEARCH_NOTES.md` - Guide to ramblings/ directory
 
-### Phase 5: Automation & Generation (Priority: Medium) - PARTIAL
+### Phase 5: Automation & Generation (Priority: Medium) - COMPLETE
 
 #### 5.1 Enhanced Table Generation
 
@@ -210,7 +210,7 @@ Add sections for:
 
 * [x] `scripts/extract-citations.py` - Parse markdown for citations
 * [x] `scripts/generate-bib.py` - Create .bib from paper entries
-* [ ] `scripts/archive-url.py` - Fetch and archive web content
+* [x] `scripts/archive-url.py` - Fetch and archive web content
 * [x] `scripts/update-stats.py` - Refresh GitHub stats for tools
 
 #### 5.3 Makefile Enhancement
@@ -220,13 +220,13 @@ Add sections for:
 * [x] Added `make stats` - Check GitHub stats (dry run)
 * [x] Added `make stats-update` - Update stats in YAML files
 
-### Phase 6: Repository Cloning & Analysis (Priority: Low)
+### Phase 6: Repository Cloning & Analysis (Priority: Low) - PARTIAL
 
 #### 6.1 Clone Infrastructure
 
 * [ ] Enhance `clone-all.sh` with commit pinning
 * [ ] Add `scripts/analyze-repo.py` for automated analysis
-* [ ] Create `tmp/README.md` explaining directory purpose
+* [x] Create `tmp/README.md` explaining directory purpose
 
 #### 6.2 Deep Analysis Support
 
