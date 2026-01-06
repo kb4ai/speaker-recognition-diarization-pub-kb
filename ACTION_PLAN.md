@@ -10,7 +10,7 @@ This document outlines the implementation roadmap to transform this repository i
 * **10 Algorithms**: 3 embedding, 3 clustering, 2 VAD, 2 end-to-end
 * **10 Models**: ECAPA, TitaNet (large/small), x-vector, ResNet34, Sortformer, MSDD, pyannote 3.1, WavLM-SV, CAM++
 * **5 Datasets**: VoxCeleb1/2, AMI, CALLHOME, DIHARD
-* **12 Papers**: ECAPA-TDNN, x-vectors, i-vectors, pyannote, VoxCeleb1/2, EEND, EEND-EDA, VBx, GE2E, Thin-ResNet, WavLM
+* **14 Papers**: ECAPA-TDNN, x-vectors, i-vectors, pyannote, VoxCeleb1/2, EEND, EEND-EDA, VBx, GE2E, Thin-ResNet, WavLM, Res2Net, SE-Net
 * **6 Schema Specs**: tool, algorithm, model, dataset, paper, source
 * **Scripts**: validation, table generation, README generation, source verification, clone-all, analyze-repo, generate-bib, extract-citations, update-stats, archive-url
 * **Makefile**: validate, tables, readme, clone, sources, bib, citations, stats, archive targets

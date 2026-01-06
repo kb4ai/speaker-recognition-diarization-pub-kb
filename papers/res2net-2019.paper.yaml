@@ -1,0 +1,95 @@
+# Res2Net Paper Entry
+# Foundation architecture for ECAPA-TDNN
+
+last-update: "2026-01-06"
+
+title: "Res2Net: A New Multi-scale Backbone Architecture"
+short-title: "Res2Net"
+
+arxiv: "1904.01169"
+doi: "10.1109/TPAMI.2019.2938758"
+
+authors:
+  - "Shang-Hua Gao"
+  - "Ming-Ming Cheng"
+  - "Kai Zhao"
+  - "Xin-Yu Zhang"
+  - "Ming-Hsuan Yang"
+  - "Philip Torr"
+
+affiliations:
+  - "Nankai University"
+  - "University of California, Merced"
+  - "University of Oxford"
+
+year: 2019
+
+venue: "IEEE TPAMI"
+venue-type: journal
+
+pdf-url: "https://arxiv.org/pdf/1904.01169.pdf"
+code-url: "https://github.com/Res2Net/Res2Net-PretrainedModels"
+
+abstract: |
+  Representing features at multiple scales is of great importance for
+  numerous vision tasks. Recent advances in backbone convolutional neural
+  networks (CNNs) continually demonstrate stronger multi-scale representation
+  ability, achieving consistent performance gains on a wide range of
+  applications. However, most existing methods represent multi-scale features
+  in a layer-wise manner. In this paper, we propose a novel building block
+  for CNNs, namely Res2Net, by constructing hierarchical residual-like
+  connections within one single residual block.
+
+keywords:
+  - multi-scale features
+  - residual networks
+  - backbone architecture
+  - CNN
+  - computer vision
+
+topics:
+  - deep-learning
+  - cnn-architecture
+  - multi-scale-features
+
+contributions:
+  - "Hierarchical residual-like connections within single block"
+  - "Multi-scale feature representation at granular level"
+  - "Drop-in replacement for ResNet blocks"
+  - "Improved performance with minimal parameter increase"
+
+reported-metrics:
+  imagenet-top1: 79.2
+  imagenet-top5: 94.4
+  architecture: "Res2Net-50"
+
+citation-count: 2500
+citation-count-date: "2026-01-06"
+
+cites:
+  - "resnet-2016"
+  - "senet-2018"
+
+cited-by:
+  - "ecapa-tdnn-2020"
+  - "titanet"
+
+implementations:
+  - tool: "torchvision"
+    url: "https://github.com/Res2Net/Res2Net-PretrainedModels"
+    official: true
+
+notes:
+  - "Foundation architecture for ECAPA-TDNN speaker embeddings"
+  - "Enables multi-scale processing within single residual block"
+  - "Originally designed for vision, adapted to speech"
+  - "Key component of state-of-the-art speaker recognition"
+
+sources:
+  - url: "https://arxiv.org/abs/1904.01169"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://github.com/Res2Net/Res2Net-PretrainedModels"
+    accessed: "2026-01-06"
+    source-type: code

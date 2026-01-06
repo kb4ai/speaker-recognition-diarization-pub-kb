@@ -1,0 +1,91 @@
+# Squeeze-and-Excitation Networks Paper Entry
+# Channel attention mechanism used in ECAPA-TDNN
+
+last-update: "2026-01-06"
+
+title: "Squeeze-and-Excitation Networks"
+short-title: "SE-Net"
+
+arxiv: "1709.01507"
+doi: "10.1109/CVPR.2018.00745"
+
+authors:
+  - "Jie Hu"
+  - "Li Shen"
+  - "Gang Sun"
+
+affiliations:
+  - "Momenta"
+  - "University of Oxford"
+
+year: 2018
+
+venue: "CVPR 2018"
+venue-type: conference
+
+pdf-url: "https://arxiv.org/pdf/1709.01507.pdf"
+code-url: "https://github.com/hujie-frank/SENet"
+
+abstract: |
+  The central building block of convolutional neural networks (CNNs) is
+  the convolution operator, which enables networks to construct informative
+  features by fusing both spatial and channel-wise information within local
+  receptive fields at each layer. We propose a novel architectural unit,
+  which we term the "Squeeze-and-Excitation" (SE) block, that adaptively
+  recalibrates channel-wise feature responses by explicitly modelling
+  interdependencies between channels.
+
+keywords:
+  - attention mechanism
+  - channel attention
+  - squeeze-and-excitation
+  - CNN
+  - feature recalibration
+
+topics:
+  - deep-learning
+  - attention-mechanisms
+  - cnn-architecture
+
+contributions:
+  - "Introduced channel attention mechanism (SE block)"
+  - "Adaptive feature recalibration"
+  - "Minimal computational overhead"
+  - "ImageNet classification winner 2017"
+
+reported-metrics:
+  imagenet-top1: 82.7
+  imagenet-top5: 96.2
+  architecture: "SENet-154"
+
+citation-count: 15000
+citation-count-date: "2026-01-06"
+
+cites:
+  - "resnet-2016"
+  - "inception"
+
+cited-by:
+  - "ecapa-tdnn-2020"
+  - "titanet"
+  - "res2net-2019"
+
+implementations:
+  - tool: "pytorch"
+    url: "https://github.com/hujie-frank/SENet"
+    official: true
+
+notes:
+  - "Won ImageNet 2017 classification challenge"
+  - "SE blocks used in ECAPA-TDNN for speaker recognition"
+  - "Foundational attention mechanism for many architectures"
+  - "Simple yet effective channel recalibration"
+
+sources:
+  - url: "https://arxiv.org/abs/1709.01507"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://github.com/hujie-frank/SENet"
+    accessed: "2026-01-06"
+    source-type: code

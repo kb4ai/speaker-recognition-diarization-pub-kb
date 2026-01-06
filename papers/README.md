@@ -2,7 +2,7 @@
 
 Academic publications on speaker diarization, recognition, and related topics.
 
-**Total: 12 papers**
+**Total: 14 papers**
 
 ## Paper Index
 
@@ -14,14 +14,21 @@ Academic publications on speaker diarization, recognition, and related topics.
 | [EEND-EDA](eend-eda-2020.paper.yaml) | 2020 | IEEE International C | 450 |
 | [pyannote.audio](pyannote-2020.paper.yaml) | 2020 | IEEE International C | 800 |
 | [EEND](eend-2019.paper.yaml) | 2019 | Interspeech 2019 | 800 |
+| [Res2Net](res2net-2019.paper.yaml) | 2019 | IEEE TPAMI | 2500 |
 | [Thin ResNet / NetVLAD](thin-resnet-2019.paper.yaml) | 2019 | ICASSP 2019 | 900 |
 | [GE2E / d-vectors](ge2e-2018.paper.yaml) | 2018 | ICASSP 2018 | 1800 |
+| [SE-Net](senet-2018.paper.yaml) | 2018 | CVPR 2018 | 15000 |
 | [VoxCeleb2](voxceleb2-2018.paper.yaml) | 2018 | Interspeech 2018 | 2000 |
 | [X-vectors](x-vectors-2018.paper.yaml) | 2018 | IEEE International C | 2500 |
 | [VoxCeleb1](voxceleb1-2017.paper.yaml) | 2017 | Interspeech 2017 | 3000 |
 | [i-vectors](i-vectors-2011.paper.yaml) | 2011 | IEEE Transactions on | 3500 |
 
 ## By Topic
+
+### Deep Learning
+
+* [Res2Net](res2net-2019.paper.yaml) (2019) - [arXiv](https://arxiv.org/abs/1904.01169)
+* [SE-Net](senet-2018.paper.yaml) (2018) - [arXiv](https://arxiv.org/abs/1709.01507)
 
 ### Self Supervised Learning
 
