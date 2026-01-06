@@ -2,7 +2,7 @@
 
 Educational content explaining speaker diarization concepts, algorithms, and best practices.
 
-**Total: 10 articles**
+**Total: 13 articles**
 
 ## Structure
 
@@ -10,8 +10,8 @@ Educational content explaining speaker diarization concepts, algorithms, and bes
 knowledge/
 ├── fundamentals/       # Core concepts, pipeline architecture, and terminology (6)
 ├── algorithms/       # Detailed explanations of key algorithms (2)
-├── tutorials/       # Step-by-step guides and quickstarts (1)
-├── comparisons/       # Framework and technology comparisons (1)
+├── tutorials/       # Step-by-step guides and quickstarts (3)
+├── comparisons/       # Framework and technology comparisons (2)
 ├── concepts/       # Advanced conceptual topics (0)
 ├── math/       # Mathematical background and formulations (0)
 ```
@@ -47,12 +47,15 @@ New to speaker diarization? Start with:
 
 *Step-by-step guides and quickstarts*
 
+* [Building a Voice Fingerprint System](tutorials/building-voice-fingerprint-system.md)
+* [Training Custom Speaker Embeddings](tutorials/custom-embedding-training.md)
 * [Pyannote.audio Quickstart Guide](tutorials/pyannote-quickstart.md)
 
 ## Comparisons
 
 *Framework and technology comparisons*
 
+* [Embedding Architecture Comparison](comparisons/embedding-architectures.md)
 * [Framework Selection Guide](comparisons/framework-selection.md)
 
 ## Learning Path

@@ -1,0 +1,96 @@
+# EEND Paper Entry
+
+last-update: "2026-01-06"
+
+title: "End-to-End Neural Speaker Diarization with Permutation-Free Objectives"
+short-title: "EEND"
+year: 2019
+
+authors:
+  - "Yusuke Fujita"
+  - "Naoyuki Kanda"
+  - "Shota Horiguchi"
+  - "Kenji Nagamatsu"
+  - "Shinji Watanabe"
+
+affiliations:
+  - "Hitachi, Ltd., Japan"
+  - "Johns Hopkins University, USA"
+
+venue: "Interspeech 2019"
+venue-type: "conference"
+
+arxiv: "1909.01949"
+doi: "10.21437/Interspeech.2019-2899"
+pdf-url: "https://arxiv.org/pdf/1909.01949.pdf"
+
+abstract: |
+  In this paper, we propose a novel end-to-end neural diarization (EEND)
+  method. Unlike traditional clustering-based methods that separately
+  optimize each module, EEND directly optimizes the speaker diarization
+  objective using a neural network. The key innovation is the use of
+  permutation-free objectives that handle the label ambiguity problem
+  inherent in diarization. Our method naturally handles overlapping speech
+  and achieves competitive performance on real conversation data.
+
+keywords:
+  - "speaker diarization"
+  - "end-to-end"
+  - "neural network"
+  - "permutation invariant training"
+  - "overlapping speech"
+
+topics:
+  - "speaker-diarization"
+  - "end-to-end"
+  - "neural-network-architecture"
+
+contributions:
+  - "First end-to-end neural approach to speaker diarization"
+  - "Permutation-free objective (PIT) for diarization"
+  - "Native handling of overlapping speech"
+  - "Eliminates need for separate clustering step"
+
+reported-metrics:
+  callhome-der: 23.07
+  simulated-der: 12.28
+
+implementations:
+  - tool: "espnet"
+    url: "https://github.com/espnet/espnet"
+    official: true
+
+  - tool: "nvidia-nemo"
+    url: "https://docs.nvidia.com/deeplearning/nemo/user-guide/docs/en/main/asr/speaker_diarization/intro.html"
+    official: false
+
+citation-count: 800
+citation-count-date: "2026-01-06"
+
+related-algorithms:
+  - "eend"
+
+limitations:
+  - "Fixed maximum number of speakers during training"
+  - "Requires large training data"
+  - "Originally limited to offline processing"
+
+follow-up-work:
+  - "EEND-EDA (2020) - Encoder-Decoder Attractor for variable speakers"
+  - "EEND-SS (2021) - Self-supervised pretraining"
+  - "EEND-VC (2022) - Voice conversion augmentation"
+
+notes:
+  - "Foundational paper for end-to-end diarization paradigm"
+  - "Alternative to traditional cascaded pipeline"
+  - "Sparked significant research in neural diarization"
+
+sources:
+  - arxiv: "1909.01949"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://www.isca-archive.org/interspeech_2019/fujita19_interspeech.html"
+    accessed: "2026-01-06"
+    source-type: primary
+    title: "ISCA Archive Entry"

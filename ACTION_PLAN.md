@@ -32,7 +32,7 @@ This document outlines the implementation roadmap to transform this repository i
 
 * [x] Move Perplexity research to `printouts/2026-01-06--perplexity-speaker-diarization-research/`
 * [x] Create SOURCE.yaml with provenance metadata
-* [ ] Extract key citations to `archives/bibliography/speaker-diarization.bib`
+* [x] Extract key citations to `archives/bibliography/speaker-diarization.bib` (16 BibTeX entries)
 
 #### 1.2 Fix Validation Issues
 
@@ -58,38 +58,38 @@ archives/
 
 Create entries in `data/models/`:
 
-* [ ] `embedding/pyannote--wespeaker-resnet34.model.yaml`
-* [ ] `embedding/speechbrain--ecapa-voxceleb.model.yaml`
-* [ ] `embedding/nvidia--titanet-large.model.yaml`
-* [ ] `diarization/pyannote--speaker-diarization-3.1.model.yaml`
+* [x] `embedding/pyannote--wespeaker-voxceleb-resnet34.model.yaml`
+* [x] `embedding/speechbrain--spkrec-ecapa-voxceleb.model.yaml`
+* [x] `embedding/nvidia--titanet-large.model.yaml`
+* [x] `diarization/pyannote--speaker-diarization-3.1.model.yaml`
 * [ ] `diarization/nvidia--sortformer.model.yaml`
 
 #### 2.2 Research Paper Entries
 
 Create entries in `papers/`:
 
-* [ ] `ecapa-tdnn-2020.paper.yaml` - ECAPA-TDNN architecture
-* [ ] `x-vectors-2018.paper.yaml` - X-vector embeddings
-* [ ] `eend-2019.paper.yaml` - End-to-end neural diarization
-* [ ] `pyannote-2019.paper.yaml` - Pyannote.audio paper
-* [ ] `voxceleb-2017.paper.yaml` - VoxCeleb1 paper
-* [ ] `voxceleb2-2018.paper.yaml` - VoxCeleb2 paper
+* [x] `ecapa-tdnn-2020.paper.yaml` - ECAPA-TDNN architecture
+* [x] `x-vectors-2018.paper.yaml` - X-vector embeddings
+* [x] `eend-2019.paper.yaml` - End-to-end neural diarization
+* [x] `pyannote-2020.paper.yaml` - Pyannote.audio paper
+* [x] `voxceleb1-2017.paper.yaml` - VoxCeleb1 paper
+* [x] `voxceleb2-2018.paper.yaml` - VoxCeleb2 paper
 
 #### 2.3 Additional Tool Entries
 
 From research, add:
 
-* [ ] `resemble-ai--resemblyzer.tool.yaml` - Voice fingerprinting
-* [ ] `m-bain--whisperx.tool.yaml` - ASR + diarization
+* [x] `resemble-ai--resemblyzer.tool.yaml` - Voice fingerprinting
+* [x] `m-bain--whisperx.tool.yaml` - ASR + diarization
 * [ ] `cvqluu--simple-diarizer.tool.yaml` - Simple wrapper
-* [ ] `wenet-e2e--wespeaker.tool.yaml` - Speaker embedding toolkit
+* [x] `wenet-e2e--wespeaker.tool.yaml` - Speaker embedding toolkit
 * [ ] `espnet--espnet-spk.tool.yaml` - ESPnet speaker module
 
-### Phase 3: Knowledge Articles (Priority: High - SUBSTANTIAL PROGRESS)
+### Phase 3: Knowledge Articles (Priority: High - COMPLETE)
 
 The `knowledge/` directory provides educational content for practitioners learning speaker diarization.
 
-**Status:** 10 articles created across 4 subdirectories.
+**Status:** 14 articles created across 4 subdirectories.
 
 #### 3.1 Directory Structure
 
@@ -154,20 +154,20 @@ Created in `knowledge/algorithms/`:
   - Complexity analysis
   - When to use each approach
 
-#### 3.4 Tutorials (Priority: Medium) - PARTIAL
+#### 3.4 Tutorials (Priority: Medium) - COMPLETE
 
 Created in `knowledge/tutorials/`:
 
 * [x] `pyannote-quickstart.md` - Get started in 5 minutes
-* [ ] `custom-embedding-training.md` - Train on your data
-* [ ] `building-voice-fingerprint-system.md` - Enrollment + matching
+* [x] `custom-embedding-training.md` - Train on your data
+* [x] `building-voice-fingerprint-system.md` - Enrollment + matching
 
-#### 3.5 Comparisons (Priority: Medium) - PARTIAL
+#### 3.5 Comparisons (Priority: Medium) - COMPLETE
 
 Created in `knowledge/comparisons/`:
 
 * [x] `framework-selection.md` - Which tool for which use case
-* [ ] `embedding-architectures.md` - ECAPA vs x-vector vs d-vector
+* [x] `embedding-architectures.md` - ECAPA vs x-vector vs d-vector
 
 ### Phase 4: Documentation Excellence (Priority: High)
 
@@ -193,9 +193,9 @@ Add sections for:
 
 #### 4.3 New Documentation Files
 
-* [ ] `TRACEABILITY.md` - Source tracking principles
-* [ ] `REGENERATION.md` - How to regenerate tables/reports
-* [ ] `RESEARCH_NOTES.md` - Guide to ramblings/ directory
+* [x] `TRACEABILITY.md` - Source tracking principles
+* [x] `REGENERATION.md` - How to regenerate tables/reports
+* [x] `RESEARCH_NOTES.md` - Guide to ramblings/ directory
 
 ### Phase 5: Automation & Generation (Priority: Medium)
 

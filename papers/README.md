@@ -2,7 +2,7 @@
 
 Academic publications on speaker diarization, recognition, and related topics.
 
-**Total: 5 papers**
+**Total: 6 papers**
 
 ## Paper Index
 
@@ -10,6 +10,7 @@ Academic publications on speaker diarization, recognition, and related topics.
 |-------|-----:|-------|----------:|
 | [ECAPA-TDNN](ecapa-tdnn-2020.paper.yaml) | 2020 | Interspeech 2020 | 1500 |
 | [pyannote.audio](pyannote-2020.paper.yaml) | 2020 | IEEE International C | 800 |
+| [EEND](eend-2019.paper.yaml) | 2019 | Interspeech 2019 | 800 |
 | [VoxCeleb2](voxceleb2-2018.paper.yaml) | 2018 | Interspeech 2018 | 2000 |
 | [X-vectors](x-vectors-2018.paper.yaml) | 2018 | IEEE International C | 2500 |
 | [VoxCeleb1](voxceleb1-2017.paper.yaml) | 2017 | Interspeech 2017 | 3000 |
@@ -18,6 +19,7 @@ Academic publications on speaker diarization, recognition, and related topics.
 
 ### Speaker Diarization
 
+* [EEND](eend-2019.paper.yaml) (2019) - [arXiv](https://arxiv.org/abs/1909.01949)
 * [pyannote.audio](pyannote-2020.paper.yaml) (2020) - [arXiv](https://arxiv.org/abs/1911.01255)
 
 ### Speaker Verification
