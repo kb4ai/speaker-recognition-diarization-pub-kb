@@ -2,17 +2,18 @@
 
 Pre-trained speaker embedding and diarization models available on HuggingFace and NGC.
 
-**Total: 10 models**
+**Total: 11 models**
 
 ## Model Types
 
 * [Diarization Pipeline](diarization/) (3)
-* [Embedding Model](embedding/) (7)
+* [Embedding Model](embedding/) (8)
 
 ## Embedding Models
 
 | Model | Architecture | Dim | EER | Provider |
 |-------|--------------|----:|----:|----------|
+| [HuBERT Large Speaker Verification](https://huggingface.co/facebook/hubert-large-ls960-ft) | HuBERT (Transformer) | 768 | 1.08% | facebook |
 | [WavLM Base Plus Speaker Verification](https://huggingface.co/microsoft/wavlm-base-plus-sv) | WavLM (Transformer) | 512 | 0.84% | microsoft |
 | [TitaNet Large](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/titanet_large) | TitaNet | 192 | 0.66% | nvidia |
 | [TitaNet Small]() | TitaNet (SE-Res2Net) | 192 | 1.48% | nvidia |

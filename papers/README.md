@@ -2,7 +2,7 @@
 
 Academic publications on speaker diarization, recognition, and related topics.
 
-**Total: 14 papers**
+**Total: 15 papers**
 
 ## Paper Index
 
@@ -10,6 +10,7 @@ Academic publications on speaker diarization, recognition, and related topics.
 |-------|-----:|-------|----------:|
 | [VBx](vbx-2022.paper.yaml) | 2022 | Computer Speech & La | 200 |
 | [WavLM](wavlm-2022.paper.yaml) | 2022 | IEEE Journal of Sele | 1500 |
+| [HuBERT](hubert-2021.paper.yaml) | 2021 | IEEE/ACM TASLP | 3000 |
 | [ECAPA-TDNN](ecapa-tdnn-2020.paper.yaml) | 2020 | Interspeech 2020 | 1500 |
 | [EEND-EDA](eend-eda-2020.paper.yaml) | 2020 | IEEE International C | 450 |
 | [pyannote.audio](pyannote-2020.paper.yaml) | 2020 | IEEE International C | 800 |
@@ -32,6 +33,7 @@ Academic publications on speaker diarization, recognition, and related topics.
 
 ### Self Supervised Learning
 
+* [HuBERT](hubert-2021.paper.yaml) (2021) - [arXiv](https://arxiv.org/abs/2106.07447)
 * [WavLM](wavlm-2022.paper.yaml) (2022) - [arXiv](https://arxiv.org/abs/2110.13900)
 
 ### Speaker Diarization

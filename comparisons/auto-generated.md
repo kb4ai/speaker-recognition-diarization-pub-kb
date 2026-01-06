@@ -8,7 +8,7 @@
 
 * **Tools**: 10
 * **Algorithms**: 10
-* **Models**: 10
+* **Models**: 11
 * **Datasets**: 5
 * **Last updated**: 2026-01-06
 
@@ -92,6 +92,7 @@
 | [WavLM Base Plus Speaker Verification](https://huggingface.co/microsoft/wavlm-base-plus-sv) | WavLM (Transformer) | 512 | 0.84% | microsoft |
 | [WeSpeaker ResNet34-LM](https://huggingface.co/pyannote/wespeaker-voxceleb-resnet34-LM) | ResNet34 | 256 | 0.84% | pyannote |
 | [CAM++ Speaker Embedding](https://huggingface.co/Wespeaker/wespeaker-voxceleb-resnet34-LM) | CAM++ (TDNN + Multi-scale Aggregation) | 192 | 0.87% | wespeaker |
+| [HuBERT Large Speaker Verification](https://huggingface.co/facebook/hubert-large-ls960-ft) | HuBERT (Transformer) | 768 | 1.08% | facebook |
 | TitaNet Small | TitaNet (SE-Res2Net) | 192 | 1.48% | nvidia |
 | [SpeechBrain x-vector Speaker Embedding](https://huggingface.co/speechbrain/spkrec-xvect-voxceleb) | x-vector (TDNN) | 512 | 1.9% | speechbrain |
 

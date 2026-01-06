@@ -1,0 +1,101 @@
+# HuBERT Paper Entry
+# Self-supervised speech representation learning
+
+last-update: "2026-01-06"
+
+title: "HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units"
+short-title: "HuBERT"
+
+arxiv: "2106.07447"
+doi: "10.1109/TASLP.2021.3122291"
+
+authors:
+  - "Wei-Ning Hsu"
+  - "Benjamin Bolte"
+  - "Yao-Hung Hubert Tsai"
+  - "Kushal Lakhotia"
+  - "Ruslan Salakhutdinov"
+  - "Abdelrahman Mohamed"
+
+affiliations:
+  - "Facebook AI Research"
+  - "Carnegie Mellon University"
+
+year: 2021
+
+venue: "IEEE/ACM TASLP"
+venue-type: journal
+
+pdf-url: "https://arxiv.org/pdf/2106.07447.pdf"
+code-url: "https://github.com/facebookresearch/fairseq/tree/main/examples/hubert"
+
+abstract: |
+  Self-supervised approaches for speech representation learning are challenged
+  by three unique problems: (1) there are multiple sound units in each input
+  utterance, (2) there is no lexicon of input sound units during the
+  pre-training phase, and (3) sound units have variable lengths with no
+  explicit segmentation. To deal with these three problems, we propose the
+  Hidden-Unit BERT (HuBERT) approach for self-supervised speech representation
+  learning, which utilizes an offline clustering step to provide aligned
+  target labels for a BERT-like prediction loss.
+
+keywords:
+  - self-supervised learning
+  - speech representation
+  - masked prediction
+  - BERT
+  - speaker verification
+  - speech recognition
+
+topics:
+  - self-supervised-learning
+  - speech-representation
+  - speaker-verification
+
+contributions:
+  - "Offline clustering for pseudo-labels"
+  - "BERT-like masked prediction on speech"
+  - "Iterative refinement of cluster assignments"
+  - "State-of-the-art on SUPERB benchmark"
+
+reported-metrics:
+  superb-sv-eer: 1.08
+  librispeech-wer: 1.9
+  voxceleb1-eer: 1.08
+
+citation-count: 3000
+citation-count-date: "2026-01-06"
+
+cites:
+  - "wav2vec2-2020"
+  - "bert-2019"
+
+cited-by:
+  - "wavlm-2022"
+  - "whisper-2023"
+
+superseded-by: "wavlm-2022"
+
+implementations:
+  - tool: "fairseq"
+    url: "https://github.com/facebookresearch/fairseq/tree/main/examples/hubert"
+    official: true
+  - tool: "transformers"
+    url: "https://huggingface.co/facebook/hubert-large-ls960-ft"
+    official: false
+
+notes:
+  - "Part of SUPERB benchmark suite"
+  - "Precursor to WavLM approach"
+  - "Available in Base (90M) and Large (316M)"
+  - "Strong speaker verification performance"
+  - "Iterative clustering improves representations"
+
+sources:
+  - url: "https://arxiv.org/abs/2106.07447"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://github.com/facebookresearch/fairseq/tree/main/examples/hubert"
+    accessed: "2026-01-06"
+    source-type: code

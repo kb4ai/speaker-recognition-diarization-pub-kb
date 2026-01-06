@@ -1,0 +1,77 @@
+# Facebook HuBERT Speaker Verification Model Entry
+
+last-update: "2026-01-06"
+
+model-id: "facebook/hubert-large-sv"
+name: "HuBERT Large Speaker Verification"
+provider: "facebook"
+
+huggingface-url: "https://huggingface.co/facebook/hubert-large-ls960-ft"
+github-url: "https://github.com/facebookresearch/fairseq/tree/main/examples/hubert"
+model-type: "embedding-model"
+
+description: |
+  Self-supervised speaker verification model based on HuBERT Large.
+  HuBERT uses masked prediction of hidden units for pre-training,
+  learning robust speech representations. Fine-tuned on speaker
+  verification tasks, achieving competitive results on VoxCeleb.
+
+architecture: "HuBERT (Transformer)"
+embedding-dimension: 768
+parameters: "316M"
+
+training:
+  framework: "fairseq"
+  pretraining-dataset: "LibriSpeech 960h"
+  finetuning-dataset: "VoxCeleb1"
+  pretraining-task: "Masked hidden unit prediction"
+
+benchmarks:
+  voxceleb1-eer: 1.08
+  superb-sv-eer: 1.08
+
+input:
+  sample-rate: 16000
+  features: "Raw waveform"
+
+usage:
+  pip-install: "pip install transformers torch torchaudio"
+  code-example: |
+    from transformers import HubertModel, Wav2Vec2FeatureExtractor
+    import torch
+
+    model = HubertModel.from_pretrained("facebook/hubert-large-ls960-ft")
+    extractor = Wav2Vec2FeatureExtractor.from_pretrained(
+        "facebook/hubert-large-ls960-ft"
+    )
+
+    inputs = extractor(audio, sampling_rate=16000, return_tensors="pt")
+    with torch.no_grad():
+        outputs = model(**inputs)
+    # Use last hidden state or pooled output for embeddings
+    embeddings = outputs.last_hidden_state.mean(dim=1)
+
+license: "MIT"
+
+key-innovations:
+  - "Offline clustering for pseudo-labels"
+  - "Iterative refinement of representations"
+  - "BERT-like masked prediction on speech"
+  - "Strong multi-task transfer learning"
+
+notes:
+  - "Precursor to WavLM, similar performance"
+  - "Part of SUPERB benchmark"
+  - "Large model (316M parameters)"
+  - "Good for speaker verification and ASR"
+  - "From Facebook AI Research (Meta)"
+
+sources:
+  - url: "https://huggingface.co/facebook/hubert-large-ls960-ft"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - arxiv: "2106.07447"
+    title: "HuBERT: Self-Supervised Speech Representation Learning"
+    accessed: "2026-01-06"
+    source-type: paper
