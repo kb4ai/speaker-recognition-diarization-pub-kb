@@ -120,15 +120,27 @@ def generate_bibtex_entry(paper, include_abstract=False, key_style='standard'):
 
     lines = [f"@{entry_type}{{{key},"]
 
-    # Title (protect capitalization with braces)
+    # Title (protect capitalization with braces for BibTeX
     title = paper.get('title', 'Unknown Title')
-    # Protect specific terms that should stay capitalized (use word boundaries)
+
+    # Protect acronyms - order by length (longest first) to avoid nested braces
+    # Terms containing other terms must come first: ECAPA-TDNN before TDNN, TDNN before DNN
+    terms_to_protect = ['ECAPA-TDNN', 'VoxCeleb', 'DIHARD', 'EEND', 'TDNN', 'DNN', 'AMI']
+
+    # Use placeholder approach to avoid re-matching
     protected_title = title
-    terms = ['ECAPA-TDNN', 'TDNN', 'EEND', 'DNN', 'VoxCeleb', 'DIHARD', 'AMI']
-    for term in terms:
-        # Only replace if not already protected
-        if '{' + term + '}' not in protected_title:
-            protected_title = protected_title.replace(term, '{' + term + '}')
+    placeholders = {}
+
+    for i, term in enumerate(terms_to_protect):
+        if term in protected_title:
+            placeholder = f"__TERM_{i}__"
+            placeholders[placeholder] = '{' + term + '}'
+            protected_title = protected_title.replace(term, placeholder)
+
+    # Restore all placeholders
+    for placeholder, replacement in placeholders.items():
+        protected_title = protected_title.replace(placeholder, replacement)
+
     lines.append(f"  title={{{protected_title}}},")
 
     # Authors

@@ -87,6 +87,7 @@ fields:
     type: string
     enum:
       - diarization-framework    # Full diarization pipelines
+      - diarization-wrapper      # Simplified wrappers around frameworks
       - embedding-toolkit        # Speaker embedding extraction
       - streaming-diarization    # Real-time capable
       - vad-toolkit              # Voice activity detection
@@ -94,6 +95,7 @@ fields:
       - transcription-diarization # Combined ASR + diarization
       - voice-fingerprinting     # Voice similarity/matching
       - asr-framework            # General ASR with diarization
+      - speech-toolkit           # Multi-purpose speech processing
     description: "Primary category"
 
   secondary-categories:

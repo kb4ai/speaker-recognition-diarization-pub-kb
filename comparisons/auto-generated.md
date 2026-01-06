@@ -6,9 +6,9 @@
 
 ## Summary Statistics
 
-* **Tools**: 8
+* **Tools**: 10
 * **Algorithms**: 10
-* **Models**: 4
+* **Models**: 5
 * **Datasets**: 5
 * **Last updated**: 2026-01-06
 
@@ -16,7 +16,9 @@
 
 * asr-framework: 1
 * diarization-framework: 2
+* diarization-wrapper: 1
 * embedding-toolkit: 2
+* speech-toolkit: 1
 * streaming-diarization: 1
 * transcription-diarization: 1
 * voice-fingerprinting: 1
@@ -27,6 +29,8 @@
 
 | Tool | Stars | Language | Category | Capabilities |
 |------|------:|----------|----------|--------------|
+| [Simple Diarizer](https://github.com/cvqluu/simple_diarizer) | ? | Python | diarization wrapper | diarization |
+| [ESPnet](https://github.com/espnet/espnet) | ? | Python | speech toolkit | diarization, speaker-embedding, speaker-verification, vad, training, asr |
 | [diart](https://github.com/juanmc2005/diart) | ? | Python | streaming diarization | diarization, speaker-embedding, vad, overlap-detection, streaming |
 | [Kaldi](https://github.com/kaldi-asr/kaldi) | ? | C++ | asr framework | diarization, speaker-embedding, speaker-verification, speaker-identification, vad, training |
 | [WhisperX](https://github.com/m-bain/whisperX) | ? | Python | transcription diarization | diarization, vad |
