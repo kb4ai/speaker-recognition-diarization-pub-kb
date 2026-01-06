@@ -1,0 +1,74 @@
+# NVIDIA MSDD Model Entry
+# Multi-Scale Diarization Decoder
+
+last-update: "2026-01-06"
+
+model-id: "nvidia/nemo/diar_msdd_telephonic"
+name: "NVIDIA MSDD (Multi-Scale Diarization Decoder)"
+provider: "nvidia"
+
+ngc-url: "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/diar_msdd_telephonic"
+model-type: "diarization-pipeline"
+
+description: |
+  Multi-Scale Diarization Decoder from NVIDIA NeMo that handles speaker
+  diarization by processing speaker embeddings at multiple temporal scales.
+  Combines speaker embeddings with neural network-based segment assignment
+  for improved overlap handling and speaker boundary detection.
+
+architecture: "Multi-Scale Diarization Decoder (Transformer)"
+output-format: "RTTM speaker segments"
+
+training:
+  framework: "nvidia-nemo"
+  dataset: "VoxCeleb, Fisher, SwitchBoard"
+  augmentation: true
+
+benchmarks:
+  callhome-der: 8.1
+  ami-der: 11.5
+
+input:
+  sample-rate: 16000
+  requires-vad: true
+  requires-embeddings: true
+
+pipeline-components:
+  - "VAD (Marblenet)"
+  - "Speaker Embeddings (TitaNet)"
+  - "MSDD Clustering"
+  - "Overlap Detection"
+
+usage:
+  pip-install: "pip install nemo_toolkit[asr]"
+  code-example: |
+    import nemo.collections.asr as nemo_asr
+    from nemo.collections.asr.models import ClusteringDiarizer
+
+    config = nemo_asr.models.ClusteringDiarizer.from_pretrained(
+        model_name="diar_msdd_telephonic"
+    )
+    diarization = config.diarize()
+
+license: "Apache-2.0"
+
+key-innovations:
+  - "Multi-scale temporal processing"
+  - "Learned scale weighting"
+  - "End-to-end trainable pipeline"
+  - "Native overlap detection"
+
+notes:
+  - "State-of-the-art for telephonic speech"
+  - "Handles overlapping speech natively"
+  - "Requires GPU for reasonable speed"
+  - "Part of NeMo speaker diarization toolkit"
+
+sources:
+  - url: "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/diar_msdd_telephonic"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/asr/speaker_diarization/intro.html"
+    accessed: "2026-01-06"
+    source-type: documentation

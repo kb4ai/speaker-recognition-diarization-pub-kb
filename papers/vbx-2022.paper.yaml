@@ -1,0 +1,83 @@
+# VBx Paper Entry
+# Variational Bayes HMM for speaker diarization
+
+last-update: "2026-01-06"
+
+title: "Bayesian HMM clustering of x-vector sequences (VBx) in speaker diarization: theory, implementation and analysis on standard tasks"
+short-title: "VBx"
+year: 2022
+
+authors:
+  - "Federico Landini"
+  - "Ján Profant"
+  - "Mireia Diez"
+  - "Lukáš Burget"
+
+affiliations:
+  - "Brno University of Technology"
+
+venue: "Computer Speech & Language"
+venue-type: "journal"
+
+arxiv: "2012.14952"
+doi: "10.1016/j.csl.2021.101254"
+pdf-url: "https://arxiv.org/pdf/2012.14952.pdf"
+code-url: "https://github.com/BUTSpeechFIT/VBx"
+
+abstract: |
+  This paper presents VBx, a Bayesian HMM-based clustering method for
+  speaker diarization that operates on sequences of x-vector embeddings.
+  The method uses variational Bayes inference to jointly estimate speaker
+  models and segment assignments. VBx achieves state-of-the-art results
+  across multiple standard diarization benchmarks including CALLHOME,
+  AMI, and DIHARD.
+
+keywords:
+  - "speaker diarization"
+  - "clustering"
+  - "x-vectors"
+  - "variational Bayes"
+  - "HMM"
+
+topics:
+  - "speaker-diarization"
+  - "clustering"
+  - "bayesian-methods"
+
+contributions:
+  - "Variational Bayes inference for speaker clustering"
+  - "HMM-based temporal modeling of speaker sequences"
+  - "Principled handling of speaker count estimation"
+  - "State-of-the-art results on multiple benchmarks"
+
+reported-metrics:
+  callhome-der: 6.64
+  ami-der: 3.97
+  dihard2-der: 18.37
+
+implementations:
+  - tool: "VBx"
+    url: "https://github.com/BUTSpeechFIT/VBx"
+    official: true
+
+  - tool: "pyannote"
+    url: "https://github.com/pyannote/pyannote-audio"
+    official: false
+
+citation-count: 200
+citation-count-date: "2026-01-06"
+
+notes:
+  - "State-of-the-art clustering method for speaker diarization"
+  - "Official implementation available on GitHub"
+  - "Used as backend in pyannote.audio"
+  - "Combines x-vector embeddings with Bayesian HMM"
+
+sources:
+  - arxiv: "2012.14952"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://github.com/BUTSpeechFIT/VBx"
+    accessed: "2026-01-06"
+    source-type: code

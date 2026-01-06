@@ -8,7 +8,7 @@
 
 * **Tools**: 10
 * **Algorithms**: 10
-* **Models**: 5
+* **Models**: 8
 * **Datasets**: 5
 * **Last updated**: 2026-01-06
 
@@ -90,6 +90,8 @@
 | [TitaNet Large](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/titanet_large) | TitaNet | 192 | 0.66% | nvidia |
 | [ECAPA-TDNN Speaker Embedding](https://huggingface.co/speechbrain/spkrec-ecapa-voxceleb) | ECAPA-TDNN | 192 | 0.8% | speechbrain |
 | [WeSpeaker ResNet34-LM](https://huggingface.co/pyannote/wespeaker-voxceleb-resnet34-LM) | ResNet34 | 256 | 0.84% | pyannote |
+| TitaNet Small | TitaNet (SE-Res2Net) | 192 | 1.48% | nvidia |
+| [SpeechBrain x-vector Speaker Embedding](https://huggingface.co/speechbrain/spkrec-xvect-voxceleb) | x-vector (TDNN) | 512 | 1.9% | speechbrain |
 
 ## Datasets Comparison
 

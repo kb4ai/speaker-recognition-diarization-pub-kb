@@ -8,21 +8,21 @@ This document outlines the implementation roadmap to transform this repository i
 
 * **10 Tools**: pyannote, speechbrain, nvidia-nemo, kaldi, diart, resemblyzer, whisperx, wespeaker, simple-diarizer, espnet
 * **10 Algorithms**: 3 embedding, 3 clustering, 2 VAD, 2 end-to-end
-* **5 Models**: speechbrain ECAPA, pyannote diarization 3.1, nvidia titanet, wespeaker resnet34, nvidia sortformer
+* **8 Models**: ECAPA, TitaNet (large/small), x-vector, ResNet34, Sortformer, MSDD, pyannote diarization 3.1
 * **5 Datasets**: VoxCeleb1/2, AMI, CALLHOME, DIHARD
-* **6 Papers**: ECAPA-TDNN, x-vectors, pyannote, VoxCeleb1, VoxCeleb2, EEND
+* **9 Papers**: ECAPA-TDNN, x-vectors, i-vectors, pyannote, VoxCeleb1/2, EEND, EEND-EDA, VBx
 * **6 Schema Specs**: tool, algorithm, model, dataset, paper, source
-* **Scripts**: validation, table generation, README generation, source verification, clone-all
-* **Makefile**: validate, tables, readme, clone, sources, clean targets
+* **Scripts**: validation, table generation, README generation, source verification, clone-all, analyze-repo, generate-bib, extract-citations, update-stats, archive-url
+* **Makefile**: validate, tables, readme, clone, sources, bib, citations, stats, archive targets
 * **10 Auto-generated READMEs**: One per directory with data extraction
-* **Bibliography**: 16 BibTeX entries in archives/bibliography/
+* **Bibliography**: 16+ BibTeX entries in archives/bibliography/
 * **Archived Research**: Perplexity research in printouts/
 
 ### What's Missing
 
-* **More Papers**: i-vectors, clustering papers, EEND-EDA
-* **More Models**: more speechbrain models, more NeMo models
-* **Phase 4/5**: README/CONTRIBUTING enhancements, automation scripts
+* **More Papers**: ResNet speaker embedding, d-vector/GE2E, Conformer models
+* **More Models**: WavLM-based embeddings, Conformer-based embeddings
+* **Phase 6.2**: Deep analysis support (in progress)
 
 ## Implementation Phases
 

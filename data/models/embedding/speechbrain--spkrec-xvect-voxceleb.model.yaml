@@ -1,0 +1,59 @@
+# SpeechBrain x-vector Model Entry
+
+last-update: "2026-01-06"
+
+model-id: "speechbrain/spkrec-xvect-voxceleb"
+name: "SpeechBrain x-vector Speaker Embedding"
+provider: "speechbrain"
+
+huggingface-url: "https://huggingface.co/speechbrain/spkrec-xvect-voxceleb"
+model-type: "embedding-model"
+
+description: |
+  X-vector speaker embedding model trained on VoxCeleb using SpeechBrain.
+  Based on the original x-vector TDNN architecture from Snyder et al. (2018).
+  Lighter weight than ECAPA-TDNN but still performant.
+
+architecture: "x-vector (TDNN)"
+embedding-dimension: 512
+parameters: "4.2M"
+
+training:
+  framework: "speechbrain"
+  dataset: "VoxCeleb1 + VoxCeleb2"
+  augmentation: true
+
+benchmarks:
+  voxceleb1-eer: 1.9
+  voxceleb1-minDCF: 0.15
+
+input:
+  sample-rate: 16000
+  features: "MFCCs"
+
+usage:
+  pip-install: "pip install speechbrain"
+  code-example: |
+    from speechbrain.inference.speaker import EncoderClassifier
+    classifier = EncoderClassifier.from_hparams(
+        source="speechbrain/spkrec-xvect-voxceleb",
+        savedir="tmp/xvect"
+    )
+    embeddings = classifier.encode_batch(wavs)
+
+license: "Apache-2.0"
+
+notes:
+  - "Classic x-vector architecture"
+  - "Lighter than ECAPA-TDNN (4.2M vs 14.7M parameters)"
+  - "Good balance of accuracy and efficiency"
+  - "Based on Snyder et al. 2018 architecture"
+
+sources:
+  - url: "https://huggingface.co/speechbrain/spkrec-xvect-voxceleb"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://github.com/speechbrain/speechbrain"
+    accessed: "2026-01-06"
+    source-type: code

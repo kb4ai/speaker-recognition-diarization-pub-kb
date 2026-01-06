@@ -193,9 +193,9 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, check [schemas/](schemas
 |----------|-------|-----------|
 | Tools | 10 | `data/tools/` |
 | Algorithms | 10 | `data/algorithms/` |
-| Models | 5 | `data/models/` |
+| Models | 8 | `data/models/` |
 | Datasets | 5 | `data/datasets/` |
-| Papers | 6 | `papers/` |
+| Papers | 9 | `papers/` |
 | Knowledge Articles | 14 | `knowledge/` |
 | Schemas | 6 | `schemas/` |
 

@@ -1,0 +1,59 @@
+# NVIDIA TitaNet Small Model Entry
+
+last-update: "2026-01-06"
+
+model-id: "nvidia/nemo/titanet_small"
+name: "TitaNet Small"
+provider: "nvidia"
+
+ngc-url: "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/titanet_small"
+model-type: "embedding-model"
+
+description: |
+  Compact version of TitaNet speaker embedding model from NVIDIA NeMo.
+  Optimized for edge deployment and real-time applications while
+  maintaining competitive accuracy. Uses the same SE-Res2Net architecture
+  as TitaNet Large but with fewer parameters.
+
+architecture: "TitaNet (SE-Res2Net)"
+embedding-dimension: 192
+parameters: "3M"
+
+training:
+  framework: "nvidia-nemo"
+  dataset: "VoxCeleb1 + VoxCeleb2"
+  augmentation: true
+
+benchmarks:
+  voxceleb1-eer: 1.48
+  voxceleb1-minDCF: 0.11
+
+input:
+  sample-rate: 16000
+  features: "FilterBank (80-dim)"
+
+usage:
+  pip-install: "pip install nemo_toolkit[asr]"
+  code-example: |
+    import nemo.collections.asr as nemo_asr
+    speaker_model = nemo_asr.models.EncDecSpeakerLabelModel.from_pretrained(
+        model_name="titanet_small"
+    )
+    embeddings = speaker_model.get_embedding(audio_signal)
+
+license: "Apache-2.0"
+
+notes:
+  - "10x smaller than TitaNet Large"
+  - "Suitable for edge/mobile deployment"
+  - "Real-time capable on CPU"
+  - "Good accuracy/size tradeoff"
+
+sources:
+  - url: "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/titanet_small"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://github.com/NVIDIA/NeMo"
+    accessed: "2026-01-06"
+    source-type: code

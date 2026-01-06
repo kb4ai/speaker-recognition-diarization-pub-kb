@@ -1,0 +1,79 @@
+# EEND-EDA Paper Entry
+# Extension of EEND with encoder-decoder based attractors
+
+last-update: "2026-01-06"
+
+title: "End-to-End Neural Diarization: Reformulating Speaker Diarization as Simple Multi-label Classification"
+short-title: "EEND-EDA"
+year: 2020
+
+authors:
+  - "Shota Horiguchi"
+  - "Yusuke Fujita"
+  - "Shinji Watanabe"
+  - "Yawen Xue"
+  - "Kenji Nagamatsu"
+
+affiliations:
+  - "Hitachi, Ltd."
+  - "Johns Hopkins University"
+
+venue: "IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)"
+venue-type: "conference"
+
+arxiv: "2003.02966"
+doi: "10.1109/ICASSP40776.2020.9054785"
+pdf-url: "https://arxiv.org/pdf/2003.02966.pdf"
+
+abstract: |
+  This paper proposes an end-to-end neural diarization method that
+  handles a flexible number of speakers by introducing encoder-decoder
+  based attractors (EDA). The attractors are generated from the encoded
+  speech features and used to produce speaker-wise embeddings for each
+  frame. The method achieves state-of-the-art results on CALLHOME and
+  handles variable numbers of speakers without needing to pre-specify
+  the number.
+
+keywords:
+  - "speaker diarization"
+  - "end-to-end"
+  - "encoder-decoder"
+  - "attractors"
+  - "multi-label classification"
+
+topics:
+  - "speaker-diarization"
+  - "end-to-end"
+  - "neural-network-architecture"
+
+contributions:
+  - "Encoder-decoder based attractor (EDA) mechanism"
+  - "Flexible handling of variable number of speakers"
+  - "Multi-label classification reformulation of diarization"
+  - "Improved performance over original EEND"
+
+reported-metrics:
+  callhome-der: 7.11
+  callhome2-der: 11.84
+
+implementations:
+  - tool: "espnet"
+    url: "https://github.com/espnet/espnet/tree/master/egs2/callhome/diar1"
+    official: false
+
+supersedes:
+  - "eend-2019"
+
+citation-count: 450
+citation-count-date: "2026-01-06"
+
+notes:
+  - "Major improvement over original EEND paper"
+  - "EDA allows handling unknown number of speakers"
+  - "Foundation for modern end-to-end diarization systems"
+  - "Integrated into ESPnet toolkit"
+
+sources:
+  - arxiv: "2003.02966"
+    accessed: "2026-01-06"
+    source-type: primary

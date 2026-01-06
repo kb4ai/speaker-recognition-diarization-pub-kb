@@ -1,0 +1,82 @@
+# i-vectors Paper Entry
+# Foundational paper for speaker embeddings using total variability modeling
+
+last-update: "2026-01-06"
+
+title: "Front-End Factor Analysis for Speaker Verification"
+short-title: "i-vectors"
+year: 2011
+
+authors:
+  - "Najim Dehak"
+  - "Patrick J. Kenny"
+  - "Réda Dehak"
+  - "Pierre Dumouchel"
+  - "Pierre Ouellet"
+
+affiliations:
+  - "Centre de Recherche Informatique de Montréal (CRIM)"
+  - "École de Technologie Supérieure"
+
+venue: "IEEE Transactions on Audio, Speech, and Language Processing"
+venue-type: "journal"
+
+doi: "10.1109/TASL.2010.2064307"
+pdf-url: "https://www.crim.ca/perso/patrick.kenny/FrontEnd.pdf"
+
+abstract: |
+  This paper presents a new speaker verification system based on a
+  front-end factor analysis approach. The system uses a single space
+  called the total variability space to model both speaker and channel
+  variability. Speaker verification is performed by extracting a
+  low-dimensional feature vector called the identity vector (i-vector)
+  from the total variability space. The i-vector approach provides
+  state-of-the-art performance on NIST SRE evaluations.
+
+keywords:
+  - "speaker verification"
+  - "speaker embedding"
+  - "total variability"
+  - "factor analysis"
+  - "i-vector"
+
+topics:
+  - "speaker-verification"
+  - "speaker-embedding"
+  - "statistical-modeling"
+
+contributions:
+  - "Total variability modeling combining speaker and channel factors"
+  - "Low-dimensional i-vector representation of utterances"
+  - "Foundation for modern speaker embedding approaches"
+  - "PLDA backend for i-vector scoring"
+
+reported-metrics:
+  nist-sre-2010-eer: 2.69
+
+implementations:
+  - tool: "kaldi"
+    url: "https://github.com/kaldi-asr/kaldi/tree/master/egs/sre10"
+    official: false
+
+  - tool: "bob"
+    url: "https://gitlab.idiap.ch/bob/bob.bio.spear"
+    official: false
+
+superseded-by:
+  - "x-vectors-2018"
+
+citation-count: 3500
+citation-count-date: "2026-01-06"
+
+notes:
+  - "Foundational paper that established i-vectors as the standard"
+  - "Superseded by x-vectors but concepts remain influential"
+  - "Total variability approach unified speaker and channel modeling"
+  - "Still used as baseline in modern speaker recognition research"
+
+sources:
+  - url: "https://ieeexplore.ieee.org/document/5545402"
+    doi: "10.1109/TASL.2010.2064307"
+    accessed: "2026-01-06"
+    source-type: primary
