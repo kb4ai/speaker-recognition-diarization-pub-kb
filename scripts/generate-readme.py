@@ -493,45 +493,131 @@ def generate_schemas_readme():
 
 
 def generate_knowledge_readme():
-    """Generate knowledge/README.md"""
+    """Generate knowledge/README.md with dynamic article indexing"""
+    # Scan knowledge subdirectories for markdown files
+    knowledge_dir = PROJECT_ROOT / "knowledge"
+
+    subdirs = {
+        'fundamentals': {
+            'title': 'Fundamentals',
+            'description': 'Core concepts, pipeline architecture, and terminology'
+        },
+        'algorithms': {
+            'title': 'Algorithm Deep-Dives',
+            'description': 'Detailed explanations of key algorithms'
+        },
+        'tutorials': {
+            'title': 'Tutorials',
+            'description': 'Step-by-step guides and quickstarts'
+        },
+        'comparisons': {
+            'title': 'Comparisons',
+            'description': 'Framework and technology comparisons'
+        },
+        'concepts': {
+            'title': 'Concepts',
+            'description': 'Advanced conceptual topics'
+        },
+        'math': {
+            'title': 'Mathematical Foundations',
+            'description': 'Mathematical background and formulations'
+        }
+    }
+
+    def extract_title(filepath):
+        """Extract title from markdown file (first H1 header)"""
+        try:
+            with open(filepath) as f:
+                for line in f:
+                    if line.startswith('# '):
+                        return line[2:].strip()
+        except:
+            pass
+        # Fallback to filename
+        return filepath.stem.replace('-', ' ').title()
+
+    def count_articles(subdir):
+        """Count markdown articles in subdirectory"""
+        articles = list((knowledge_dir / subdir).glob("*.md"))
+        return [a for a in articles if a.name != "README.md"]
+
+    # Count total articles
+    total = 0
+    articles_by_section = {}
+    for subdir in subdirs:
+        subdir_path = knowledge_dir / subdir
+        if subdir_path.exists():
+            articles = count_articles(subdir)
+            articles_by_section[subdir] = articles
+            total += len(articles)
+
     lines = [
         "# Knowledge Articles",
         "",
         "Educational content explaining speaker diarization concepts, algorithms, and best practices.",
         "",
+        f"**Total: {total} articles**",
+        "",
         "## Structure",
         "",
         "```",
         "knowledge/",
-        "├── fundamentals/     # Core concepts and terminology",
-        "├── algorithms/       # Algorithm deep-dives",
-        "├── tutorials/        # Step-by-step guides",
-        "└── comparisons/      # Technology comparisons",
+    ]
+
+    for subdir, info in subdirs.items():
+        count = len(articles_by_section.get(subdir, []))
+        lines.append(f"├── {subdir}/       # {info['description']} ({count})")
+
+    lines.extend([
         "```",
         "",
-        "## Planned Articles",
+        "## Quick Start",
         "",
-        "### Fundamentals",
+        "New to speaker diarization? Start with:",
         "",
-        "* Speaker Diarization Pipeline Overview",
-        "* Evaluation Metrics (DER, EER, RTF)",
-        "* Speaker Embeddings Explained",
-        "* Glossary of Terms",
+        "1. [Pipeline Architecture](fundamentals/pipeline-architecture.md) - Overview of the 4-stage pipeline",
+        "2. [Speaker Embeddings](fundamentals/speaker-embeddings.md) - Understanding voice representations",
+        "3. [Evaluation Metrics](fundamentals/evaluation-metrics.md) - DER, EER, and how to measure quality",
+        "4. [Glossary](fundamentals/glossary.md) - Terminology reference",
         "",
-        "### Algorithm Deep-Dives",
+    ])
+
+    # Generate article index for each section
+    for subdir, info in subdirs.items():
+        articles = articles_by_section.get(subdir, [])
+        if articles:
+            lines.extend([
+                f"## {info['title']}",
+                "",
+                f"*{info['description']}*",
+                "",
+            ])
+
+            for article in sorted(articles, key=lambda x: x.name):
+                title = extract_title(article)
+                rel_path = f"{subdir}/{article.name}"
+                lines.append(f"* [{title}]({rel_path})")
+
+            lines.append("")
+
+    lines.extend([
+        "## Learning Path",
         "",
-        "* ECAPA-TDNN Architecture",
-        "* Clustering Methods Comparison",
-        "* Real-time vs Offline Processing",
+        "| Level | Topics | Articles |",
+        "|-------|--------|----------|",
+        "| Beginner | Pipeline, Embeddings, Metrics | fundamentals/ |",
+        "| Intermediate | ECAPA-TDNN, Clustering, Streaming | algorithms/ |",
+        "| Practical | Pyannote, Framework Selection | tutorials/, comparisons/ |",
         "",
         "## Contributing",
         "",
         "Add articles as markdown files in the appropriate subdirectory.",
+        "See [CONTRIBUTING.md](../CONTRIBUTING.md) for guidelines.",
         "",
         "---",
         "",
-        f"*Last updated: {date.today()}*",
-    ]
+        f"*Auto-generated on {date.today()}*",
+    ])
 
     return "\n".join(lines)
 

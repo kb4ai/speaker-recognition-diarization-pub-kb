@@ -4,22 +4,25 @@ This document outlines the implementation roadmap to transform this repository i
 
 ## Current State Assessment
 
-### What Exists
+### What Exists (Updated 2026-01-06)
 
-* **5 Tools**: pyannote, speechbrain, nvidia-nemo, kaldi, diart
+* **8 Tools**: pyannote, speechbrain, nvidia-nemo, kaldi, diart, resemblyzer, whisperx, wespeaker
 * **10 Algorithms**: 3 embedding, 3 clustering, 2 VAD, 2 end-to-end
+* **4 Models**: speechbrain ECAPA, pyannote diarization 3.1, nvidia titanet, wespeaker resnet34
 * **5 Datasets**: VoxCeleb1/2, AMI, CALLHOME, DIHARD
+* **5 Papers**: ECAPA-TDNN, x-vectors, pyannote, VoxCeleb1, VoxCeleb2
 * **6 Schema Specs**: tool, algorithm, model, dataset, paper, source
-* **Scripts**: validation, table generation, source verification, clone-all
-* **Makefile**: validate, tables, clone, sources, clean targets
+* **Scripts**: validation, table generation, README generation, source verification, clone-all
+* **Makefile**: validate, tables, readme, clone, sources, clean targets
+* **10 Auto-generated READMEs**: One per directory with data extraction
+* **Bibliography**: 16 BibTeX entries in archives/bibliography/
+* **Archived Research**: Perplexity research in printouts/
 
 ### What's Missing
 
-* **Models**: No pre-trained model entries (pyannote, speechbrain, nvidia)
-* **Papers**: No paper entries (need ECAPA-TDNN, x-vector, EEND papers)
-* **Archived Content**: printouts/ mostly empty
-* **Bibliography**: No .bib collection
-* **Knowledge Articles**: knowledge/ directory skeleton only
+* **Knowledge Articles**: knowledge/ directory needs educational content
+* **More Papers**: EEND, i-vectors, clustering papers
+* **More Models**: nvidia sortformer, more speechbrain models
 
 ## Implementation Phases
 
@@ -82,24 +85,89 @@ From research, add:
 * [ ] `wenet-e2e--wespeaker.tool.yaml` - Speaker embedding toolkit
 * [ ] `espnet--espnet-spk.tool.yaml` - ESPnet speaker module
 
-### Phase 3: Knowledge Articles (Priority: Medium)
+### Phase 3: Knowledge Articles (Priority: High - SUBSTANTIAL PROGRESS)
 
-#### 3.1 Fundamentals
+The `knowledge/` directory provides educational content for practitioners learning speaker diarization.
 
-Create in `knowledge/fundamentals/`:
+**Status:** 10 articles created across 4 subdirectories.
 
-* [ ] `speaker-diarization-pipeline.md` - Overview of 4-stage pipeline
-* [ ] `evaluation-metrics.md` - DER, EER, RTF explained
-* [ ] `speaker-embeddings.md` - What embeddings are and how they work
-* [ ] `glossary.md` - Terminology reference
+#### 3.1 Directory Structure
 
-#### 3.2 Algorithms Deep Dives
+```
+knowledge/
+├── README.md                    # Auto-generated index (✓)
+├── fundamentals/                # Core concepts - 6 articles
+│   ├── pipeline-architecture.md (✓)
+│   ├── evaluation-metrics.md (✓)
+│   ├── speaker-embeddings.md (✓)
+│   ├── glossary.md (✓)
+│   ├── realtime-vs-offline.md (✓)
+│   └── rttm-format.md (✓)
+├── algorithms/                  # Deep dives - 2 articles
+│   ├── ecapa-tdnn-explained.md (✓)
+│   └── clustering-comparison.md (✓)
+├── tutorials/                   # Step-by-step guides - 1 article
+│   └── pyannote-quickstart.md (✓)
+└── comparisons/                 # Decision guides - 1 article
+    └── framework-selection.md (✓)
+```
 
-Create in `knowledge/algorithms/`:
+#### 3.2 Fundamentals (Priority: Highest) - COMPLETE
 
-* [ ] `ecapa-tdnn-explained.md` - Architecture and innovations
-* [ ] `clustering-comparison.md` - AHC vs Spectral vs VBx
-* [ ] `real-time-vs-offline.md` - Trade-offs and approaches
+Created in `knowledge/fundamentals/`:
+
+* [x] `pipeline-architecture.md` - Overview of 4-stage pipeline
+  - VAD → Segmentation → Embedding → Clustering
+  - Diagram of data flow
+  - End-to-end vs modular approaches
+
+* [x] `evaluation-metrics.md` - DER, EER, RTF explained
+  - Formula and interpretation for each metric
+  - Benchmark values by dataset
+  - Collar and overlap handling
+
+* [x] `speaker-embeddings.md` - What embeddings are and how they work
+  - i-vectors, x-vectors, ECAPA-TDNN evolution
+  - Cosine similarity and PLDA
+  - Pre-trained model comparison
+
+* [x] `glossary.md` - Terminology reference
+  - 40+ terms with definitions
+  - Cross-references to detailed articles
+  - Organized alphabetically
+
+* [x] `realtime-vs-offline.md` - Streaming considerations
+* [x] `rttm-format.md` - Annotation format specification
+
+#### 3.3 Algorithm Deep Dives - COMPLETE
+
+Created in `knowledge/algorithms/`:
+
+* [x] `ecapa-tdnn-explained.md` - Architecture and innovations
+  - Res2Net blocks with diagrams
+  - Squeeze-and-Excitation mechanism
+  - Attentive statistics pooling
+  - Mathematical formulations
+
+* [x] `clustering-comparison.md` - AHC vs Spectral vs VBx
+  - Algorithm descriptions with code
+  - Complexity analysis
+  - When to use each approach
+
+#### 3.4 Tutorials (Priority: Medium) - PARTIAL
+
+Created in `knowledge/tutorials/`:
+
+* [x] `pyannote-quickstart.md` - Get started in 5 minutes
+* [ ] `custom-embedding-training.md` - Train on your data
+* [ ] `building-voice-fingerprint-system.md` - Enrollment + matching
+
+#### 3.5 Comparisons (Priority: Medium) - PARTIAL
+
+Created in `knowledge/comparisons/`:
+
+* [x] `framework-selection.md` - Which tool for which use case
+* [ ] `embedding-architectures.md` - ECAPA vs x-vector vs d-vector
 
 ### Phase 4: Documentation Excellence (Priority: High)
 
