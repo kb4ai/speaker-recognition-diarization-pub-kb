@@ -156,6 +156,51 @@ Clones tracked repositories to `tmp/`.
 ./scripts/clone-all.sh
 ```
 
+### `scripts/generate-bib.py`
+
+Generates BibTeX bibliography from paper YAML entries.
+
+```bash
+# Generate to stdout
+./scripts/generate-bib.py
+
+# Save to file
+./scripts/generate-bib.py > archives/bibliography/papers-auto.bib
+
+# Include abstracts
+./scripts/generate-bib.py --format=full
+```
+
+### `scripts/extract-citations.py`
+
+Extracts and analyzes citations from markdown files in `knowledge/`.
+
+```bash
+# Show all citations found
+./scripts/extract-citations.py
+
+# Show only unmatched citations
+./scripts/extract-citations.py --unmatched
+
+# Verify all citations have paper entries (CI-friendly)
+./scripts/extract-citations.py --verify
+```
+
+### `scripts/update-stats.py`
+
+Fetches current GitHub stats for tool repositories.
+
+```bash
+# Dry run - show current vs remote stats
+./scripts/update-stats.py
+
+# Update YAML files with new stats
+./scripts/update-stats.py --update
+
+# Check specific tool
+./scripts/update-stats.py --tool pyannote
+```
+
 ## Data Flow
 
 ```
@@ -255,39 +300,29 @@ make all
 
 ## Makefile Reference
 
-```makefile
-.PHONY: all validate tables readme clone sources clean help
+Run `make help` for the full list of targets:
 
-# Default target - full regeneration
-all: validate tables readme
+```
+Core:
+  make validate      - Validate all YAML files
+  make tables        - Generate comparison tables
+  make readme        - Generate per-directory README files
+  make all           - Run validate + tables + readme
 
-# Validate all YAML files against schemas
-validate:
-    ./scripts/check-yaml.py
+Bibliography:
+  make bib           - Generate BibTeX from paper entries
+  make citations     - Analyze citations in knowledge articles
+  make citations-verify - Verify citations have paper entries
 
-# Generate comparison tables
-tables:
-    ./scripts/generate-tables.py > comparisons/auto-generated.md
+External:
+  make clone         - Clone all tracked repositories
+  make sources       - Verify source URLs
+  make stats         - Check GitHub stats (dry run)
+  make stats-update  - Update GitHub stats in YAML files
 
-# Generate per-directory README files
-readme:
-    ./scripts/generate-readme.py
-
-# Clone all tracked repositories to tmp/
-clone:
-    ./scripts/clone-all.sh
-
-# Verify source URLs are accessible
-sources:
-    ./scripts/verify-sources.py
-
-# Clean generated files
-clean:
-    rm -rf tmp/*
-    rm -f comparisons/auto-generated.md
-    rm -f data/*/README.md
-    rm -f papers/README.md
-    # ... etc
+Maintenance:
+  make clean         - Remove generated files
+  make install       - Install Python dependencies
 ```
 
 ## See Also

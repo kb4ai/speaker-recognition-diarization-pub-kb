@@ -197,21 +197,28 @@ Add sections for:
 * [x] `REGENERATION.md` - How to regenerate tables/reports
 * [x] `RESEARCH_NOTES.md` - Guide to ramblings/ directory
 
-### Phase 5: Automation & Generation (Priority: Medium)
+### Phase 5: Automation & Generation (Priority: Medium) - PARTIAL
 
 #### 5.1 Enhanced Table Generation
 
-* [ ] Tool comparison matrix (capabilities, performance)
-* [ ] Algorithm comparison by category
-* [ ] Dataset statistics summary
-* [ ] Model performance leaderboard
+* [x] Tool comparison matrix (capabilities, performance) - in generate-tables.py
+* [x] Algorithm comparison by category - in generate-tables.py
+* [x] Dataset statistics summary - in generate-tables.py
+* [x] Model performance leaderboard - in generate-tables.py
 
 #### 5.2 Scripts Enhancement
 
-* [ ] `scripts/extract-citations.py` - Parse markdown for citations
-* [ ] `scripts/generate-bib.py` - Create .bib from paper entries
+* [x] `scripts/extract-citations.py` - Parse markdown for citations
+* [x] `scripts/generate-bib.py` - Create .bib from paper entries
 * [ ] `scripts/archive-url.py` - Fetch and archive web content
-* [ ] `scripts/update-stats.py` - Refresh GitHub stats for tools
+* [x] `scripts/update-stats.py` - Refresh GitHub stats for tools
+
+#### 5.3 Makefile Enhancement
+
+* [x] Added `make bib` - Generate BibTeX from paper entries
+* [x] Added `make citations` - Analyze citations in markdown
+* [x] Added `make stats` - Check GitHub stats (dry run)
+* [x] Added `make stats-update` - Update stats in YAML files
 
 ### Phase 6: Repository Cloning & Analysis (Priority: Low)
 
