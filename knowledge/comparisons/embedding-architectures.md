@@ -391,6 +391,7 @@ embeddings = model(**inputs).embeddings  # (1, 512)
 * Snyder et al. "X-vectors: Robust DNN Embeddings for Speaker Recognition" (2018)
 * Desplanques et al. "ECAPA-TDNN" (Interspeech 2020)
 * Chen et al. "WavLM: Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing" (2022)
+* Hsu et al. "HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units" (2021)
 
 ---
 
