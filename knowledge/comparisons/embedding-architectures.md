@@ -1,6 +1,6 @@
 # Embedding Architecture Comparison
 
-Comparing i-vectors, x-vectors, d-vectors, and ECAPA-TDNN for speaker representation.
+Comparing speaker embedding architectures: i-vectors, x-vectors, d-vectors, ECAPA-TDNN, and WavLM.
 
 ## Architecture Overview
 
@@ -10,17 +10,18 @@ Comparing i-vectors, x-vectors, d-vectors, and ECAPA-TDNN for speaker representa
 | **d-vector** | 2014 | Discriminative | 256-512 | LSTM/DNN with GE2E loss |
 | **x-vector** | 2018 | Discriminative | 512 | TDNN with statistics pooling |
 | **ECAPA-TDNN** | 2020 | Discriminative | 192 | Enhanced TDNN with attention |
+| **WavLM** | 2022 | Self-supervised | 512 | Transformer with SSL pre-training |
 
 ## Quick Comparison
 
-| Factor | i-vector | d-vector | x-vector | ECAPA-TDNN |
-|--------|----------|----------|----------|------------|
-| **EER (VoxCeleb1)** | ~5% | ~3% | ~2% | ~0.8% |
-| **Training data needed** | Medium | Large | Large | Large |
-| **Computation (training)** | Low | High | High | High |
-| **Computation (inference)** | Medium | Low | Low | Low |
-| **Handles short audio** | Poor | Good | Good | Best |
-| **Pre-trained available** | Few | Some | Many | Many |
+| Factor | i-vector | d-vector | x-vector | ECAPA-TDNN | WavLM |
+|--------|----------|----------|----------|------------|-------|
+| **EER (VoxCeleb1)** | ~5% | ~3% | ~2% | ~0.8% | ~0.8% |
+| **Training data needed** | Medium | Large | Large | Large | Massive |
+| **Computation (training)** | Low | High | High | High | Very High |
+| **Computation (inference)** | Medium | Low | Low | Low | High |
+| **Handles short audio** | Poor | Good | Good | Best | Good |
+| **Pre-trained available** | Few | Some | Many | Many | Growing |
 
 ## i-vectors (2011)
 
@@ -310,12 +311,75 @@ embedding = classifier.encode_batch(waveform)  # (1, 192)
 3. Reduce embedding dimension (512 → 192)
 4. Apply stronger augmentation during training
 
+## Self-Supervised Embeddings (2021+)
+
+### WavLM / wav2vec 2.0 / HuBERT
+
+A new paradigm using self-supervised learning (SSL) from unlabeled audio.
+
+```
+Audio → CNN encoder → Transformer → [CLS] or pooling → Embedding
+             ↓                           ↓
+     Pre-trained on         Fine-tuned on labeled
+      94k+ hours               speaker data
+```
+
+### How It Works
+
+1. **Self-supervised pre-training**: Masked speech prediction on massive unlabeled data
+2. **Fine-tuning**: Add classification head, train on VoxCeleb
+3. **Embedding extraction**: Use hidden states or add x-vector style pooling
+
+### Key Models
+
+| Model | Pre-train Data | Params | VoxCeleb1 EER |
+|-------|---------------|--------|---------------|
+| WavLM Base+ | 94k hours | 94M | 0.84% |
+| WavLM Large | 94k hours | 316M | ~0.70% |
+| wav2vec 2.0 | 60k hours | 317M | 2.65% |
+| HuBERT Large | 60k hours | 316M | 1.08% |
+
+### Code Example (WavLM)
+
+```python
+from transformers import WavLMForXVector, Wav2Vec2FeatureExtractor
+
+model = WavLMForXVector.from_pretrained("microsoft/wavlm-base-plus-sv")
+extractor = Wav2Vec2FeatureExtractor.from_pretrained("microsoft/wavlm-base-plus-sv")
+
+inputs = extractor(audio, sampling_rate=16000, return_tensors="pt")
+embeddings = model(**inputs).embeddings  # (1, 512)
+```
+
+### Strengths
+
+* State-of-the-art accuracy (sub-1% EER)
+* Robust to noise and domain shift
+* Benefits from scale (more pre-training data = better)
+* Multi-task capability (ASR, SV, diarization)
+
+### Weaknesses
+
+* Large model size (94M-316M parameters)
+* Slow inference without optimization
+* Requires significant compute for fine-tuning
+* Newer, less mature tooling
+
+### When to Use
+
+* When accuracy is paramount
+* Offline processing with GPU available
+* Cross-domain applications (noisy, diverse audio)
+* When leveraging other SSL capabilities
+
 ## Recommendations
 
 | Scenario | Recommended | Rationale |
 |----------|-------------|-----------|
-| New project | ECAPA-TDNN | Best accuracy, compact embeddings |
+| New project (accuracy) | WavLM/ECAPA-TDNN | Best accuracy |
+| New project (balanced) | ECAPA-TDNN | Good accuracy, efficient |
 | Real-time streaming | d-vector | Lowest latency |
+| Edge deployment | TitaNet Small | Compact, fast |
 | Legacy integration | x-vector | Widely supported |
 | No GPU | i-vector | CPU-friendly |
 | Voice cloning | d-vector | GE2E training, Resemblyzer ecosystem |
@@ -326,6 +390,7 @@ embedding = classifier.encode_batch(waveform)  # (1, 192)
 * Wan et al. "Generalized End-to-End Loss for Speaker Verification" (2018) - d-vectors
 * Snyder et al. "X-vectors: Robust DNN Embeddings for Speaker Recognition" (2018)
 * Desplanques et al. "ECAPA-TDNN" (Interspeech 2020)
+* Chen et al. "WavLM: Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing" (2022)
 
 ---
 
