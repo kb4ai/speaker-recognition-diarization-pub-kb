@@ -1,0 +1,115 @@
+# ESPnet Tool Entry (with Speaker Recognition)
+
+last-update: "2026-01-06"
+repo-url: "https://github.com/espnet/espnet"
+
+name: "ESPnet"
+description: "End-to-end speech processing toolkit with speaker recognition and diarization"
+language: "Python"
+license: "Apache-2.0"
+
+category: "speech-toolkit"
+
+capabilities:
+  diarization: true
+  speaker-embedding: true
+  speaker-verification: true
+  vad: true
+  streaming: false
+  training: true
+  asr: true
+
+features:
+  - "End-to-end speech recognition"
+  - "Speaker embedding extraction"
+  - "Speaker diarization (EEND-based)"
+  - "Text-to-speech synthesis"
+  - "Speech enhancement"
+  - "Unified recipe system"
+  - "Extensive pretrained models"
+  - "Kaldi-style data preparation"
+
+installation:
+  pip: "espnet"
+  conda: "conda install -c conda-forge espnet"
+
+requirements:
+  python: ">=3.8"
+  dependencies:
+    - "torch"
+    - "torchaudio"
+    - "numpy"
+    - "scipy"
+    - "PyYAML"
+
+speaker-recognition:
+  embedding-models:
+    - "x-vector"
+    - "ECAPA-TDNN"
+    - "RawNet3"
+  diarization-methods:
+    - "EEND (End-to-End Neural Diarization)"
+    - "EEND-EDA (with Encoder-Decoder Attractor)"
+    - "Clustering-based"
+  verification:
+    - "Speaker verification recipes"
+    - "VoxCeleb evaluation scripts"
+
+example-code: |
+  # Speaker embedding extraction
+  from espnet2.bin.spk_inference import Speech2Embedding
+
+  speech2embedding = Speech2Embedding.from_pretrained(
+      model_tag="espnet/voxcelebs12_ecapa"
+  )
+  embedding = speech2embedding(speech)
+
+  # EEND diarization (using recipe)
+  # cd espnet/egs2/mini_librispeech/diar1
+  # ./run.sh
+
+documentation:
+  readme: true
+  examples: true
+  api-docs: true
+  recipes: true
+
+recipes:
+  speaker-recognition:
+    - "egs2/voxcelebs12/spk1"
+    - "egs2/voxceleb1/spk1"
+  diarization:
+    - "egs2/callhome/diar1"
+    - "egs2/mini_librispeech/diar1"
+    - "egs2/ami/diar1"
+
+performance:
+  voxceleb1-eer: 1.2
+  ami-der: 12.5
+
+community:
+  stars: 7500
+  contributors: 300
+  last-activity: "2026-01"
+
+notes:
+  - "Comprehensive toolkit covering multiple speech tasks"
+  - "Strong EEND implementation for end-to-end diarization"
+  - "Active research community"
+  - "Good for reproducing academic results"
+  - "Steeper learning curve than single-purpose tools"
+
+sources:
+  - url: "https://github.com/espnet/espnet"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://espnet.github.io/espnet/"
+    accessed: "2026-01-06"
+    source-type: primary
+    title: "ESPnet Documentation"
+
+  - arxiv: "1804.00015"
+    title: "ESPnet: End-to-End Speech Processing Toolkit"
+    accessed: "2026-01-06"
+    source-type: primary

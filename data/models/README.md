@@ -2,11 +2,11 @@
 
 Pre-trained speaker embedding and diarization models available on HuggingFace and NGC.
 
-**Total: 4 models**
+**Total: 5 models**
 
 ## Model Types
 
-* [Diarization Pipeline](diarization/) (1)
+* [Diarization Pipeline](diarization/) (2)
 * [Embedding Model](embedding/) (3)
 
 ## Embedding Models
@@ -21,6 +21,7 @@ Pre-trained speaker embedding and diarization models available on HuggingFace an
 
 | Model | DER (AMI) | Provider |
 |-------|----------:|----------|
+| [NVIDIA Sortformer]() | 8.5% | NVIDIA |
 | [pyannote Speaker Diarization 3.1](https://huggingface.co/pyannote/speaker-diarization-3.1) | 10.0% | pyannote |
 
 ## Usage Examples

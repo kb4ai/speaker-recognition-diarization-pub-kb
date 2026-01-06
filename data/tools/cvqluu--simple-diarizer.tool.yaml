@@ -1,0 +1,86 @@
+# Simple Diarizer Tool Entry
+
+last-update: "2026-01-06"
+repo-url: "https://github.com/cvqluu/simple_diarizer"
+
+name: "Simple Diarizer"
+description: "Simplified speaker diarization wrapper using pretrained models"
+language: "Python"
+license: "MIT"
+
+category: "diarization-wrapper"
+
+capabilities:
+  diarization: true
+  speaker-embedding: false
+  vad: false
+  streaming: false
+  training: false
+
+features:
+  - "Simple API for quick diarization"
+  - "Wraps pyannote.audio models"
+  - "Minimal configuration required"
+  - "Outputs standard RTTM format"
+  - "Good for prototyping and testing"
+
+installation:
+  pip: "simple-diarizer"
+  github: "pip install git+https://github.com/cvqluu/simple_diarizer.git"
+
+requirements:
+  python: ">=3.7"
+  dependencies:
+    - "pyannote.audio"
+    - "torch"
+    - "torchaudio"
+
+example-code: |
+  from simple_diarizer.diarizer import Diarizer
+
+  # Initialize with default settings
+  diarizer = Diarizer(
+      embed_model='ecapa',  # or 'xvec'
+      cluster_method='sc'    # spectral clustering
+  )
+
+  # Run diarization
+  segments = diarizer.diarize(
+      wav_file='meeting.wav',
+      num_speakers=None,  # auto-detect
+      threshold=0.5
+  )
+
+  # segments is list of (start, end, speaker_id)
+  for start, end, speaker in segments:
+      print(f"Speaker {speaker}: {start:.2f}s - {end:.2f}s")
+
+documentation:
+  readme: true
+  examples: true
+  api-docs: false
+
+use-cases:
+  - "Quick prototyping"
+  - "Educational purposes"
+  - "Simple diarization tasks"
+  - "Baseline comparisons"
+
+limitations:
+  - "Less configurable than pyannote directly"
+  - "May not have latest model updates"
+  - "Not optimized for production"
+
+notes:
+  - "Good starting point for beginners"
+  - "Consider pyannote.audio for production use"
+  - "Useful for quick experiments"
+
+sources:
+  - url: "https://github.com/cvqluu/simple_diarizer"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://pypi.org/project/simple-diarizer/"
+    accessed: "2026-01-06"
+    source-type: primary

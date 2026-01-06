@@ -6,11 +6,11 @@ This document outlines the implementation roadmap to transform this repository i
 
 ### What Exists (Updated 2026-01-06)
 
-* **8 Tools**: pyannote, speechbrain, nvidia-nemo, kaldi, diart, resemblyzer, whisperx, wespeaker
+* **10 Tools**: pyannote, speechbrain, nvidia-nemo, kaldi, diart, resemblyzer, whisperx, wespeaker, simple-diarizer, espnet
 * **10 Algorithms**: 3 embedding, 3 clustering, 2 VAD, 2 end-to-end
-* **4 Models**: speechbrain ECAPA, pyannote diarization 3.1, nvidia titanet, wespeaker resnet34
+* **5 Models**: speechbrain ECAPA, pyannote diarization 3.1, nvidia titanet, wespeaker resnet34, nvidia sortformer
 * **5 Datasets**: VoxCeleb1/2, AMI, CALLHOME, DIHARD
-* **5 Papers**: ECAPA-TDNN, x-vectors, pyannote, VoxCeleb1, VoxCeleb2
+* **6 Papers**: ECAPA-TDNN, x-vectors, pyannote, VoxCeleb1, VoxCeleb2, EEND
 * **6 Schema Specs**: tool, algorithm, model, dataset, paper, source
 * **Scripts**: validation, table generation, README generation, source verification, clone-all
 * **Makefile**: validate, tables, readme, clone, sources, clean targets
@@ -20,9 +20,9 @@ This document outlines the implementation roadmap to transform this repository i
 
 ### What's Missing
 
-* **Knowledge Articles**: knowledge/ directory needs educational content
-* **More Papers**: EEND, i-vectors, clustering papers
-* **More Models**: nvidia sortformer, more speechbrain models
+* **More Papers**: i-vectors, clustering papers, EEND-EDA
+* **More Models**: more speechbrain models, more NeMo models
+* **Phase 4/5**: README/CONTRIBUTING enhancements, automation scripts
 
 ## Implementation Phases
 
@@ -62,7 +62,7 @@ Create entries in `data/models/`:
 * [x] `embedding/speechbrain--spkrec-ecapa-voxceleb.model.yaml`
 * [x] `embedding/nvidia--titanet-large.model.yaml`
 * [x] `diarization/pyannote--speaker-diarization-3.1.model.yaml`
-* [ ] `diarization/nvidia--sortformer.model.yaml`
+* [x] `diarization/nvidia--sortformer.model.yaml`
 
 #### 2.2 Research Paper Entries
 
@@ -81,9 +81,9 @@ From research, add:
 
 * [x] `resemble-ai--resemblyzer.tool.yaml` - Voice fingerprinting
 * [x] `m-bain--whisperx.tool.yaml` - ASR + diarization
-* [ ] `cvqluu--simple-diarizer.tool.yaml` - Simple wrapper
+* [x] `cvqluu--simple-diarizer.tool.yaml` - Simple wrapper
 * [x] `wenet-e2e--wespeaker.tool.yaml` - Speaker embedding toolkit
-* [ ] `espnet--espnet-spk.tool.yaml` - ESPnet speaker module
+* [x] `espnet--espnet.tool.yaml` - ESPnet speech toolkit with speaker module
 
 ### Phase 3: Knowledge Articles (Priority: High - COMPLETE)
 

@@ -1,0 +1,100 @@
+# NVIDIA Sortformer Diarization Model
+
+last-update: "2026-01-06"
+
+model-id: "nvidia/sortformer_diar_4spk-v1"
+name: "NVIDIA Sortformer"
+provider: "NVIDIA"
+ngc-url: "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/sortformer_diar_4spk-v1"
+
+model-type: "diarization-pipeline"
+architecture: "Sortformer (Transformer-based)"
+
+description: |
+  Multi-scale speaker diarization model using dynamic scale weighting.
+  Sortformer processes multiple temporal scales simultaneously and learns
+  to weight them dynamically based on input characteristics. Achieves
+  state-of-the-art results on challenging benchmarks.
+
+approach: "end-to-end"
+
+key-innovations:
+  - "Multi-scale temporal processing"
+  - "Dynamic scale weighting mechanism"
+  - "Sort-based speaker assignment"
+  - "End-to-end trainable pipeline"
+
+training:
+  datasets:
+    - "VoxCeleb"
+    - "DIHARD III"
+    - "AMI"
+    - "Fisher"
+  max-speakers: 4
+
+benchmarks:
+  ami-der: 8.5
+  dihard3-der: 11.2
+  callhome-der: 9.8
+
+usage:
+  requires-token: false
+  license: "Apache-2.0"
+  commercial-use: true
+  fine-tunable: true
+
+requirements:
+  min-gpu-memory: "8GB"
+  input-sample-rate: 16000
+  input-channels: 1
+  framework: "NVIDIA NeMo"
+
+example-code: |
+  import nemo.collections.asr as nemo_asr
+  from nemo.collections.asr.models import ClusteringDiarizer
+
+  # Load pretrained model
+  diarizer_model = ClusteringDiarizer.from_pretrained(
+      model_name="nvidia/sortformer_diar_4spk-v1"
+  )
+
+  # Configure input
+  diarizer_model.diarize(
+      audio_filepath="meeting.wav",
+      num_speakers=None,  # Auto-detect
+      max_num_speakers=4
+  )
+
+features:
+  - "Multi-scale temporal analysis"
+  - "Dynamic weighting of temporal scales"
+  - "Handles up to 4 speakers"
+  - "Competitive with pyannote on benchmarks"
+  - "Integrated with NVIDIA NeMo ecosystem"
+
+limitations:
+  - "Maximum 4 speakers (model-specific)"
+  - "Requires NVIDIA GPU"
+  - "NeMo framework dependency"
+
+related-papers:
+  - "park2022sortformer"
+
+notes:
+  - "Part of NVIDIA NeMo Conversational AI toolkit"
+  - "Optimized for NVIDIA GPUs with TensorRT"
+  - "Alternative to pyannote for enterprise deployments"
+
+sources:
+  - url: "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/sortformer_diar_4spk-v1"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://docs.nvidia.com/deeplearning/nemo/user-guide/docs/en/main/asr/speaker_diarization/intro.html"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://www.isca-archive.org/interspeech_2022/park22d_interspeech.html"
+    title: "Multi-scale Speaker Diarization with Dynamic Scale Weighting"
+    accessed: "2026-01-06"
+    source-type: primary
