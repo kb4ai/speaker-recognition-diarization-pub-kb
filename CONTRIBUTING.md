@@ -411,13 +411,91 @@ README files contain auto-generated sections marked with comments:
 
 Run `make readme` to refresh these sections.
 
+## Citing Code References
+
+When referencing specific code from a repository, use the comprehensive citation format:
+
+```yaml
+sources:
+  - url: "https://github.com/pyannote/pyannote-audio"
+    accessed: "2026-01-06"
+    commit: "3a7b8c9d"                              # Short commit hash
+    file-path: "pyannote/audio/models/embedding.py" # Path from repo root
+    line-range: "L156-L200"                         # Line numbers
+    source-type: code
+    notes: "ECAPA-TDNN forward pass implementation"
+```
+
+This enables:
+
+* **Verification**: Exact code location
+* **Version tracking**: Specific commit, not "latest"
+* **Change detection**: Know when referenced code changes
+
+### Getting Commit Hashes
+
+```bash
+# Current HEAD
+git rev-parse --short HEAD
+
+# For a cloned repository
+cd tmp/pyannote-audio
+git rev-parse --short HEAD
+```
+
+## BibTeX Bibliography
+
+Academic citations go in `archives/bibliography/speaker-diarization.bib`:
+
+```bibtex
+@inproceedings{desplanques2020ecapa,
+  title={ECAPA-TDNN: Emphasized Channel Attention...},
+  author={Desplanques, Brecht and Thienpondt, Jenthe and Demuynck, Kris},
+  booktitle={Interspeech 2020},
+  year={2020},
+  organization={ISCA}
+}
+```
+
+Reference in YAML entries:
+
+```yaml
+sources:
+  - arxiv: "2005.07143"
+    bibtex-key: "desplanques2020ecapa"
+    accessed: "2026-01-06"
+    source-type: primary
+```
+
 ## Commit Guidelines
 
-* Use descriptive commit messages
-* Reference what type of content changed
-* Include `last-update` date in commit message for batch updates
+### Commit Message Format
 
-Example:
+```
+<type>: <short description>
+
+<detailed description>
+- Bullet points for specific changes
+- Reference affected files
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+```
+
+### Types
+
+| Type | Use For |
+|------|---------|
+| `Add` | New entries (tools, papers, articles) |
+| `Update` | Modifications to existing entries |
+| `Fix` | Corrections, typo fixes |
+| `Enhance` | Improvements to documentation |
+| `Regen` | Regenerated auto-generated content |
+
+### Example Commits
+
+**Adding new entry:**
 
 ```
 Add Resemblyzer tool entry
@@ -425,6 +503,34 @@ Add Resemblyzer tool entry
 - New tool: resemble-ai--resemblyzer.tool.yaml
 - Voice fingerprinting using d-vectors
 - Sources: GitHub repo, PyPI
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+```
+
+**Updating existing entry:**
+
+```
+Update pyannote tool with v3.1 details
+
+- Updated benchmarks with latest DER figures
+- Added streaming capability note
+- Sources verified 2026-01-06
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+```
+
+**Batch update:**
+
+```
+Regen all READMEs after tool additions
+
+- Added 3 new tools: simple-diarizer, espnet, sortformer
+- Updated stats in all directory READMEs
+- Validation: 36 files, 0 errors
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 

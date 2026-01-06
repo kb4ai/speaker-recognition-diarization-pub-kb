@@ -175,21 +175,21 @@ Created in `knowledge/comparisons/`:
 
 Transform into comprehensive entry point:
 
-* [ ] Clear scope statement
-* [ ] Visual diagram of knowledge structure
-* [ ] Quick start for different user types
-* [ ] Navigation guide to all sections
-* [ ] Auditability and traceability principles
+* [x] Clear scope statement
+* [x] Visual diagram of knowledge structure (Mermaid)
+* [x] Quick start for different user types (Learning Path)
+* [x] Navigation guide to all sections
+* [x] Auditability and traceability principles
 
 #### 4.2 CONTRIBUTING.md Enhancement
 
 Add sections for:
 
-* [ ] Source citation requirements with examples
-* [ ] Archival procedures (printouts, bibliography)
-* [ ] Git commit conventions for this KB
-* [ ] Quality checklist for new entries
-* [ ] How to cite repository references (repo+commit+path+line)
+* [x] Source citation requirements with examples
+* [x] Archival procedures (printouts, bibliography)
+* [x] Git commit conventions for this KB
+* [x] Quality checklist for new entries
+* [x] How to cite repository references (repo+commit+path+line)
 
 #### 4.3 New Documentation Files
 
