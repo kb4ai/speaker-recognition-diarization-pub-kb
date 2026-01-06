@@ -1,0 +1,115 @@
+# WavLM Paper Entry
+# Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing
+
+last-update: "2026-01-06"
+
+title: "WavLM: Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing"
+short-title: "WavLM"
+
+arxiv: "2110.13900"
+doi: "10.1109/JSTSP.2022.3188113"
+
+authors:
+  - "Sanyuan Chen"
+  - "Chengyi Wang"
+  - "Zhengyang Chen"
+  - "Yu Wu"
+  - "Shujie Liu"
+  - "Zhuo Chen"
+  - "Jinyu Li"
+  - "Naoyuki Kanda"
+  - "Takuya Yoshioka"
+  - "Xiong Xiao"
+  - "Jian Wu"
+  - "Long Zhou"
+  - "Shuo Ren"
+  - "Yanmin Qian"
+  - "Yao Qian"
+  - "Jian Wu"
+  - "Michael Zeng"
+  - "Xiangzhan Yu"
+  - "Furu Wei"
+
+affiliations:
+  - "Microsoft Research Asia"
+  - "Microsoft Azure Speech"
+  - "Shanghai Jiao Tong University"
+
+year: 2022
+
+venue: "IEEE Journal of Selected Topics in Signal Processing"
+venue-type: journal
+
+pdf-url: "https://arxiv.org/pdf/2110.13900.pdf"
+code-url: "https://github.com/microsoft/unilm/tree/master/wavlm"
+
+abstract: |
+  Self-supervised learning (SSL) achieves great success in speech recognition,
+  while limited exploration has been attempted for other speech processing tasks.
+  As speech signal contains multi-faceted information including speaker identity,
+  paralinguistics, and spoken content, etc., learning universal representations
+  for all speech tasks is challenging. To address this problem, we propose
+  WavLM, a pre-trained model to solve full-stack downstream speech tasks.
+  WavLM jointly learns masked speech prediction and denoising in pre-training.
+
+keywords:
+  - self-supervised learning
+  - speech representation
+  - speaker verification
+  - speech recognition
+  - transformer
+  - pre-training
+
+topics:
+  - self-supervised-learning
+  - speech-representation
+  - speaker-verification
+  - universal-models
+
+contributions:
+  - "Unified self-supervised model for all speech tasks"
+  - "Masked speech prediction with denoising objective"
+  - "Gated relative position bias for Transformer"
+  - "State-of-the-art on SUPERB benchmark"
+  - "Strong speaker verification performance"
+
+reported-metrics:
+  voxceleb1-eer: 0.84
+  superb-sv-eer: 0.84
+  librispeech-wer: 2.1
+
+citation-count: 1500
+citation-count-date: "2026-01-06"
+
+cites:
+  - "wav2vec2-2020"
+  - "hubert-2021"
+  - "voxceleb1-2017"
+
+cited-by:
+  - "whisper-2023"
+  - "speechbrain-diarization"
+
+implementations:
+  - tool: "transformers"
+    url: "https://huggingface.co/microsoft/wavlm-base-plus-sv"
+    official: true
+  - tool: "fairseq"
+    url: "https://github.com/microsoft/unilm/tree/master/wavlm"
+    official: true
+
+notes:
+  - "Achieves state-of-the-art on SUPERB speaker verification"
+  - "Available in Base (94M) and Large (316M) variants"
+  - "Pre-trained on 94k hours of diverse audio"
+  - "Outperforms wav2vec 2.0 and HuBERT on speaker tasks"
+  - "Key innovation: denoising objective improves robustness"
+
+sources:
+  - url: "https://arxiv.org/abs/2110.13900"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://github.com/microsoft/unilm/tree/master/wavlm"
+    accessed: "2026-01-06"
+    source-type: code

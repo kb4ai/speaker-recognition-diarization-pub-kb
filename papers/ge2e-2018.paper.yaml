@@ -1,0 +1,98 @@
+# GE2E Paper Entry
+# Generalized End-to-End Loss for Speaker Verification
+
+last-update: "2026-01-06"
+
+title: "Generalized End-to-End Loss for Speaker Verification"
+short-title: "GE2E / d-vectors"
+
+arxiv: "1710.10467"
+doi: "10.1109/ICASSP.2018.8462665"
+
+authors:
+  - "Li Wan"
+  - "Quan Wang"
+  - "Alan Papir"
+  - "Ignacio Lopez Moreno"
+
+affiliations:
+  - "Google Inc."
+
+year: 2018
+
+venue: "ICASSP 2018"
+venue-type: conference
+
+pdf-url: "https://arxiv.org/pdf/1710.10467.pdf"
+
+abstract: |
+  In this paper, we propose a new loss function called generalized end-to-end
+  (GE2E) loss, which makes the training of speaker verification models more
+  efficient than our previous tuple-based end-to-end (TE2E) loss function.
+  Unlike TE2E, the GE2E loss function updates the network in a way that
+  emphasizes examples that are difficult to verify at each step of the training
+  process. Additionally, the GE2E loss does not require an initial stage of
+  example selection. We show that the new loss function is more efficient and
+  produces better speaker embedding vectors called d-vectors.
+
+keywords:
+  - d-vectors
+  - speaker embedding
+  - speaker verification
+  - end-to-end learning
+  - GE2E loss
+  - contrastive learning
+
+topics:
+  - speaker-verification
+  - speaker-embedding
+  - loss-functions
+  - deep-learning
+
+contributions:
+  - "Introduced GE2E (Generalized End-to-End) loss function"
+  - "Proposed d-vector speaker embeddings"
+  - "Eliminated need for example selection in training"
+  - "Improved training efficiency over TE2E"
+  - "Demonstrated effectiveness for text-independent verification"
+
+reported-metrics:
+  text-independent-eer: 3.55
+  text-dependent-eer: 2.38
+  dataset: "Internal Google dataset"
+
+citation-count: 1800
+citation-count-date: "2026-01-06"
+
+cites:
+  - "i-vectors-2011"
+  - "deep-speaker-embeddings-2014"
+
+cited-by:
+  - "x-vectors-2018"
+  - "ecapa-tdnn-2020"
+  - "resemblyzer"
+
+implementations:
+  - tool: "resemblyzer"
+    url: "https://github.com/resemble-ai/Resemblyzer"
+    official: false
+  - tool: "Real-Time-Voice-Cloning"
+    url: "https://github.com/CorentinJ/Real-Time-Voice-Cloning"
+    official: false
+
+notes:
+  - "Foundation for many voice cloning and speaker verification systems"
+  - "Widely adopted in practical applications"
+  - "Introduced the term 'd-vector' for deep speaker embeddings"
+  - "Inspired by FaceNet's triplet loss approach"
+  - "Used LSTM architecture for embedding extraction"
+
+sources:
+  - url: "https://arxiv.org/abs/1710.10467"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://ieeexplore.ieee.org/document/8462665"
+    accessed: "2026-01-06"
+    source-type: publication

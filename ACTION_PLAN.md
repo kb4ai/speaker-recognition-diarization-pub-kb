@@ -8,9 +8,9 @@ This document outlines the implementation roadmap to transform this repository i
 
 * **10 Tools**: pyannote, speechbrain, nvidia-nemo, kaldi, diart, resemblyzer, whisperx, wespeaker, simple-diarizer, espnet
 * **10 Algorithms**: 3 embedding, 3 clustering, 2 VAD, 2 end-to-end
-* **8 Models**: ECAPA, TitaNet (large/small), x-vector, ResNet34, Sortformer, MSDD, pyannote diarization 3.1
+* **10 Models**: ECAPA, TitaNet (large/small), x-vector, ResNet34, Sortformer, MSDD, pyannote 3.1, WavLM-SV, CAM++
 * **5 Datasets**: VoxCeleb1/2, AMI, CALLHOME, DIHARD
-* **9 Papers**: ECAPA-TDNN, x-vectors, i-vectors, pyannote, VoxCeleb1/2, EEND, EEND-EDA, VBx
+* **12 Papers**: ECAPA-TDNN, x-vectors, i-vectors, pyannote, VoxCeleb1/2, EEND, EEND-EDA, VBx, GE2E, Thin-ResNet, WavLM
 * **6 Schema Specs**: tool, algorithm, model, dataset, paper, source
 * **Scripts**: validation, table generation, README generation, source verification, clone-all, analyze-repo, generate-bib, extract-citations, update-stats, archive-url
 * **Makefile**: validate, tables, readme, clone, sources, bib, citations, stats, archive targets
@@ -20,8 +20,8 @@ This document outlines the implementation roadmap to transform this repository i
 
 ### What's Missing
 
-* **More Papers**: ResNet speaker embedding, d-vector/GE2E, Conformer models
-* **More Models**: WavLM-based embeddings, Conformer-based embeddings
+* **More Papers**: Conformer speaker models, CAM++ paper
+* **More Models**: Conformer-based embeddings, HuBERT speaker model
 * **Phase 6.2**: Deep analysis support (in progress)
 
 ## Implementation Phases

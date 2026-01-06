@@ -1,0 +1,71 @@
+# WeSpeaker CAM++ Model Entry
+
+last-update: "2026-01-06"
+
+model-id: "wespeaker/voxceleb-cam++"
+name: "CAM++ Speaker Embedding"
+provider: "wespeaker"
+
+huggingface-url: "https://huggingface.co/Wespeaker/wespeaker-voxceleb-resnet34-LM"
+github-url: "https://github.com/wenet-e2e/wespeaker"
+model-type: "embedding-model"
+
+description: |
+  CAM++ (Context-Aware Masking Plus Plus) speaker embedding model from WeSpeaker.
+  An evolution of CAM that adds multi-scale aggregation and improved attention
+  mechanisms. Achieves competitive performance with efficient architecture.
+  Part of the WeSpeaker speaker embedding toolkit.
+
+architecture: "CAM++ (TDNN + Multi-scale Aggregation)"
+embedding-dimension: 192
+parameters: "7.2M"
+
+training:
+  framework: "wespeaker"
+  dataset: "VoxCeleb2"
+  augmentation: true
+  loss: "AAM-Softmax"
+
+benchmarks:
+  voxceleb1-eer: 0.87
+  voxceleb1-minDCF: 0.059
+  cn-celeb-eer: 8.23
+
+input:
+  sample-rate: 16000
+  features: "FilterBank (80-dim)"
+
+usage:
+  pip-install: "pip install wespeaker"
+  code-example: |
+    import wespeaker
+
+    model = wespeaker.load_model("english")
+    # Or load specific model
+    model = wespeaker.load_model_local("path/to/campp.pt")
+
+    embedding = model.extract_embedding(audio_path)
+
+license: "Apache-2.0"
+
+key-innovations:
+  - "Context-aware masking for attention"
+  - "Multi-scale temporal aggregation"
+  - "Efficient parameter count"
+  - "Large margin fine-tuning"
+
+notes:
+  - "Part of WeSpeaker toolkit"
+  - "Efficient alternative to ECAPA-TDNN"
+  - "Good balance of accuracy and speed"
+  - "Suitable for production deployment"
+  - "Pre-trained on VoxCeleb2 with augmentation"
+
+sources:
+  - url: "https://github.com/wenet-e2e/wespeaker"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://huggingface.co/Wespeaker"
+    accessed: "2026-01-06"
+    source-type: model-hub

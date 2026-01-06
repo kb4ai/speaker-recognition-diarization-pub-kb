@@ -1,0 +1,76 @@
+# Microsoft WavLM Speaker Verification Model Entry
+
+last-update: "2026-01-06"
+
+model-id: "microsoft/wavlm-base-plus-sv"
+name: "WavLM Base Plus Speaker Verification"
+provider: "microsoft"
+
+huggingface-url: "https://huggingface.co/microsoft/wavlm-base-plus-sv"
+model-type: "embedding-model"
+
+description: |
+  Self-supervised speaker verification model based on WavLM Base Plus.
+  WavLM uses masked speech prediction and denoising during pre-training,
+  learning robust speech representations. Fine-tuned on VoxCeleb1 for
+  speaker verification. Achieves state-of-the-art performance by leveraging
+  large-scale self-supervised pre-training.
+
+architecture: "WavLM (Transformer)"
+embedding-dimension: 512
+parameters: "94.4M"
+
+training:
+  framework: "fairseq/transformers"
+  pretraining-dataset: "960h LibriSpeech + 94k hours mixed"
+  finetuning-dataset: "VoxCeleb1"
+  pretraining-task: "Masked speech prediction + denoising"
+
+benchmarks:
+  voxceleb1-eer: 0.84
+  voxceleb1-minDCF: 0.058
+  superb-sv-eer: 0.84
+
+input:
+  sample-rate: 16000
+  features: "Raw waveform"
+
+usage:
+  pip-install: "pip install transformers torch torchaudio"
+  code-example: |
+    from transformers import Wav2Vec2FeatureExtractor, WavLMForXVector
+    import torch
+
+    feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(
+        "microsoft/wavlm-base-plus-sv"
+    )
+    model = WavLMForXVector.from_pretrained("microsoft/wavlm-base-plus-sv")
+
+    # Process audio
+    inputs = feature_extractor(audio, sampling_rate=16000, return_tensors="pt")
+    embeddings = model(**inputs).embeddings
+
+license: "MIT"
+
+key-innovations:
+  - "Self-supervised pre-training on large audio corpora"
+  - "Masked speech prediction with denoising"
+  - "Robust to acoustic conditions"
+  - "Transfer learning from speech to speaker tasks"
+
+notes:
+  - "State-of-the-art EER on VoxCeleb1 (0.84%)"
+  - "Part of the SUPERB benchmark suite"
+  - "Larger model (94.4M) but very accurate"
+  - "Benefits from self-supervised learning paradigm"
+  - "Also available in Large variant for better performance"
+
+sources:
+  - url: "https://huggingface.co/microsoft/wavlm-base-plus-sv"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - arxiv: "2110.13900"
+    title: "WavLM: Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing"
+    accessed: "2026-01-06"
+    source-type: paper

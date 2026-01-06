@@ -1,0 +1,105 @@
+# Thin ResNet Paper Entry
+# Utterance-level Aggregation for Speaker Recognition in the Wild
+
+last-update: "2026-01-06"
+
+title: "Utterance-level Aggregation for Speaker Recognition in the Wild"
+short-title: "Thin ResNet / NetVLAD"
+
+arxiv: "1902.10107"
+doi: "10.1109/ICASSP.2019.8683120"
+
+authors:
+  - "Weidi Xie"
+  - "Arsha Nagrani"
+  - "Joon Son Chung"
+  - "Andrew Zisserman"
+
+affiliations:
+  - "Visual Geometry Group, University of Oxford"
+
+year: 2019
+
+venue: "ICASSP 2019"
+venue-type: conference
+
+pdf-url: "https://arxiv.org/pdf/1902.10107.pdf"
+
+abstract: |
+  The objective of this work is to learn a fixed-dimensional speaker embedding
+  that captures the characteristics of a speaker's voice, and can be used for
+  verification and diarization. We study the impact of several design choices:
+  (i) the neural network architecture, (ii) the temporal aggregation strategy,
+  and (iii) the training data. We find that thin ResNets with either NetVLAD or
+  GhostVLAD aggregation outperform previous state-of-the-art methods on both
+  VoxCeleb1 and VoxCeleb2 speaker verification benchmarks.
+
+keywords:
+  - ResNet
+  - speaker embedding
+  - speaker verification
+  - NetVLAD
+  - GhostVLAD
+  - temporal aggregation
+  - VoxCeleb
+
+topics:
+  - speaker-verification
+  - speaker-embedding
+  - cnn-architecture
+  - aggregation-pooling
+
+contributions:
+  - "Introduced Thin ResNet architecture for speaker embeddings"
+  - "Applied NetVLAD and GhostVLAD aggregation to speaker recognition"
+  - "Achieved state-of-the-art on VoxCeleb benchmarks"
+  - "Systematic comparison of architectures and aggregation methods"
+  - "Demonstrated importance of training data scale"
+
+reported-metrics:
+  voxceleb1-eer: 3.22
+  voxceleb1-minDCF: 0.33
+  voxceleb2-eer: 4.19
+  architecture: "Thin ResNet-34 + GhostVLAD"
+
+citation-count: 900
+citation-count-date: "2026-01-06"
+
+cites:
+  - "voxceleb1-2017"
+  - "voxceleb2-2018"
+  - "x-vectors-2018"
+
+cited-by:
+  - "ecapa-tdnn-2020"
+  - "pyannote-2020"
+  - "wespeaker"
+
+superseded-by: "ecapa-tdnn-2020"
+
+implementations:
+  - tool: "pyannote-audio"
+    url: "https://github.com/pyannote/pyannote-audio"
+    official: false
+  - tool: "wespeaker"
+    url: "https://github.com/wenet-e2e/wespeaker"
+    official: false
+  - tool: "voxceleb_trainer"
+    url: "https://github.com/clovaai/voxceleb_trainer"
+    official: false
+
+notes:
+  - "ResNet34 became standard baseline for speaker embedding research"
+  - "NetVLAD aggregation borrowed from visual place recognition"
+  - "GhostVLAD adds 'ghost clusters' to handle silence/noise"
+  - "Model weights used by pyannote for speaker embedding"
+  - "Foundation for many subsequent improvements"
+
+sources:
+  - url: "https://arxiv.org/abs/1902.10107"
+    accessed: "2026-01-06"
+    source-type: primary
+
+  - url: "https://www.robots.ox.ac.uk/~vgg/research/speakerID/"
+    accessed: "2026-01-06"
+    source-type: project-page
