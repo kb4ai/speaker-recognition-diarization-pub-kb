@@ -29,13 +29,40 @@ performance:
 installation:
   pip: "whisperx"
 
+backend:
+  framework: pytorch
+  framework-version: "2.0+"
+  audio-backend: torchaudio
+  additional-frameworks:
+    - ctranslate2
+  inference-engine:
+    - pytorch
+    - ctranslate2
+
+hardware:
+  cpu-supported: true
+  gpu-supported: true
+  gpu-required: false  # Works on CPU, but slow
+  mps-supported: true
+  min-cuda: "11.8"
+  cudnn-required: true
+  min-vram-gb: 4
+  recommended-vram-gb: 8
+  min-ram-gb: 8
+  batch-processing:
+    min-vram-gb: 4
+    recommended-vram-gb: 8
+    typical-rtf: 0.1
+
 requirements:
-  gpu-required: true
+  gpu-required: false
   min-python: "3.8"
   dependencies:
-    - "torch"
-    - "faster-whisper"
-    - "pyannote.audio"
+    - pytorch
+    - faster-whisper
+    - pyannote.audio
+    - ctranslate2
+    - transformers
 
 documentation:
   readme: true

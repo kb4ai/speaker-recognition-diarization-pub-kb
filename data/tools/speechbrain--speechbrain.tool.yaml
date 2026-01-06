@@ -31,9 +31,37 @@ embedding:
 installation:
   pip: "speechbrain"
 
+backend:
+  framework: pytorch
+  framework-version: "1.9+"
+  audio-backend: torchaudio
+  inference-engine:
+    - pytorch
+    - onnx
+
+hardware:
+  cpu-supported: true
+  gpu-supported: true
+  gpu-required: false
+  mps-supported: true
+  min-cuda: "11.0"
+  cudnn-required: true
+  min-vram-gb: 2
+  recommended-vram-gb: 6
+  min-ram-gb: 8
+  batch-processing:
+    min-vram-gb: 2
+    recommended-vram-gb: 6
+    typical-rtf: 0.2
+
 requirements:
-  gpu-required: true
+  gpu-required: false
   min-python: "3.8"
+  dependencies:
+    - pytorch
+    - torchaudio
+    - transformers
+    - sentencepiece
 
 documentation:
   readme: true

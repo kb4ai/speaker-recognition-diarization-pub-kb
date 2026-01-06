@@ -33,9 +33,43 @@ embedding:
 installation:
   pip: "pyannote.audio"
 
+backend:
+  framework: pytorch
+  framework-version: "2.0+"
+  audio-backend: torchaudio
+  inference-engine:
+    - pytorch
+    - onnx
+
+hardware:
+  cpu-supported: true
+  gpu-supported: true
+  gpu-required: false  # Works on CPU, just slower
+  mps-supported: true
+  min-cuda: "11.8"
+  cudnn-required: true
+  min-vram-gb: 4
+  recommended-vram-gb: 8
+  min-ram-gb: 8
+  batch-processing:
+    min-vram-gb: 4
+    recommended-vram-gb: 8
+    typical-rtf: 0.1
+  realtime-processing:
+    supported: true
+    min-vram-gb: 4
+    max-latency-ms: 500
+    typical-rtf: 0.15
+
 requirements:
-  gpu-required: true
+  gpu-required: false
   min-python: "3.8"
+  dependencies:
+    - pytorch
+    - torchaudio
+    - pyannote.core
+    - pyannote.database
+    - pyannote.pipeline
 
 documentation:
   readme: true

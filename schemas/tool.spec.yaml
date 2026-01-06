@@ -185,7 +185,105 @@ fields:
         type: boolean
         description: "Pre-built binary available"
 
-  # === REQUIREMENTS ===
+  # === BACKEND / ML FRAMEWORK ===
+  backend:
+    type: object
+    description: "ML framework and technical implementation details"
+    properties:
+      framework:
+        type: string
+        enum: [pytorch, tensorflow, jax, onnx, kaldi, custom, other]
+        description: "Primary ML framework"
+      framework-version:
+        type: string
+        description: "Minimum framework version (e.g., '2.0+')"
+      additional-frameworks:
+        type: array
+        items: string
+        description: "Other frameworks supported or used"
+      audio-backend:
+        type: string
+        enum: [torchaudio, librosa, soundfile, scipy, kaldi-io, other]
+        description: "Primary audio I/O library"
+      inference-engine:
+        type: array
+        items:
+          type: string
+          enum: [pytorch, onnx, tensorrt, openvino, coreml, tflite]
+        description: "Supported inference engines for deployment"
+
+  # === HARDWARE SUPPORT ===
+  hardware:
+    type: object
+    description: "Hardware support and requirements"
+    properties:
+      # Supported hardware
+      cpu-supported:
+        type: boolean
+        description: "Can run on CPU (may be slow)"
+      gpu-supported:
+        type: boolean
+        description: "Supports NVIDIA GPU acceleration"
+      gpu-required:
+        type: boolean
+        description: "GPU required for practical use"
+      mps-supported:
+        type: boolean
+        description: "Apple Metal Performance Shaders (M1/M2)"
+      tpu-supported:
+        type: boolean
+        description: "Google TPU support"
+
+      # CUDA/GPU details
+      cuda-versions:
+        type: array
+        items: string
+        description: "Supported CUDA versions (e.g., ['11.8', '12.1'])"
+      min-cuda:
+        type: string
+        description: "Minimum CUDA version"
+      cudnn-required:
+        type: boolean
+
+      # Memory requirements
+      min-vram-gb:
+        type: number
+        description: "Minimum GPU VRAM for inference (GB)"
+      recommended-vram-gb:
+        type: number
+        description: "Recommended GPU VRAM (GB)"
+      min-ram-gb:
+        type: number
+        description: "Minimum system RAM (GB)"
+
+      # Processing mode requirements
+      batch-processing:
+        type: object
+        description: "Requirements for batch/offline processing"
+        properties:
+          min-vram-gb:
+            type: number
+          recommended-vram-gb:
+            type: number
+          typical-rtf:
+            type: number
+            description: "Real-time factor for batch mode"
+
+      realtime-processing:
+        type: object
+        description: "Requirements for real-time/streaming"
+        properties:
+          supported:
+            type: boolean
+          min-vram-gb:
+            type: number
+          max-latency-ms:
+            type: number
+          typical-rtf:
+            type: number
+            description: "Must be < 1.0 for real-time"
+
+  # === REQUIREMENTS (legacy, kept for compatibility) ===
   requirements:
     type: object
     properties:

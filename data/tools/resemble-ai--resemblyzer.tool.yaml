@@ -31,13 +31,32 @@ embedding:
 installation:
   pip: "resemblyzer"
 
+backend:
+  framework: pytorch
+  framework-version: "1.0+"
+  audio-backend: librosa
+  inference-engine:
+    - pytorch
+
+hardware:
+  cpu-supported: true
+  gpu-supported: true
+  gpu-required: false
+  mps-supported: true
+  min-vram-gb: 1
+  min-ram-gb: 2
+  batch-processing:
+    min-vram-gb: 1
+    typical-rtf: 0.5
+
 requirements:
   gpu-required: false
   min-python: "3.6"
   dependencies:
-    - "numpy"
-    - "torch"
-    - "librosa"
+    - numpy
+    - pytorch
+    - librosa
+    - webrtcvad
 
 documentation:
   readme: true

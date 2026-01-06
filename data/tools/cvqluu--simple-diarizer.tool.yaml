@@ -28,12 +28,28 @@ installation:
   pip: "simple-diarizer"
   github: "pip install git+https://github.com/cvqluu/simple_diarizer.git"
 
+backend:
+  framework: pytorch
+  audio-backend: torchaudio
+  inference-engine:
+    - pytorch
+
+hardware:
+  cpu-supported: true
+  gpu-supported: true
+  gpu-required: false
+  mps-supported: true
+  min-vram-gb: 2
+  recommended-vram-gb: 4
+  min-ram-gb: 4
+
 requirements:
-  python: ">=3.7"
+  min-python: "3.7"
   dependencies:
-    - "pyannote.audio"
-    - "torch"
-    - "torchaudio"
+    - pytorch
+    - torchaudio
+    - pyannote.audio
+    - speechbrain
 
 example-code: |
   from simple_diarizer.diarizer import Diarizer

@@ -27,9 +27,41 @@ performance:
 installation:
   pip: "diart"
 
+backend:
+  framework: pytorch
+  framework-version: "1.9+"
+  audio-backend: torchaudio
+  inference-engine:
+    - pytorch
+
+hardware:
+  cpu-supported: true
+  gpu-supported: true
+  gpu-required: false  # Works on CPU but slow
+  mps-supported: true
+  min-cuda: "11.0"
+  cudnn-required: true
+  min-vram-gb: 4
+  recommended-vram-gb: 6
+  min-ram-gb: 8
+  batch-processing:
+    min-vram-gb: 4
+    typical-rtf: 0.3
+  realtime-processing:
+    supported: true
+    min-vram-gb: 4
+    max-latency-ms: 500
+    typical-rtf: 0.3
+
 requirements:
-  gpu-required: true
+  gpu-required: false
   min-python: "3.8"
+  dependencies:
+    - pytorch
+    - torchaudio
+    - pyannote.audio
+    - rx
+    - websockets
 
 documentation:
   readme: true

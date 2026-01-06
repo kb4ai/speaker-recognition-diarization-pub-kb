@@ -35,9 +35,53 @@ installation:
   pip: "nemo_toolkit[asr]"
   docker: "nvcr.io/nvidia/nemo:latest"
 
+backend:
+  framework: pytorch
+  framework-version: "2.0+"
+  audio-backend: librosa
+  additional-frameworks:
+    - tensorrt
+    - onnx
+  inference-engine:
+    - pytorch
+    - tensorrt
+    - onnx
+    - triton
+
+hardware:
+  cpu-supported: false
+  gpu-supported: true
+  gpu-required: true
+  mps-supported: false
+  tpu-supported: false
+  cuda-versions:
+    - "11.8"
+    - "12.1"
+    - "12.2"
+  min-cuda: "11.8"
+  cudnn-required: true
+  min-vram-gb: 6
+  recommended-vram-gb: 16
+  min-ram-gb: 16
+  batch-processing:
+    min-vram-gb: 6
+    recommended-vram-gb: 16
+    typical-rtf: 0.05
+  realtime-processing:
+    supported: true
+    min-vram-gb: 8
+    max-latency-ms: 200
+    typical-rtf: 0.1
+
 requirements:
   gpu-required: true
-  min-python: "3.8"
+  min-python: "3.10"
+  dependencies:
+    - pytorch
+    - librosa
+    - soundfile
+    - nemo-toolkit
+    - omegaconf
 
 documentation:
   readme: true

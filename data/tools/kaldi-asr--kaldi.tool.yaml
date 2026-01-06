@@ -32,11 +32,33 @@ embedding:
 installation:
   binary: true
 
+backend:
+  framework: kaldi
+  audio-backend: kaldi-io
+  additional-frameworks:
+    - openblas
+    - mkl
+  inference-engine:
+    - kaldi
+
+hardware:
+  cpu-supported: true
+  gpu-supported: true
+  gpu-required: false
+  mps-supported: false
+  min-cuda: "10.0"
+  min-vram-gb: 2
+  min-ram-gb: 8
+  batch-processing:
+    min-vram-gb: 2
+    typical-rtf: 0.5
+
 requirements:
   gpu-required: false
   dependencies:
-    - "OpenBLAS or Intel MKL"
-    - "CUDA (optional)"
+    - openblas
+    - cuda (optional)
+    - mkl (optional)
 
 documentation:
   readme: true

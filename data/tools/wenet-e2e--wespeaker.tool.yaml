@@ -36,12 +36,37 @@ embedding:
 installation:
   pip: "wespeaker"
 
+backend:
+  framework: pytorch
+  framework-version: "1.10+"
+  audio-backend: torchaudio
+  inference-engine:
+    - pytorch
+    - onnx
+
+hardware:
+  cpu-supported: true
+  gpu-supported: true
+  gpu-required: false
+  mps-supported: true
+  min-cuda: "11.0"
+  cudnn-required: true
+  min-vram-gb: 2
+  recommended-vram-gb: 4
+  min-ram-gb: 4
+  batch-processing:
+    min-vram-gb: 2
+    recommended-vram-gb: 4
+    typical-rtf: 0.1
+
 requirements:
-  gpu-required: true
+  gpu-required: false
   min-python: "3.8"
   dependencies:
-    - "torch"
-    - "torchaudio"
+    - pytorch
+    - torchaudio
+    - kaldiio
+    - rich
 
 documentation:
   readme: true

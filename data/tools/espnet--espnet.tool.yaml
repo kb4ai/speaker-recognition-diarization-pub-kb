@@ -33,14 +33,40 @@ installation:
   pip: "espnet"
   conda: "conda install -c conda-forge espnet"
 
+backend:
+  framework: pytorch
+  framework-version: "1.10+"
+  audio-backend: torchaudio
+  additional-frameworks:
+    - kaldi
+  inference-engine:
+    - pytorch
+    - onnx
+
+hardware:
+  cpu-supported: true
+  gpu-supported: true
+  gpu-required: false
+  mps-supported: true
+  min-cuda: "11.0"
+  cudnn-required: true
+  min-vram-gb: 4
+  recommended-vram-gb: 8
+  min-ram-gb: 8
+  batch-processing:
+    min-vram-gb: 4
+    recommended-vram-gb: 8
+    typical-rtf: 0.2
+
 requirements:
-  python: ">=3.8"
+  min-python: "3.8"
   dependencies:
-    - "torch"
-    - "torchaudio"
-    - "numpy"
-    - "scipy"
-    - "PyYAML"
+    - pytorch
+    - torchaudio
+    - numpy
+    - scipy
+    - PyYAML
+    - espnet-model-zoo
 
 speaker-recognition:
   embedding-models:
