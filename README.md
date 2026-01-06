@@ -15,29 +15,74 @@ This repository serves as a **structured reference** for anyone working with spe
 
 ```
 ├── data/
-│   ├── tools/           # Open-source frameworks (pyannote, SpeechBrain, NeMo)
-│   ├── algorithms/      # Core algorithms by category
-│   ├── models/          # Pre-trained speaker embedding models
-│   └── datasets/        # Benchmark corpora (VoxCeleb, AMI, CALLHOME)
-├── papers/              # Research paper metadata
-├── knowledge/           # Educational articles and deep dives
+│   ├── tools/           # 10 frameworks (pyannote, SpeechBrain, NeMo, ESPnet...)
+│   ├── algorithms/      # 10 algorithms by category (embeddings, clustering, VAD)
+│   ├── models/          # 5 pre-trained models (ECAPA, TitaNet, Sortformer...)
+│   └── datasets/        # 5 benchmark corpora (VoxCeleb, AMI, CALLHOME, DIHARD)
+├── papers/              # 6 research papers with metadata
+├── knowledge/           # 14 educational articles
+│   ├── fundamentals/    # Pipeline, metrics, embeddings, glossary
+│   ├── algorithms/      # ECAPA-TDNN, clustering deep dives
+│   ├── tutorials/       # Pyannote quickstart, training, voice fingerprints
+│   └── comparisons/     # Framework selection, embedding architectures
 ├── comparisons/         # Auto-generated comparison tables
+├── archives/            # Bibliography (16 BibTeX entries)
 ├── printouts/           # Archived web content with provenance
 ├── ramblings/           # Research notes and explorations
-└── schemas/             # YAML specifications for each type
+└── schemas/             # 6 YAML specifications for each entry type
+```
+
+## Knowledge Base Structure
+
+```mermaid
+graph TD
+    subgraph "Learn"
+        K[knowledge/] --> KF[fundamentals/]
+        K --> KA[algorithms/]
+        K --> KT[tutorials/]
+        K --> KC[comparisons/]
+    end
+
+    subgraph "Reference Data"
+        D[data/] --> DT[tools/]
+        D --> DA[algorithms/]
+        D --> DM[models/]
+        D --> DD[datasets/]
+        P[papers/]
+    end
+
+    subgraph "Generated"
+        C[comparisons/auto-generated.md]
+        R[*/README.md]
+    end
+
+    subgraph "Meta"
+        S[schemas/]
+        A[archives/bibliography/]
+        PR[printouts/]
+    end
+
+    KF -->|references| DT
+    KA -->|explains| DA
+    KT -->|uses| DM
+    DT -->|cites| P
+    DA -->|implements| P
 ```
 
 ## Quick Navigation
 
 | You Want To... | Go To |
 |----------------|-------|
+| **Learn speaker diarization** | [knowledge/fundamentals/](knowledge/fundamentals/) |
 | Compare diarization tools | [comparisons/auto-generated.md](comparisons/auto-generated.md) |
 | Find the best framework | [data/tools/](data/tools/) |
-| Understand ECAPA-TDNN | [data/algorithms/embeddings/ecapa-tdnn.algorithm.yaml](data/algorithms/embeddings/ecapa-tdnn.algorithm.yaml) |
+| Understand ECAPA-TDNN | [knowledge/algorithms/ecapa-tdnn-explained.md](knowledge/algorithms/ecapa-tdnn-explained.md) |
+| Get started with pyannote | [knowledge/tutorials/pyannote-quickstart.md](knowledge/tutorials/pyannote-quickstart.md) |
+| Build voice fingerprint system | [knowledge/tutorials/building-voice-fingerprint-system.md](knowledge/tutorials/building-voice-fingerprint-system.md) |
 | Get benchmark datasets | [data/datasets/](data/datasets/) |
-| Learn the fundamentals | [knowledge/](knowledge/) |
 | Add new content | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| See the full roadmap | [ACTION_PLAN.md](ACTION_PLAN.md) |
+| Understand source tracking | [TRACEABILITY.md](TRACEABILITY.md) |
+| Regenerate tables/docs | [REGENERATION.md](REGENERATION.md) |
 
 ## Core Concepts
 
@@ -113,15 +158,45 @@ Check [papers/](papers/) for academic references, [data/algorithms/](data/algori
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, check [schemas/](schemas/) for YAML specifications, and validate with `make validate`.
 
+## Learning Path
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           BEGINNER                                       │
+│  knowledge/fundamentals/pipeline-architecture.md                         │
+│  knowledge/fundamentals/speaker-embeddings.md                            │
+│  knowledge/fundamentals/evaluation-metrics.md                            │
+│  knowledge/fundamentals/glossary.md                                      │
+└────────────────────────────────┬────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                          INTERMEDIATE                                    │
+│  knowledge/algorithms/ecapa-tdnn-explained.md                            │
+│  knowledge/algorithms/clustering-comparison.md                           │
+│  knowledge/comparisons/embedding-architectures.md                        │
+│  knowledge/comparisons/framework-selection.md                            │
+└────────────────────────────────┬────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           PRACTICAL                                      │
+│  knowledge/tutorials/pyannote-quickstart.md                              │
+│  knowledge/tutorials/custom-embedding-training.md                        │
+│  knowledge/tutorials/building-voice-fingerprint-system.md                │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
 ## Repository Stats
 
 | Category | Count | Directory |
 |----------|-------|-----------|
-| Tools | 8 | `data/tools/` |
+| Tools | 10 | `data/tools/` |
 | Algorithms | 10 | `data/algorithms/` |
-| Models | 4 | `data/models/` |
+| Models | 5 | `data/models/` |
 | Datasets | 5 | `data/datasets/` |
-| Papers | 5 | `papers/` |
+| Papers | 6 | `papers/` |
+| Knowledge Articles | 14 | `knowledge/` |
 | Schemas | 6 | `schemas/` |
 
 ## Related Resources
