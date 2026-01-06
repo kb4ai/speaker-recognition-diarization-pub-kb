@@ -224,7 +224,7 @@ Add sections for:
 
 #### 6.1 Clone Infrastructure
 
-* [ ] Enhance `clone-all.sh` with commit pinning
+* [x] Enhance `clone-all.sh` with commit pinning
 * [ ] Add `scripts/analyze-repo.py` for automated analysis
 * [x] Create `tmp/README.md` explaining directory purpose
 
