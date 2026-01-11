@@ -226,6 +226,58 @@ def generate_embedding_models(models):
     return "\n".join(lines)
 
 
+def generate_tools_hardware(tools):
+    """Generate tools hardware requirements table."""
+    lines = []
+    lines.append("## Tools: Backend & Hardware Requirements")
+    lines.append("")
+    lines.append("*Framework and hardware requirements for deployment planning*")
+    lines.append("")
+    lines.append("| Tool | Framework | GPU Required | Min VRAM | Realtime | Inference Engines |")
+    lines.append("|------|-----------|:------------:|----------|:--------:|-------------------|")
+
+    for t in sorted(tools, key=lambda x: x.get('name', '')):
+        name = t.get('name', t.get('_filename', 'Unknown'))
+        repo_url = t.get('repo-url', '')
+
+        # Backend info
+        backend = t.get('backend', {})
+        framework = backend.get('framework', '?')
+        if framework == 'pytorch':
+            framework = 'PyTorch'
+        elif framework == 'tensorflow':
+            framework = 'TensorFlow'
+        elif framework == 'kaldi':
+            framework = 'Kaldi'
+
+        # Add additional frameworks
+        additional = backend.get('additional-frameworks', [])
+        if additional:
+            extra = [f.title() if f not in ['tensorrt', 'onnx', 'ctranslate2'] else f.upper() if f == 'onnx' else f.replace('tensorrt', 'TensorRT').replace('ctranslate2', 'CTranslate2') for f in additional[:1]]
+            if extra:
+                framework = f"{framework}+{extra[0]}"
+
+        # Hardware info
+        hardware = t.get('hardware', {})
+        gpu_required = "**Yes**" if hardware.get('gpu-required', False) else "No"
+        min_vram = hardware.get('min-vram-gb', '?')
+        if min_vram != '?':
+            min_vram = f"{min_vram} GB"
+
+        # Realtime support
+        realtime = hardware.get('realtime-processing', {})
+        realtime_supported = "Yes" if realtime.get('supported', False) else "-"
+
+        # Inference engines
+        engines = backend.get('inference-engine', [])
+        engines_str = ", ".join([e.upper() if e == 'onnx' else e.title() for e in engines[:3]]) if engines else "?"
+
+        name_cell = f"[{name}]({repo_url})" if repo_url else name
+        lines.append(f"| {name_cell} | {framework} | {gpu_required} | {min_vram} | {realtime_supported} | {engines_str} |")
+
+    return "\n".join(lines)
+
+
 def generate_statistics(tools, algorithms, models, datasets):
     """Generate summary statistics."""
     lines = []
@@ -286,6 +338,8 @@ def main():
         sections.append(generate_tools_overview(tools))
         sections.append("")
         sections.append(generate_tools_by_accuracy(tools))
+        sections.append("")
+        sections.append(generate_tools_hardware(tools))
 
     if '--algorithms' in args or not any(a.startswith('--') for a in args):
         sections.append("")

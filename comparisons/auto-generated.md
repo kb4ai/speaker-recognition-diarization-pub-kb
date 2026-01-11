@@ -10,7 +10,7 @@
 * **Algorithms**: 10
 * **Models**: 11
 * **Datasets**: 5
-* **Last updated**: 2026-01-06
+* **Last updated**: 2026-01-11
 
 ### Tools by Category
 
@@ -47,6 +47,23 @@
 | Tool | DER (AMI) | EER (VoxCeleb) | RTF | Streaming |
 |------|----------:|---------------:|----:|:---------:|
 | [pyannote.audio](https://github.com/pyannote/pyannote-audio) | 10.0% | 0.8% | 0.15 | ✓ |
+
+## Tools: Backend & Hardware Requirements
+
+*Framework and hardware requirements for deployment planning*
+
+| Tool | Framework | GPU Required | Min VRAM | Realtime | Inference Engines |
+|------|-----------|:------------:|----------|:--------:|-------------------|
+| [ESPnet](https://github.com/espnet/espnet) | PyTorch+Kaldi | No | 4 GB | - | Pytorch, ONNX |
+| [Kaldi](https://github.com/kaldi-asr/kaldi) | Kaldi+Openblas | No | 2 GB | - | Kaldi |
+| [NVIDIA NeMo](https://github.com/NVIDIA/NeMo) | PyTorch+TensorRT | **Yes** | 6 GB | Yes | Pytorch, Tensorrt, ONNX |
+| [Resemblyzer](https://github.com/resemble-ai/Resemblyzer) | PyTorch | No | 1 GB | - | Pytorch |
+| [Simple Diarizer](https://github.com/cvqluu/simple_diarizer) | PyTorch | No | 2 GB | - | Pytorch |
+| [SpeechBrain](https://github.com/speechbrain/speechbrain) | PyTorch | No | 2 GB | - | Pytorch, ONNX |
+| [WeSpeaker](https://github.com/wenet-e2e/wespeaker) | PyTorch | No | 2 GB | - | Pytorch, ONNX |
+| [WhisperX](https://github.com/m-bain/whisperX) | PyTorch+CTranslate2 | No | 4 GB | - | Pytorch, Ctranslate2 |
+| [diart](https://github.com/juanmc2005/diart) | PyTorch | No | 4 GB | Yes | Pytorch |
+| [pyannote.audio](https://github.com/pyannote/pyannote-audio) | PyTorch | No | 4 GB | Yes | Pytorch, ONNX |
 
 ## Algorithms by Category
 
